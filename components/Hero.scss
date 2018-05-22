@@ -1,0 +1,62 @@
+@import './../css/_config.scss';
+@import './../css/_mixins.scss';
+
+.hero {
+    border-radius: 0;
+    overflow: hidden;
+    background-position: center;
+    background-image: linear-gradient(rgba(#f3f8ff,.3) 40%, rgba(#f3f8ff,.3)), url('/static/images/hero2.jpg');
+    height: calc(100vh - 70px);
+
+
+    &-cta {
+        box-shadow: 0 10px 25px rgba(0,0,0, .2);
+        transition: box-shadow 200ms linear;
+        min-width: 20rem;
+        &:active {
+            background-color: $ternary_color!important;
+            box-shadow: 0 5px 30px rgba(0,0,0,.05);
+        }
+    }
+
+
+    &-title {
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: -0.1rem;
+        // min-width: 3rem;
+        height: 100px;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        color: $dark;
+        @include textShadow;
+    }
+
+    &-slogan {
+        margin-bottom: 30px;
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: -0.05rem;
+    }
+
+    @media only screen and (min-width: 992px) {
+        &-title {
+            font-size: 4.5rem;
+        }
+        &-slogan {
+            font-size: 1.8rem;
+        }
+    }
+    
+    @media only screen and (min-width: 767px) and (max-width: 991px) {
+        &-title {
+            font-size: 3.5rem;
+        }
+
+    }
+
+    .card {
+        box-shadow: 0 5px 30px rgba(#fff, .4);
+    }
+}

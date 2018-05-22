@@ -1,0 +1,6 @@
+/node_modules
+*.txt
+/.vscode
+/.next
+/out
+.DS_Store
