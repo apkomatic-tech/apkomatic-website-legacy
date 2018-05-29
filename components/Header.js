@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { LINKS } from './../config/global';
+import ReactGA from 'react-ga';
+import { LINKS, GUA_TRACKING_ID, IS_DEV } from './../config/global';
 import './Header.scss';
 
 import Logo from './../static/apkomatic_logo_red.svg';
@@ -10,6 +11,13 @@ class Header extends Component {
   state = {
     navOpen: false
   };
+
+  componentDidMount() {
+    ReactGA.initialize(GUA_TRACKING_ID, { debug: IS_DEV });
+    if (typeof window !== 'undefined') {
+      ReactGA.pageview(window.location.pathname + window.location.search);
+    }
+  }
 
   closeNav = () => {
     this.setState({

@@ -29,8 +29,8 @@ const Footer = props => (
             </div>
           </div>{' '}
           {/* end of column 1 */}
-          {socialIcons.length > 0 && (
-            <div className="col-md-6 text-right">
+          <div className="col-md-6 text-right">
+            {socialIcons.length > 0 && (
               <ul className="footer__social list-unstyled small">
                 {socialIcons.map(s => (
                   <li key={s.id}>
@@ -40,8 +40,11 @@ const Footer = props => (
                   </li>
                 ))}
               </ul>
-            </div>
-          )}
+            )}
+            <a href="apkomatic@gmail.com" className="text-dark">
+              apkomatic@gmail.com
+            </a>
+          </div>
         </div>
       </div>
     </div>

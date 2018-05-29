@@ -8,3 +8,4 @@ export { default as Footer } from './Footer';
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as Splash } from './Splash';
 export { default as Testimonials } from './Testimonials';
+export { default as Slider } from './Slider';

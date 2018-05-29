@@ -5,7 +5,9 @@
     border-radius: 0;
     overflow: hidden;
     background-position: center;
-    background-image: linear-gradient(rgba(#f3f8ff,.3) 40%, rgba(#f3f8ff,.3)), url('/static/images/hero2.jpg');
+    // background-image: linear-gradient(rgba(#f3f8ff,.3) 40%, rgba(#f3f8ff,.3)), url('/static/images/hero2.jpg');
+    background-color: #f3f8ff;
+    background-blend-mode: multiply;
     height: calc(100vh - 70px);
 
 

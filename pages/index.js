@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { Header, Footer, Hero, Callout, Featured, ErrorBoundary, Wrapper } from './../components/';
+import { Header, Footer, Hero, Callout, Featured, ErrorBoundary, Testimonials } from './../components/';
 
 export default () => (
   <div id="landing-page">
     <ErrorBoundary>
       <Header path="/" />
-      <Hero tagLines={['Welcome.', 'Need a website?', 'Need a web app?', 'We got you.', 'We are Apkomatic.']} />
+      <Hero />
       <div id="featured">
         <Featured />
       </div>
+      <Testimonials />
       <Callout title="Ready to get started?" href="/contact#contact-form" />
       <Footer />
     </ErrorBoundary>
