@@ -1,0 +1,93 @@
+@import './../css/_config.scss';
+
+.testimonials {
+    display: flex;
+    align-items: center;
+    min-height: 20rem;
+    padding: 6rem 0;
+
+    position: relative;
+    z-index: 1;
+
+    &__title {
+        font-size: 1.6rem;
+    }
+
+    &__quote-label {
+        position: absolute;
+        z-index: 100;
+        left: 50%;
+        top: -30px;
+        transform: translateX(-50%);
+        box-shadow: 0 10px 30px rgba(#000, .3);
+        padding: .5rem;
+        width: 60px;
+        height: 60px;
+
+        border-radius: 50%;
+        background: $ternary_color;
+        color: $white;
+        font-size: 30px;
+        line-height: 45px;
+        text-align: center;
+    }
+
+    .slick-dots {
+        bottom: -45px;
+    }
+
+    .slick-next:before, .slick-prev:before {
+        font-size: 30px;
+    }
+
+    
+    .slick-dots li.slick-active button:before {
+        color: $ternary_color;
+    }
+
+    .slick-dots li button:before {
+        opacity: 1;
+        font-size: 18px;
+        color: rgba($white, .8);
+    }
+
+    @media only screen and (max-width: 767px) {
+        padding: 3rem 0;
+        .slick-arrow { display: none!important; }
+        .slick-dots {
+            bottom: -25px;
+        }
+    }
+}
+
+.testimonials-slider {
+    max-width: 40rem;
+    margin: 2rem auto 0 auto;
+}
+
+.testimonial {
+    padding: 1rem 2.5rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    &__body {
+        margin-bottom: 2rem;
+    }
+
+    &__text {
+        font-size: .89rem;
+        color: rgba($white, .8);
+    }
+
+    &__author {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    &__company {
+        font-size: .85rem;
+        color: $secondary_color;
+        font-style: italic;
+    }
+}
