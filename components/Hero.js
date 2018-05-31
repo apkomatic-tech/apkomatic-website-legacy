@@ -1,34 +1,89 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import Link from 'next/link';
-
 import './Hero.scss';
 
-export default () => (
-  <div className="hero jumbotron d-flex align-items-center mb-0">
-    <div className="container">
-      <h1 className="hero-title">
-        <span>We are Apkomatic.</span>
-      </h1>
+export default class Hero extends React.Component {
+  componentDidMount() {
+    if (this.aboutSection) {
+      window.addEventListener('scroll', this.scrolledPastAboutSection);
+    }
+  }
 
-      <p className="lead hero-slogan text-center">
-        Web design and development company <br /> based in Los Angeles.
-      </p>
+  scrolledPastAboutSection = () => {
+    const aboutSectionRect = this.aboutSection.getBoundingClientRect();
+    if (aboutSectionRect.y < 0 && Math.abs(aboutSectionRect.y) > parseInt(aboutSectionRect.height / 2, 10)) {
+      ReactGA.event({
+        category: 'Landing-Page',
+        action: 'Pass-About-Section'
+      });
+      window.removeEventListener('scroll', this.scrolledPastAboutSection);
+    }
+  };
 
-      <div className="animated tada" style={{ animationDuration: '1s', animationDelay: '300ms' }}>
-        <Link href="/contact#contact-form">
-          <a
-            style={{ maxWidth: '200px' }}
-            className="btn btn-tertiary text-uppercase btn-lg btn-block mx-auto hero-cta"
+  render() {
+    return (
+      <React.Fragment>
+        <div
+          className="hero jumbotron d-flex align-items-center mb-0"
+          ref={hero => {
+            this.heroElement = hero;
+          }}
+        >
+          <div className="container">
+            <h1 className="hero-title text-center animated fadeInDown" style={{ animationDuration: '500ms' }}>
+              Take your website or app <br /> to the whole new level.
+            </h1>
+
+            <div className="animated fadeInUp" style={{ animationDelay: '300ms' }}>
+              <Link href="/contact#contact-form">
+                <button
+                  style={{ maxWidth: '200px' }}
+                  className="btn btn-tertiary text-uppercase btn-lg btn-block mx-auto hero-cta"
+                >
+                  Get Started <i className="fa fa-angle-right" />
+                </button>
+              </Link>
+            </div>
+          </div>
+          <button
+            className="scroll-down animated fadeInUp"
+            style={{ animationDelay: '1s' }}
+            ref={el => {
+              this.scrollElement = el;
+            }}
             onClick={() => {
-              console.log('click-hero-button');
-              ReactGA.event({ category: 'Navigation', action: 'hero-button-click' });
+              const heroRect = this.heroElement.getBoundingClientRect();
+              const heightOffset = heroRect.height + 80;
+              window.scrollTo(0, heightOffset);
+
+              ReactGA.event({
+                category: 'Landing-Page',
+                action: 'Click-Arrow-Down'
+              });
             }}
           >
-            Get Started <i className="fa fa-angle-double-right" />
-          </a>
-        </Link>
-      </div>
-    </div>
-  </div>
-);
+            <i className="fa fa-arrow-down animated pulse infinite" />
+          </button>
+        </div>
+        <section
+          className="section-about"
+          ref={el => {
+            this.aboutSection = el;
+          }}
+        >
+          <div className="container" data-aos="fade-up">
+            <h3 className="text-center">Who are we?</h3>
+            <p className="text">
+              {' '}
+              <strong>Apkomatic</strong> is a Los Angeles based web design and development group of professionals who
+              love producing high quality and affordable web applications and sites for individuals and businesses. We
+              strive to deliver high-quality work at low cost for small and mid-size businesses to better reach out to
+              their customers through technology.
+            </p>
+          </div>
+        </section>
+      </React.Fragment>
+    );
+  }
+}

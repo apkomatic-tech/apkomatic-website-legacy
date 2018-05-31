@@ -1,7 +1,7 @@
 @import './_config.scss';
 @import './_helpers.scss';
 
-@import url('https://fonts.googleapis.com/css?family=Bitter:700|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Poppins:500|Open+Sans');
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -9,8 +9,8 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Bitter', serif;
-    font-weight: 700;
+    font-family: 'Poppins', serif;
+    font-weight: 500;
 }
 
 .card {
@@ -19,6 +19,10 @@ h1, h2, h3, h4 {
     &:hover {
         box-shadow: 0 5px 30px rgba($dark, .2);
     }
+}
+
+.landing-page {
+    overflow-x: hidden;
 }
 
 // .custom-button {
@@ -64,11 +68,7 @@ h1, h2, h3, h4 {
 .btn {
     transition: box-shadow 600ms linear, border 300ms ease;
     color: $white!important;
-    border-bottom: 4px solid rgba(0,0,0,.3)!important;
-
-    &:active {
-        border-bottom-color: transparent!important;
-    }
+    border-radius: 4px;
 
     &-primary {
 

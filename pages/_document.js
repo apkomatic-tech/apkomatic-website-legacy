@@ -10,13 +10,6 @@ export default class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <title>Apkomatic</title>
           <link rel="icon" href="/static/favicon.gif" />
-          {/* <script async src="https://www.googletagmanager.com/gtag/[//GOOGLE ANALYTICS CODE//]" />
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html:
-                                "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments); }gtag('js', new Date());gtag('config', 'XXXXX');"
-                        }}
-                    /> */}
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"

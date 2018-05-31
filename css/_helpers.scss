@@ -3,6 +3,12 @@
     &.slow { animation-duration: 1s }
 }
 
+.animated-hidden {
+    opacity: 0;
+    transition: opacity 500ms ease;
+    pointer-events: none;
+}
+
 .bg-primary {
     background-color: $primary_color!important;
 }

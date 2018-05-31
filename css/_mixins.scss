@@ -1,3 +1,8 @@
 @mixin textShadow() {
  text-shadow:  3px 3px 0 rgba(0,0,0,.15),  5px 5px 0 rgba(0,0,0,.1);
 }
+
+@mixin p-relative {
+    position: relative;
+    z-index: 1;
+}

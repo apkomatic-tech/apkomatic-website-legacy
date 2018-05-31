@@ -17,6 +17,12 @@ class Header extends Component {
     if (typeof window !== 'undefined') {
       ReactGA.pageview(window.location.pathname + window.location.search);
     }
+
+    if (!('backgroundBlendMode' in document.body.style)) {
+      document.body.classList.add('background-blend-unsupported');
+    } else {
+      document.body.classList.add('background-blend-supported');
+    }
   }
 
   closeNav = () => {
