@@ -9,8 +9,8 @@
     position: relative;
     z-index: 1000;
     font-family: 'Poppins', sans-serif;
-    border-bottom: 1px solid rgba($dark, .075);
-    // box-shadow: 0 10px 20px rgba(0,0,0,.05);
+    // border-bottom: 1px solid rgba($primary_color, .1);
+    box-shadow: 0 30px 40px rgba($primary_color,.05);
 
     background-color: #ffffff;
     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f4f4f4' fill-opacity='0.47' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");

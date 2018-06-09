@@ -21,7 +21,7 @@ const Splash = ({ title, text, splashStyle, children }) => (
 );
 
 Splash.defaultProps = {
-  splashStyle: 'splash--alt3'
+  splashStyle: 'splash--alt1'
 };
 
 export default Splash;

@@ -36,7 +36,7 @@ export default class Hero extends React.Component {
             </h1>
 
             <div className="animated fadeInUp" style={{ animationDelay: '300ms' }}>
-              <Link href="/contact#contact-form">
+              <Link href="/contact">
                 <button
                   style={{ maxWidth: '200px' }}
                   className="btn btn-tertiary text-uppercase btn-lg btn-block mx-auto hero-cta"

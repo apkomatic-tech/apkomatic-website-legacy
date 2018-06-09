@@ -29,7 +29,7 @@ const Services = () => (
               <li className="list-group-item">Basic SEO</li>
             </ul>
             <div className="card-body">
-              <Link href="/contact/#contact-form">
+              <Link href="/contact">
                 <a className="btn btn-tertiary d-block">Contact for price</a>
               </Link>
             </div>
@@ -57,7 +57,7 @@ const Services = () => (
               <li className="list-group-item">Social Media Integration</li>
             </ul>
             <div className="card-body">
-              <Link href="/contact/#contact-form">
+              <Link href="/contact">
                 <a className="btn btn-tertiary d-block">Contact for price</a>
               </Link>
             </div>
@@ -83,7 +83,7 @@ const Services = () => (
               <li className="list-group-item">Social Media Integration</li>
             </ul>
             <div className="card-body">
-              <Link href="/contact/#contact-form">
+              <Link href="/contact">
                 <a className="btn btn-tertiary d-block">Contact for price</a>
               </Link>
             </div>
