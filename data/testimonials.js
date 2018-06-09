@@ -11,6 +11,15 @@ export default [
   {
     id: 2,
     content:
+      'Apkomatic did an amazing job with my company website. They were willing to work with my budget. Their prices are very reasonable for the variety and quality of work they offer. Their team is professional and very quick in response to my inquiries and feedback. I would HIGHLY recommend them to anyone who needs a website.',
+    author: {
+      name: 'Barry M.',
+      company: 'ALK Construction LLC.'
+    }
+  },
+  {
+    id: 3,
+    content:
       "The Apkomatic team was amazing, they were very professional. After seeing what they were able to build for my company's website, I was amazed. Looks extremely good and very happy with the outcome. I will definitely refer them to anyone who needs their services! Keep up the good work Apkomatic!",
     author: {
       name: 'Hector R.',
