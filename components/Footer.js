@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Link from 'next/link';
+import ReactGA from 'react-ga';
 import { SOCIAL } from './../config/global';
 import SmallLogo from './../static/apkomatic_logo_small.svg';
 import './Footer.scss';
@@ -8,7 +9,7 @@ const d = new Date();
 const year = d.getFullYear();
 const socialIcons = SOCIAL.filter(s => Boolean(s.active));
 
-const Footer = props => (
+const Footer = () => (
   <footer className="site-footer text-dark">
     <div className="top py-3">
       <div className="container">
@@ -34,7 +35,17 @@ const Footer = props => (
               <ul className="footer__social list-unstyled small">
                 {socialIcons.map(s => (
                   <li key={s.id}>
-                    <a href={s.href}>
+                    <a
+                      target="_blank"
+                      href={s.href}
+                      onClick={() => {
+                        ReactGA.event({
+                          category: 'Footer',
+                          action: 'Social-Icon-Click',
+                          label: s.label
+                        });
+                      }}
+                    >
                       <i className={`fa fa-${s.iconLabel}`} />
                     </a>
                   </li>
@@ -53,7 +64,9 @@ const Footer = props => (
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center">
-            <p className="small copyright">&copy; Apkomatic, All Rights Reserved {year}</p>
+            <p className="small copyright">
+              &copy; Apkomatic, All Rights Reserved {year} | <Link href="/faq">FAQ</Link>
+            </p>
           </div>
         </div>
       </div>
