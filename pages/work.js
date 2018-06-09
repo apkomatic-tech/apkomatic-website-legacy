@@ -1,5 +1,5 @@
 import React from 'react';
-import { projectData } from './../data/index';
+import { PROJECTS } from './../data/';
 import { DISPLAY_WORK } from './../config/global';
 import { Header, Footer, Wrapper, Splash } from './../components';
 
@@ -13,7 +13,7 @@ export default () => (
     <Wrapper>
       {DISPLAY_WORK && (
         <div className="row d-flex align-items-stretch mt-3 pt-3">
-          {projectData.map(project => (
+          {PROJECTS.map(project => (
             <div key={project.id} className="col-lg-6 mb-3">
               <article className={`card project h-100 ${cardTextAlignStyle}`}>
                 <div className="card-body">

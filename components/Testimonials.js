@@ -1,15 +1,15 @@
 import React from 'react';
 import { Slider } from './';
-import { testimonialsData } from './../data';
+import { TESTIMONIALS } from './../data/';
 import './Testimonials.scss';
 
 const testimonialSliderSettings = {
   dots: true,
   infinite: true,
-  speed: 200,
+  speed: 350,
   slidesToShow: 1,
   slidesToScroll: 1,
-  easing: 'cubic-bezier(.64,-0.09,.49,1.22)'
+  easing: 'cubic-bezier(.22,-0.12,.65,1.11)'
 };
 
 const Testimonials = () => (
@@ -21,7 +21,7 @@ const Testimonials = () => (
       <h3 className="testimonials__title text-center">What Customers are Saying About Us</h3>
       <div className="testimonials-slider">
         <Slider settings={testimonialSliderSettings}>
-          {testimonialsData.map(testimonial => (
+          {TESTIMONIALS.map(testimonial => (
             <article key={testimonial.id} className="testimonial">
               <section className="testimonial__body">
                 <p className="testimonial__text">{testimonial.content}</p>

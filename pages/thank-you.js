@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Footer, Wrapper, Callout } from './../components';
+import { Header, Footer, Wrapper } from './../components';
 
 export default () => (
   <div id="thank-you">
