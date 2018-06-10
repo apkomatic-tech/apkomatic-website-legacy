@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Wrapper } from './../components';
+import Observer from 'react-intersection-observer';
 import './Featured.scss';
 
 const featuredImageStyle = {
@@ -36,12 +36,19 @@ export default class Featured extends Component {
                   </p>
                 </div>
                 <div className="col-lg-6 d-none d-md-block d-lg-block d-xl-block" data-aos="fade-left">
-                  <img
-                    src="/static/images/featured-design.jpg"
-                    className="img-fluid"
-                    alt="ideas"
-                    style={featuredImageStyle}
-                  />
+                  <Observer>
+                    {inView =>
+                      inView ? (
+                        <img
+                          src="/static/images/featured-design.jpg"
+                          className="img-fluid"
+                          alt="ideas"
+                          data-inview={inView}
+                          style={featuredImageStyle}
+                        />
+                      ) : null
+                    }
+                  </Observer>
                 </div>
               </div>
             </div>
@@ -51,18 +58,25 @@ export default class Featured extends Component {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-lg-6 mb-3 d-none d-md-block d-lg-block d-xl-block" data-aos="fade-right">
-                  <img
-                    src="/static/images/featured-dev.jpg"
-                    className="img-fluid"
-                    alt="development"
-                    style={featuredImageStyle}
-                  />
+                  <Observer>
+                    {inView =>
+                      inView ? (
+                        <img
+                          src="/static/images/featured-dev.jpg"
+                          className="img-fluid"
+                          alt="development"
+                          data-inview={inView}
+                          style={featuredImageStyle}
+                        />
+                      ) : null
+                    }
+                  </Observer>
                 </div>
                 <div className="col-lg-6" data-aos="fade-left">
                   <h3>We build fast sites.</h3>
                   <p>
-                    No one likes slow and unresponsive websites or apps. We don't build them slow. We deliver websites
-                    and apps that are fast and optimized.
+                    No one likes slow and unresponsive websites or apps. We don{"'"}t build them slow. We deliver
+                    websites and apps that are fast and optimized.
                   </p>
                 </div>
               </div>
@@ -75,17 +89,24 @@ export default class Featured extends Component {
                 <div className="col-lg-6" data-aos="fade-right">
                   <h3>We optimize for mobile.</h3>
                   <p>
-                    It's no secret that more websites and web apps are accessed using mobile devices. We build websites
-                    and web apps that are optimized for mobile.
+                    It{`'`}s no secret that more websites and web apps are accessed using mobile devices. We build
+                    websites and web apps that are optimized for mobile.
                   </p>
                 </div>
                 <div className="col-lg-6 mb-3 d-none d-md-block d-lg-block d-xl-block" data-aos="fade-left">
-                  <img
-                    src="/static/images/featured-mobile.jpg"
-                    className="img-fluid"
-                    alt="mobile"
-                    style={featuredImageStyle}
-                  />
+                  <Observer>
+                    {inView =>
+                      inView ? (
+                        <img
+                          src="/static/images/featured-mobile.jpg"
+                          className="img-fluid"
+                          alt="mobile"
+                          data-inview={inView}
+                          style={featuredImageStyle}
+                        />
+                      ) : null
+                    }
+                  </Observer>
                 </div>
               </div>
             </div>
@@ -95,12 +116,19 @@ export default class Featured extends Component {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-lg-6 mb-3 d-none d-md-block d-lg-block d-xl-block" data-aos="fade-right">
-                  <img
-                    src="/static/images/featured-relationship.jpg"
-                    alt="relationships"
-                    className="img-fluid"
-                    style={featuredImageStyle}
-                  />
+                  <Observer>
+                    {inView =>
+                      inView ? (
+                        <img
+                          src="/static/images/featured-relationship.jpg"
+                          alt="relationships"
+                          className="img-fluid"
+                          data-inview={inView}
+                          style={featuredImageStyle}
+                        />
+                      ) : null
+                    }
+                  </Observer>
                 </div>
                 <div className="col-lg-6" data-aos="fade-left">
                   <h3>We nurture business relationships</h3>

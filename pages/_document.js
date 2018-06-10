@@ -26,6 +26,7 @@ export default class MyDocument extends Document {
           />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css" />
           <link rel="stylesheet" href="/_next/static/style.css" />
+          <script src="https://cdn.polyfill.io/v2/polyfill.min.js" />
         </Head>
         <body>
           <Main />
