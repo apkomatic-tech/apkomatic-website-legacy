@@ -4,22 +4,22 @@ import Link from 'next/link';
 import './Hero.scss';
 
 export default class Hero extends React.Component {
-  componentDidMount() {
-    if (this.aboutSection) {
-      window.addEventListener('scroll', this.scrolledPastAboutSection);
-    }
-  }
+  // componentDidMount() {
+  //   if (this.aboutSection) {
+  //     window.addEventListener('scroll', this.scrolledPastAboutSection);
+  //   }
+  // }
 
-  scrolledPastAboutSection = () => {
-    const aboutSectionRect = this.aboutSection.getBoundingClientRect();
-    if (aboutSectionRect.y < 0 && Math.abs(aboutSectionRect.y) > parseInt(aboutSectionRect.height / 2, 10)) {
-      ReactGA.event({
-        category: 'Landing-Page',
-        action: 'Pass-About-Section'
-      });
-      window.removeEventListener('scroll', this.scrolledPastAboutSection);
-    }
-  };
+  // scrolledPastAboutSection = () => {
+  //   const aboutSectionRect = this.aboutSection.getBoundingClientRect();
+  //   if (aboutSectionRect.y < 0 && Math.abs(aboutSectionRect.y) > parseInt(aboutSectionRect.height / 2, 10)) {
+  //     ReactGA.event({
+  //       category: 'Landing-Page',
+  //       action: 'Pass-About-Section'
+  //     });
+  //     window.removeEventListener('scroll', this.scrolledPastAboutSection);
+  //   }
+  // };
 
   render() {
     return (
