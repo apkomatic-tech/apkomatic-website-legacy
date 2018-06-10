@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Observer from 'react-intersection-observer';
 import './Featured.scss';
 
 const featuredImageStyle = {
@@ -36,19 +35,12 @@ export default class Featured extends Component {
                   </p>
                 </div>
                 <div className="col-lg-6 d-none d-md-block d-lg-block d-xl-block" data-aos="fade-left">
-                  <Observer>
-                    {inView =>
-                      inView ? (
-                        <img
-                          src="/static/images/featured-design.jpg"
-                          className="img-fluid"
-                          alt="ideas"
-                          data-inview={inView}
-                          style={featuredImageStyle}
-                        />
-                      ) : null
-                    }
-                  </Observer>
+                  <img
+                    src="/static/images/featured-design.jpg"
+                    className="img-fluid"
+                    alt="ideas"
+                    style={featuredImageStyle}
+                  />
                 </div>
               </div>
             </div>
@@ -58,19 +50,12 @@ export default class Featured extends Component {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-lg-6 mb-3 d-none d-md-block d-lg-block d-xl-block" data-aos="fade-right">
-                  <Observer>
-                    {inView =>
-                      inView ? (
-                        <img
-                          src="/static/images/featured-dev.jpg"
-                          className="img-fluid"
-                          alt="development"
-                          data-inview={inView}
-                          style={featuredImageStyle}
-                        />
-                      ) : null
-                    }
-                  </Observer>
+                  <img
+                    src="/static/images/featured-dev.jpg"
+                    className="img-fluid"
+                    alt="development"
+                    style={featuredImageStyle}
+                  />
                 </div>
                 <div className="col-lg-6" data-aos="fade-left">
                   <h3>We build fast sites.</h3>
@@ -94,19 +79,12 @@ export default class Featured extends Component {
                   </p>
                 </div>
                 <div className="col-lg-6 mb-3 d-none d-md-block d-lg-block d-xl-block" data-aos="fade-left">
-                  <Observer>
-                    {inView =>
-                      inView ? (
-                        <img
-                          src="/static/images/featured-mobile.jpg"
-                          className="img-fluid"
-                          alt="mobile"
-                          data-inview={inView}
-                          style={featuredImageStyle}
-                        />
-                      ) : null
-                    }
-                  </Observer>
+                  <img
+                    src="/static/images/featured-mobile.jpg"
+                    className="img-fluid"
+                    alt="mobile"
+                    style={featuredImageStyle}
+                  />
                 </div>
               </div>
             </div>
@@ -116,19 +94,12 @@ export default class Featured extends Component {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-lg-6 mb-3 d-none d-md-block d-lg-block d-xl-block" data-aos="fade-right">
-                  <Observer>
-                    {inView =>
-                      inView ? (
-                        <img
-                          src="/static/images/featured-relationship.jpg"
-                          alt="relationships"
-                          className="img-fluid"
-                          data-inview={inView}
-                          style={featuredImageStyle}
-                        />
-                      ) : null
-                    }
-                  </Observer>
+                  <img
+                    src="/static/images/featured-relationship.jpg"
+                    alt="relationships"
+                    className="img-fluid"
+                    style={featuredImageStyle}
+                  />
                 </div>
                 <div className="col-lg-6" data-aos="fade-left">
                   <h3>We nurture business relationships</h3>
