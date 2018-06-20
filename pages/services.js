@@ -2,14 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 import { Header, Footer, Wrapper, Splash } from './../components/';
 
-const cardTextAlignStyle = 'text-center text-md-left text-lg-left text-xl-left';
+const cardTextAlignStyle = 'text-left';
+const checkIconStyle = {
+  transform: 'scale(1.4)',
+  marginRight: '.7rem'
+};
+
+const CheckMark = () => <i className="fa fa-check-circle text-blue" style={checkIconStyle} />;
 
 const Services = () => (
   <div id="services">
     <Header path="/services" />
     <Splash title="Services" text="We offer web design and development services." />
     <Wrapper>
-      <div className="row d-flex align-items-stretch mt-3 pt-3">
+      <div className="services-card-stack row d-flex align-items-stretch mt-3 pt-3">
         {/* Basic */}
         <div className="col-lg-4 mb-3 animated fadeInUp" style={{ animationDelay: '200ms' }}>
           <div
@@ -19,14 +25,20 @@ const Services = () => (
             }}
           >
             <div className="card-body bg-light">
-              <h3>Starter</h3>
+              <h3>Essential</h3>
               <p className="text-muted">Perfect for clean, light, and interactive websites.</p>
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">Mobile Responsive</li>
-              <li className="list-group-item">Custom Design</li>
-              <li className="list-group-item">1-4 pages</li>
-              <li className="list-group-item">Basic SEO</li>
+              <li className="list-group-item">
+                <CheckMark /> Lightweight and Clean
+              </li>
+              <li className="list-group-item">
+                <CheckMark /> Basic SEO
+              </li>
+              <li className="list-group-item">
+                <CheckMark /> 1-4 pages
+              </li>
+              <li className="list-group-item">&ndash;</li>
             </ul>
             <div className="card-body">
               <Link href="/contact">
@@ -45,16 +57,24 @@ const Services = () => (
             }}
           >
             <div className="card-body bg-light">
-              <h3>Value</h3>
+              <h3>Balanced</h3>
               <p className="text-muted">
                 Perfect for more complicated websites with more content and rich interactions.
               </p>
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">Interactive &amp; Responsive</li>
-              <li className="list-group-item">Custom Design</li>
-              <li className="list-group-item">5-10 pages</li>
-              <li className="list-group-item">Social Media Integration</li>
+              <li className="list-group-item">
+                <CheckMark /> Clean Design
+              </li>
+              <li className="list-group-item">
+                <CheckMark /> Interactive
+              </li>
+              <li className="list-group-item">
+                <CheckMark /> Basic SEO
+              </li>
+              <li className="list-group-item">
+                <CheckMark /> 5-10 pages
+              </li>
             </ul>
             <div className="card-body">
               <Link href="/contact">
@@ -73,14 +93,22 @@ const Services = () => (
             }}
           >
             <div className="card-body bg-light">
-              <h3>Flexible</h3>
+              <h3>Advanced</h3>
               <p className="text-muted">Perfect for more complicated products, like e-commerce or web apps.</p>
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">Interactive &amp; Responsive</li>
-              <li className="list-group-item">Custom Design</li>
-              <li className="list-group-item">SEO</li>
-              <li className="list-group-item">Social Media Integration</li>
+              <li className="list-group-item">
+                <CheckMark /> Fast and Dynamic
+              </li>
+              <li className="list-group-item">
+                <CheckMark /> API/Database Integration
+              </li>
+              <li className="list-group-item">
+                <CheckMark /> Social Media API
+              </li>
+              <li className="list-group-item">
+                <CheckMark /> Unlimited Pages
+              </li>
             </ul>
             <div className="card-body">
               <Link href="/contact">
