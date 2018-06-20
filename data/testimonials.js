@@ -2,19 +2,19 @@ export default [
   {
     id: 1,
     content:
-      'On behalf of Care MED Transport, I would like to thank Apkomatic for providing us with a clean, simple, and functional website that allows us to promote our services to our customers better. Thanks to them, we were able to give our customers a glimpse of what they can experience whenever they choose to avail our services.The look of the website has a minimalistic design that we like, it loads up pretty quickly too, which only helps out customers to be directed to us more efficiently.',
+      'Apkomatic did an amazing job with my company website. They were willing to work with my budget. Their prices are very reasonable for the variety and quality of work they offer. Their team is professional and very quick in response to my inquiries and feedback. I would HIGHLY recommend them to anyone who needs a website.',
     author: {
-      name: 'Eric A.',
-      company: 'Caremed Transport'
+      name: 'Barry M.',
+      company: 'ALK Construction LLC.'
     }
   },
   {
     id: 2,
     content:
-      'Apkomatic did an amazing job with my company website. They were willing to work with my budget. Their prices are very reasonable for the variety and quality of work they offer. Their team is professional and very quick in response to my inquiries and feedback. I would HIGHLY recommend them to anyone who needs a website.',
+      'On behalf of Care MED Transport, I would like to thank Apkomatic for providing us with a clean, simple, and functional website that allows us to promote our services to our customers better. Thanks to them, we were able to give our customers a glimpse of what they can experience whenever they choose to avail our services.The look of the website has a minimalistic design that we like, it loads up pretty quickly too, which only helps out customers to be directed to us more efficiently.',
     author: {
-      name: 'Barry M.',
-      company: 'ALK Construction LLC.'
+      name: 'Eric A.',
+      company: 'Caremed Transport'
     }
   },
   {
