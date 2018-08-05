@@ -11,7 +11,7 @@ export default () => (
         <Featured />
       </div>
       <Testimonials />
-      <Callout title="Ready to get started?" href="/contact#contact-form" />
+      <Callout title="Ready to get started?" href="/contact" />
       <Footer />
     </ErrorBoundary>
   </div>

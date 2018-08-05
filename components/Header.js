@@ -5,8 +5,6 @@ import ReactGA from 'react-ga';
 import { LINKS, GUA_TRACKING_ID, IS_DEV } from './../config/global';
 import './Header.scss';
 
-import Logo from './../static/apkomatic_logo_red.svg';
-
 class Header extends Component {
   state = {
     navOpen: false
@@ -48,7 +46,7 @@ class Header extends Component {
           <div className="container header__inner">
             <Link href="/">
               <a className="brand">
-                <Logo style={{ width: '160px' }} />
+                <img src="/static/apkomatic_logo_lg.png" style={{ width: '160px' }} alt="Apkomatic Logo" />
               </a>
             </Link>
             <i className="top-nav__toggle fa fa-bars" onClick={this.toggleNav} />

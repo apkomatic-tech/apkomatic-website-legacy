@@ -4,9 +4,9 @@ import './FaqBlock.scss';
 
 export default class FaqBlock extends Component {
   static propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     question: PropTypes.string.isRequired,
-    answer: PropTypes.string.isRequired
+    answer: PropTypes.shape().isRequired
   };
 
   state = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Splash.scss';
 
 const Splash = ({ title, text, splashStyle, children }) => (
@@ -19,6 +20,11 @@ const Splash = ({ title, text, splashStyle, children }) => (
     </div>
   </div>
 );
+Splash.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  splashStyle: PropTypes.string
+};
 
 Splash.defaultProps = {
   splashStyle: 'splash--alt1'

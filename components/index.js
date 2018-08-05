@@ -10,3 +10,7 @@ export { default as Splash } from './Splash';
 export { default as Testimonials } from './Testimonials';
 export { default as Slider } from './Slider';
 export { default as FaqBlock } from './FaqBlock';
+export { default as Checkmark } from './Checkmark';
+export { default as CardStack } from './CardStack';
+export { default as ContactForm } from './ContactForm';
+export { default as ContactStatic } from './ContactStatic';

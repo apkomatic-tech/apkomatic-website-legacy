@@ -1,6 +1,6 @@
 export const IS_DEV = process.env.NODE_ENV !== 'production';
 export const GUA_TRACKING_ID = process.env.NODE_ENV === 'production' ? 'UA-101945546-1' : 'UA-119740251-1';
-export const DISPLAY_WORK = false;
+export const DISPLAY_WORK = true;
 export const DISPLAY_CONTACT_FORM = true;
 export const CONTACT_ENDPOINT =
   process.env.NODE_ENV === 'production'
