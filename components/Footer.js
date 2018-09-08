@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import ReactGA from 'react-ga';
-import { SOCIAL } from './../config/global';
-import SmallLogo from './../static/apkomatic_logo_small.svg';
+import { SOCIAL } from '../config/global';
+import SmallLogo from '../static/apkomatic_logo_small.svg';
 import './Footer.scss';
 
 const d = new Date();
@@ -46,7 +46,7 @@ const Footer = () => (
                         });
                       }}
                     >
-                      <i className={`fa fa-${s.iconLabel}`} />
+                      <i className={`fab fa-${s.iconLabel}`} />
                     </a>
                   </li>
                 ))}
