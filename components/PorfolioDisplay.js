@@ -17,7 +17,6 @@ export default class PortfolioDisplay extends Component {
     const { id } = data;
     const { items } = this.props;
     const display = items.filter(item => item.id === Number(id))[0];
-    console.log(display);
     if (display) {
       this.setState({
         detail: display
