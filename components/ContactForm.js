@@ -165,7 +165,11 @@ class ContactForm extends Component {
           </div>
 
           <div className="px-3">
-            <button onClick={this.handleFormSubmit} className="btn btn-block btn-primary">
+            <button
+              onClick={this.handleFormSubmit}
+              className="btn btn-primary"
+              style={{ width: '100%', maxWidth: '320px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}
+            >
               <i className="fa fa-envelope" /> Send
             </button>
           </div>

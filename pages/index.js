@@ -12,7 +12,7 @@ export default class Index extends Component {
 
     return (
       <App>
-        <Header path={path} />
+        <Header path={path} fixed />
         <Hero />
         <div id="featured">
           <Featured />

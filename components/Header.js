@@ -42,7 +42,7 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <header className="header">
+        <header className={`header${this.props.fixed ? ' header--fixed' : ''}`}>
           <div className="container header__inner">
             <Link prefetch href="/">
               <a className="brand">

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import { DISPLAY_CONTACT_FORM } from '../config/global';
-import { Header, Footer, Wrapper, Splash, ContactForm, ContactStatic } from '../components';
+import { App, Header, Footer, Wrapper, ContactForm, ContactStatic } from '../components';
 
 export default class Contact extends React.Component {
   static async getInitialProps({ pathname }) {
@@ -13,7 +13,7 @@ export default class Contact extends React.Component {
   render() {
     const { path } = this.props;
     return (
-      <div id="contact">
+      <App id="contact">
         <Header path={path} />
         <div className="animated fadeIn">
           <Wrapper animated>
@@ -26,7 +26,7 @@ export default class Contact extends React.Component {
           </Wrapper>
         </div>
         <Footer />
-      </div>
+      </App>
     );
   }
 }

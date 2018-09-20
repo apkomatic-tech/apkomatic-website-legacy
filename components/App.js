@@ -12,6 +12,10 @@ export default class App extends Component {
   }
 
   render() {
-    return <ErrorBoundary>{this.props.children}</ErrorBoundary>;
+    return (
+      <section {...this.props}>
+        <ErrorBoundary>{this.props.children}</ErrorBoundary>
+      </section>
+    );
   }
 }

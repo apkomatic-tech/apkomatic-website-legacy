@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { PROJECTS } from '../data';
 import { DISPLAY_WORK } from '../config/global';
 import { App, Header, Footer, Wrapper, Splash, PortfolioDisplay } from '../components';
@@ -16,10 +17,12 @@ export default class Work extends React.Component {
     return (
       <App>
         <Header path={path} />
-        <Splash
-          title="Our Work"
-          text="We work hard to deliver best possible websites. We've had amazing oportunities to work with great clients and we are looking forward to working with you."
-        />
+        {DISPLAY_WORK && (
+          <Splash
+            title="Our Work"
+            text="We work hard to deliver best possible websites. We've had amazing oportunities to work with great clients and we are looking forward to working with you."
+          />
+        )}
 
         <Wrapper>
           {DISPLAY_WORK && (
@@ -28,8 +31,16 @@ export default class Work extends React.Component {
             </div>
           )}
           {!DISPLAY_WORK && (
-            <div className="lead" style={{ textAlign: 'center' }}>
-              <i className="fa fa-exclamation-triangle text-danger" /> This page is under construction.
+            <div
+              className="d-flex align-items-center justify-content-center flex-column"
+              style={{ textAlign: 'center', minHeight: '300px' }}
+            >
+              <p className="lead">
+                <i className="fa fa-exclamation-triangle text-danger" /> This page is under construction.
+              </p>
+              <Link href="/">
+                <a className="btn btn-muted">Go Back</a>
+              </Link>
             </div>
           )}
         </Wrapper>

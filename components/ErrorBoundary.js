@@ -27,7 +27,7 @@ class ErrorBoundary extends Component {
           <p>Something went wrong on our end.</p>
           <a
             href="#"
-            className="btn btn-secondary"
+            className="btn btn-muted"
             onClick={e => {
               e.preventDefault();
               Sentry.showReportDialog();
