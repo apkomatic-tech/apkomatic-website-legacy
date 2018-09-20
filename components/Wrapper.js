@@ -13,7 +13,8 @@ const Wrapper = ({ animated, children, ...rest }) => (
 );
 
 Wrapper.propTypes = {
-  animated: PropTypes.bool
+  animated: PropTypes.bool,
+  children: PropTypes.shape([]).isRequired
 };
 
 Wrapper.defaultProps = {

@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import ReactGA from 'react-ga';
-import { SOCIAL } from './../config/global';
-import SmallLogo from './../static/apkomatic_logo_small.svg';
+import { SOCIAL } from '../config/global';
+import SmallLogo from '../static/apkomatic_logo_small.svg';
 import './Footer.scss';
 
 const d = new Date();
@@ -37,6 +37,7 @@ const Footer = () => (
                   <li key={s.id}>
                     <a
                       target="_blank"
+                      rel="noopener noreferrer"
                       href={s.href}
                       onClick={() => {
                         ReactGA.event({
@@ -46,7 +47,7 @@ const Footer = () => (
                         });
                       }}
                     >
-                      <i className={`fa fa-${s.iconLabel}`} />
+                      <i className={`fab fa-${s.iconLabel}`} />
                     </a>
                   </li>
                 ))}
@@ -65,7 +66,10 @@ const Footer = () => (
         <div className="row">
           <div className="col-md-12 text-center">
             <p className="small copyright">
-              &copy; Apkomatic, All Rights Reserved {year} | <Link href="/faq">FAQ</Link>
+              &copy; Apkomatic, All Rights Reserved {year} |{' '}
+              <Link href={{ pathname: '/faq' }}>
+                <a>FAQ</a>
+              </Link>
             </p>
           </div>
         </div>

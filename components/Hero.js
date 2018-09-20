@@ -1,25 +1,18 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import Link from 'next/link';
+import VanillaTilt from 'vanilla-tilt';
 import './Hero.scss';
 
 export default class Hero extends React.Component {
-  // componentDidMount() {
-  //   if (this.aboutSection) {
-  //     window.addEventListener('scroll', this.scrolledPastAboutSection);
-  //   }
-  // }
-
-  // scrolledPastAboutSection = () => {
-  //   const aboutSectionRect = this.aboutSection.getBoundingClientRect();
-  //   if (aboutSectionRect.y < 0 && Math.abs(aboutSectionRect.y) > parseInt(aboutSectionRect.height / 2, 10)) {
-  //     ReactGA.event({
-  //       category: 'Landing-Page',
-  //       action: 'Pass-About-Section'
-  //     });
-  //     window.removeEventListener('scroll', this.scrolledPastAboutSection);
-  //   }
-  // };
+  componentDidMount() {
+    if (this.aboutUsNode) {
+      VanillaTilt.init(this.aboutUsNode, {
+        max: 10,
+        speed: 5000
+      });
+    }
+  }
 
   render() {
     return (
@@ -32,7 +25,7 @@ export default class Hero extends React.Component {
         >
           <div className="container">
             <h1 className="hero-title text-center animated fadeInDown" style={{ animationDuration: '500ms' }}>
-              Take your website or app <br /> to the whole new level.
+              Take your website or app <br /> to a whole new level.
             </h1>
 
             <div className="animated fadeInUp" style={{ animationDelay: '300ms' }}>
@@ -41,7 +34,7 @@ export default class Hero extends React.Component {
                   style={{ maxWidth: '200px' }}
                   className="btn btn-tertiary text-uppercase btn-lg btn-block mx-auto hero-cta"
                 >
-                  Get Started <i className="fa fa-angle-right" />
+                  Contact Us <i className="fa fa-angle-right" />
                 </button>
               </Link>
             </div>
@@ -73,14 +66,20 @@ export default class Hero extends React.Component {
           }}
         >
           <div className="container" data-aos="fade-up">
-            <h3 className="text-center">Who are we?</h3>
-            <p className="text">
-              {' '}
-              <strong>Apkomatic</strong> is a Los Angeles based web design and development group of professionals who
-              love producing high quality and affordable web applications and sites for individuals and businesses. We
-              strive to deliver high-quality work at low cost for small and mid-size businesses to better reach out to
-              their customers through technology.
-            </p>
+            <div
+              ref={node => {
+                this.aboutUsNode = node;
+              }}
+            >
+              <h3 className="text-center">Who are we?</h3>
+              <p className="text">
+                {' '}
+                <strong>Apkomatic</strong> is a Los Angeles based web design and development group of professionals who
+                love producing high quality and affordable web applications and sites for individuals and businesses. We
+                strive to deliver high-quality work at low cost for small and mid-size businesses to better reach out to
+                their customers through technology.
+              </p>
+            </div>
           </div>
         </section>
       </React.Fragment>

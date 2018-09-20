@@ -8,7 +8,7 @@ const Callout = ({ title, href }) => (
   <Link href={href}>
     <section className="callout">
       <div className="container callout__inner">
-        <div className="callout__message">{title}</div>
+        <h1 className="callout__message">{title}</h1>
         <div className="callout__arrow">
           <i className="fa fa-arrow-right" />
         </div>

@@ -1,0 +1,31 @@
+@import './../css/_config.scss';
+@import './../css/_mixins.scss';
+
+.project {
+
+    text-decoration: none;
+
+    overflow: hidden;
+    margin-bottom: 4rem;
+
+    h3 {
+        color: #222;
+    }
+    &--modal {
+        margin-bottom: 0;
+        max-width: 90%;
+    }
+    &__image {
+        box-shadow: 0 10px 30px rgba($dark, .1);
+    }
+    &__features {
+        .fa { 
+            margin-right: 1rem;
+            transform: scale(1.4);
+            color: $ternary_color;
+        }
+    }
+    &__feature {
+        font-size: .9rem;
+    }
+}
