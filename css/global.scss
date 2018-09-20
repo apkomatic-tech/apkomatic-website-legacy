@@ -13,6 +13,13 @@ h1, h2, h3, h4 {
     font-weight: 500;
 }
 
+h1 {
+    font-size: 2.6rem;
+    @media only screen and (max-width: 767px) {
+        font-size: 2rem;
+    }
+}
+
 .card {
     box-shadow: 0 5px 20px rgba($dark, .1);
     transition: 300ms ease;
@@ -27,31 +34,36 @@ h1, h2, h3, h4 {
 
 .btn {
     transition: box-shadow 600ms linear, border 300ms ease;
-    color: $white!important;
     border-radius: 4px;
 
     &-primary {
+        color: $white;
 
         &,
         &:hover {
+            color: $white;
             background-color: $primary_color;
             border-color: $primary_color;
         }
     }
 
     &-secondary {
+        color: $white;
 
         &,
         &:hover {
+            color: $white;
             background-color: $secondary_color;
             border-color: $secondary_color;
         }
     }
 
     &-tertiary {
+        color: $white;
 
         &,
         &:hover {
+            color: $white;
             background-color: $ternary_color;
             border-color: $ternary_color;
         }
@@ -135,20 +147,4 @@ h1, h2, h3, h4 {
    padding-top: 80px;
    padding-bottom: 80px;
    text-align: center;
-}
-
-.project {
-    overflow: hidden;
-    margin-bottom: 4rem;
-    &__image {
-        box-shadow: 0 10px 30px rgba($dark, .1);
-    }
-    &__features {
-        text-align: left;
-        .fa { 
-            margin-right: 1rem;
-            transform: scale(1.4);
-            color: $ternary_color;
-        }
-    }
 }

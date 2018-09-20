@@ -1,8 +1,8 @@
 import React from 'react';
-import { Header, Footer, Wrapper } from './../components';
+import { App, Header, Footer, Wrapper } from '../components';
 
-export default () => (
-  <div id="thank-you">
+const ThankYou = props => (
+  <App>
     <Header />
     <Wrapper>
       <section className="thanks">
@@ -13,5 +13,11 @@ export default () => (
       </section>
     </Wrapper>
     <Footer />
-  </div>
+  </App>
 );
+
+ThankYou.getInitialProps = async ({ pathname }) => ({
+  path: pathname
+});
+
+export default ThankYou;

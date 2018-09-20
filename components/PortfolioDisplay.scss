@@ -2,8 +2,15 @@
 @import './../css/_mixins.scss';
 
 .project {
+
+    text-decoration: none;
+
     overflow: hidden;
     margin-bottom: 4rem;
+
+    h3 {
+        color: #222;
+    }
     &--modal {
         margin-bottom: 0;
         max-width: 90%;

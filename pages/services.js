@@ -1,15 +1,26 @@
 import React from 'react';
-import { Header, Footer, Wrapper, Splash, CardStack } from './../components/';
+import { App, Header, Footer, Wrapper, Splash, CardStack } from '../components';
 
-const Services = () => (
-  <div id="services">
-    <Header path="/services" />
-    <Splash title="Services" text="We offer web design and development services." />
-    <Wrapper>
-      <CardStack />
-    </Wrapper>
-    <Footer />
-  </div>
-);
+export default class Services extends React.Component {
+  static async getInitialProps({ pathname }) {
+    return { path: pathname };
+  }
 
-export default Services;
+  render() {
+    const { path } = this.props;
+
+    return (
+      <App>
+        <Header path={path} />
+        <Splash
+          title="Our Services"
+          text="Part of our mission is to build affordable websites for all kind of businesses and organizations. We have different service plans tailored to your needs."
+        />
+        <Wrapper>
+          <CardStack />
+        </Wrapper>
+        <Footer />
+      </App>
+    );
+  }
+}

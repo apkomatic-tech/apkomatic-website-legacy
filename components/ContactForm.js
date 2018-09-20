@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import { CONTACT_ENDPOINT, EMAIL_CONFIRMATION_URL } from '../config/global';
-import { CustomControl } from '../components';
+import { CustomControl } from '.';
 
 class ContactForm extends Component {
   state = { hasWebsite: false };

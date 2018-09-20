@@ -1,3 +1,4 @@
+export { default as App } from './App';
 export { default as Callout } from './Callout';
 export { default as Wrapper } from './Wrapper';
 export { default as CustomControl } from './CustomControl';
@@ -14,5 +15,5 @@ export { default as Checkmark } from './Checkmark';
 export { default as CardStack } from './CardStack';
 export { default as ContactForm } from './ContactForm';
 export { default as ContactStatic } from './ContactStatic';
-export { default as PortfolioDisplay } from './PorfolioDisplay';
+export { default as PortfolioDisplay } from './PortfolioDisplay';
 export { default as PortfolioDetail } from './PorfolioDetail';

@@ -37,6 +37,7 @@ const Footer = () => (
                   <li key={s.id}>
                     <a
                       target="_blank"
+                      rel="noopener noreferrer"
                       href={s.href}
                       onClick={() => {
                         ReactGA.event({
@@ -65,7 +66,10 @@ const Footer = () => (
         <div className="row">
           <div className="col-md-12 text-center">
             <p className="small copyright">
-              &copy; Apkomatic, All Rights Reserved {year} | <Link href="/faq">FAQ</Link>
+              &copy; Apkomatic, All Rights Reserved {year} |{' '}
+              <Link href={{ pathname: '/faq' }}>
+                <a>FAQ</a>
+              </Link>
             </p>
           </div>
         </div>

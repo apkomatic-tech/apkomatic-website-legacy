@@ -25,7 +25,7 @@ export default class Hero extends React.Component {
         >
           <div className="container">
             <h1 className="hero-title text-center animated fadeInDown" style={{ animationDuration: '500ms' }}>
-              Take your website or app <br /> to the whole new level.
+              Take your website or app <br /> to a whole new level.
             </h1>
 
             <div className="animated fadeInUp" style={{ animationDelay: '300ms' }}>
@@ -34,7 +34,7 @@ export default class Hero extends React.Component {
                   style={{ maxWidth: '200px' }}
                   className="btn btn-tertiary text-uppercase btn-lg btn-block mx-auto hero-cta"
                 >
-                  Get Started <i className="fa fa-angle-right" />
+                  Contact Us <i className="fa fa-angle-right" />
                 </button>
               </Link>
             </div>

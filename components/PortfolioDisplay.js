@@ -10,13 +10,10 @@ export default class PortfolioDisplay extends Component {
     detail: null
   };
 
-  onDetailClick = e => {
-    e.preventDefault();
-
-    const data = e.target.dataset;
-    const { id } = data;
-    const { items } = this.props;
+  onDetailClick = id => {
     const display = items.filter(item => item.id === Number(id))[0];
+
+    console.log(display);
     if (display) {
       this.setState({
         detail: display
@@ -43,22 +40,6 @@ export default class PortfolioDisplay extends Component {
               <div className="card-body">
                 <h3>{project.name}</h3>
                 <img className="img-fluid project__image" src={project.imageUrl} alt={project.name} />
-              </div>
-              <div className="card-body">
-                {project.url && (
-                  <a href={project.url} className="project__visit-btn btn btn-light mr-2">
-                    Visit Website <i className="fa fa-link" />
-                  </a>
-                )}
-
-                <a
-                  href="#"
-                  data-id={project.id}
-                  onClick={this.onDetailClick}
-                  className="project__visit-btn btn btn-primary"
-                >
-                  Details <i className="fas fa-search-plus" />
-                </a>
               </div>
             </article>
           </div>
