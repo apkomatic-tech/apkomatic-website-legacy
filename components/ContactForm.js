@@ -3,6 +3,8 @@ import ReactGA from 'react-ga';
 import { CONTACT_ENDPOINT, EMAIL_CONFIRMATION_URL } from '../config/global';
 import { CustomControl } from '.';
 
+import './ContactForm.scss';
+
 class ContactForm extends Component {
   state = { hasWebsite: false };
 
@@ -165,11 +167,7 @@ class ContactForm extends Component {
           </div>
 
           <div className="px-3">
-            <button
-              onClick={this.handleFormSubmit}
-              className="btn btn-primary"
-              style={{ width: '100%', maxWidth: '320px', marginLeft: 'auto', marginRight: 'auto', display: 'block' }}
-            >
+            <button onClick={this.handleFormSubmit} className="btn btn-primary btn-block contact-form__submit-btn">
               <i className="fa fa-envelope" /> Send
             </button>
           </div>
