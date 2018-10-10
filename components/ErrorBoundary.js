@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import * as Sentry from '@sentry/browser';
 
 import './ErrorBoundary.scss';
@@ -20,29 +19,27 @@ class ErrorBoundary extends Component {
   }
 
   render() {
-    if (this.state.error) {
+    const { error } = this.state;
+    const { children } = this.props;
+
+    if (error) {
       return (
         <div className="site-error">
-          <h1>We're sorry :(</h1>
+          <h1>
+            We
+            {"'"}
+            re sorry,
+          </h1>
           <p>Something went wrong on our end.</p>
-          <a
-            href="#"
-            className="btn btn-muted"
-            onClick={e => {
-              e.preventDefault();
-              Sentry.showReportDialog();
-            }}
-          >
+          <button type="button" className="btn btn-muted" onClick={Sentry.showReportDialog}>
             Report this issue
-          </a>
+          </button>
         </div>
       );
     }
 
-    return this.props.children;
+    return children;
   }
 }
-
-ErrorBoundary.propTypes = {};
 
 export default ErrorBoundary;

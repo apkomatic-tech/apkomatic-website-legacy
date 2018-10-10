@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import VanillaTilt from 'vanilla-tilt';
-import { Checkmark } from './';
+import { Checkmark } from '.';
+
+import './Card.scss';
+
 
 const cardTextAlignStyle = 'text-left';
 

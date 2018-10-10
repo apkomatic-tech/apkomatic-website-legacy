@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:500|Open+Sans');
 
 body {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='32' viewBox='0 0 16 32'%3E%3Cg fill='%23d9d9d9' fill-opacity='0.19'%3E%3Cpath fill-rule='evenodd' d='M0 24h4v2H0v-2zm0 4h6v2H0v-2zm0-8h2v2H0v-2zM0 0h4v2H0V0zm0 4h2v2H0V4zm16 20h-6v2h6v-2zm0 4H8v2h8v-2zm0-8h-4v2h4v-2zm0-20h-6v2h6V0zm0 4h-4v2h4V4zm-2 12h2v2h-2v-2zm0-8h2v2h-2V8zM2 8h10v2H2V8zm0 8h10v2H2v-2zm-2-4h14v2H0v-2zm4-8h6v2H4V4zm0 16h6v2H4v-2zM6 0h2v2H6V0zm0 24h2v2H6v-2z'/%3E%3C/g%3E%3C/svg%3E");
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
@@ -17,14 +19,6 @@ h1 {
     font-size: 2.6rem;
     @media only screen and (max-width: 767px) {
         font-size: 2rem;
-    }
-}
-
-.card {
-    box-shadow: 0 5px 20px rgba($dark, .1);
-    transition: 300ms ease;
-    &:hover {
-        box-shadow: 0 5px 30px rgba($dark, .2);
     }
 }
 
@@ -68,6 +62,7 @@ h1 {
             background-color: $ternary_color;
             border-color: $ternary_color;
         }
+
     }
 
     &-muted {
@@ -81,16 +76,9 @@ h1 {
             color: $white;
 
         }
+
     }
-}
 
-
-.message-callout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 320px;
-    margin: 40px auto;
 }
 
 // helpers
@@ -99,66 +87,4 @@ h1 {
     .zoomed-on-desktop {
         transform: scale(1.075);
     }
-}
-
-// contact
-
-.contact-form {
-    padding: 3rem 0 2rem 0;
-    border-radius: 4px;
-    border: 1px solid rgba(0,0,0,.15);
-    // box-shadow: 0 10px 25px rgba($dark,.2);
-}
-
-.form-section {
-    margin-bottom: 30px;
-    &.last {
-        margin-bottom: 0;
-    }
-
-    label {
-        font-weight: 700;
-    }
-}
-
-.form-section-heading {
-
-    font-weight: 700;
-    background: $dark;
-    color: $white;
-    position: relative;
-    z-index: 1;
-    transform: translateY(-35px) translateX(-60px);
-    display: inline-block;
-    margin: 0;
-    text-align: left;    
-
-    @media only screen and (max-width: 767px) {
-        transform: translateY(-35px) translateX(5px);
-        margin: 0 -2rem;
-    }
-}
-
-.form-control {
-    border-color: #aaa;
-}
-
-// Static contact
-
-.static-contact {
-    background: $white;
-    box-shadow: 0 5px 30px rgba(0,0,0,.1);
-    padding: 1.2rem;
-
-    .top {
-        padding: 1rem 0;
-        border-bottom: 1px solid #ccc;
-        margin-bottom: 1rem;
-    }
-}
-
-.thanks {
-   padding-top: 80px;
-   padding-bottom: 80px;
-   text-align: center;
 }
