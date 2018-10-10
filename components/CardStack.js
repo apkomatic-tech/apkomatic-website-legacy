@@ -5,6 +5,7 @@ import { Checkmark } from '.';
 
 import './Card.scss';
 
+
 const cardTextAlignStyle = 'text-left';
 
 class CardStack extends Component {
