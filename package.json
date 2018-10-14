@@ -17,6 +17,7 @@
     "@zeit/next-sass": "^0.2.0",
     "aos": "^2.3.3",
     "next": "^6.1.2",
+    "nprogress": "^0.2.0",
     "prop-types": "^15.6.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",

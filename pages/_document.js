@@ -10,6 +10,7 @@ export default class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <title>Apkomatic</title>
           <link rel="icon" href="/static/favicon.gif" />
+          <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"

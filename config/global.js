@@ -41,6 +41,20 @@ export const LINKS = [
     pathname: '/contact',
     label: 'Contact',
     active: true
+  },
+  {
+    id: 5,
+    href: '/about',
+    pathname: '/about',
+    label: 'About',
+    active: true
+  },
+  {
+    id: 6,
+    href: '/faq',
+    pathname: '/faq',
+    label: 'FAQ',
+    active: true
   }
 ];
 export const SOCIAL = [
@@ -56,6 +70,6 @@ export const SOCIAL = [
     href: 'https://www.instagram.com/apkomatic',
     label: 'instagram',
     iconLabel: 'instagram',
-    active: true
+    active: false
   }
 ];
