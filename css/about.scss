@@ -2,19 +2,7 @@
 @import './global.scss';
 
 .about-us {
-    max-width: 40rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    text-align: center;
-
-    p {
-        font-size: 1.5rem;
-        &:last-child {
-            margin-top: 2.5rem;
-        }
-    }
+   margin: 6rem 0;
 }
 
 // .about-us {

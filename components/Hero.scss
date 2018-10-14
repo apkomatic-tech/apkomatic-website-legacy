@@ -10,19 +10,22 @@
     background-color: #f3f8ff;
     background-repeat: no-repeat;
     background-size: cover;
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 170px);
     color: $dark;
-    min-height: 500px;
-    background-image: linear-gradient(rgba($primary_color,.025), rgba($primary_color,.025)), url('/static/images/hero.jpg');
+    background-image: linear-gradient(rgba($white,.85), rgba($white,.5)), url('/static/images/hero.jpg');
     
+    @media only screen and (max-width: 767px) {
+        min-height: 420px;
+    }
+
     @media only screen and (max-width: 767px) and (device-pixel-ratio: 1) {
-        background-image: linear-gradient(rgba(#f3f8ff,.4) 40%, rgba(#f3f8ff,.4)), url('/static/images/hero-mobile@1x.jpg');
+        background-image: linear-gradient(rgba($white,.78) 40%, rgba($white,.78)), url('/static/images/hero-mobile@1x.jpg');
     }
     @media only screen and (max-width: 767px) and (device-pixel-ratio: 2) {
-        background-image: linear-gradient(rgba(#f3f8ff,.4) 40%, rgba(#f3f8ff,.4)), url('/static/images/hero-mobile@2x.jpg');
+        background-image: linear-gradient(rgba($white,.78) 40%, rgba($white,.78)), url('/static/images/hero-mobile@2x.jpg');
     }
     @media only screen and (max-width: 767px) and (device-pixel-ratio: 3) {
-        background-image: linear-gradient(rgba(#f3f8ff,.4) 40%, rgba(#f3f8ff,.4)), url('/static/images/hero-mobile@3x.jpg');
+        background-image: linear-gradient(rgba($white,.78) 40%, rgba($white,.78)), url('/static/images/hero-mobile@3x.jpg');
     }
 
     &-company {

@@ -48,7 +48,7 @@
     .slick-dots li button:before {
         opacity: 1;
         font-size: 18px;
-        color: rgba($white, .8);
+        color: rgba($dark, .8);
     }
 
     @media only screen and (max-width: 767px) {
@@ -77,7 +77,7 @@
 
     &__text {
         font-size: .89rem;
-        color: rgba($white, .8);
+        color: rgba($dark, .8);
     }
 
     &__author {
@@ -87,7 +87,7 @@
 
     &__company {
         font-size: .85rem;
-        color: $secondary_color;
+        color: $success_color;
         font-style: italic;
     }
 }

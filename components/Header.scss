@@ -9,10 +9,19 @@
     position: relative;
     z-index: 1000;
     font-family: 'Poppins', sans-serif;
-    border-bottom: 1px solid rgba($dark, .065);
+    box-shadow: 0 10px 30px rgba(0,0,0,.025);
 
 
     background-color: #ffffff;
+
+    &--fixed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent;
+        box-shadow: none;
+        width: 100%;
+    }
     &__inner {
         display: flex;
         align-items: center;
@@ -57,7 +66,7 @@
         padding-top: 5px;
         padding-bottom: 5px;
         letter-spacing: 0.056rem;
-        font-size: 1.1rem;
+        font-size: .9rem;
         // text-transform: uppercase;
         .header--alt & {
             color: $dark;

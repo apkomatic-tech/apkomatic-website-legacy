@@ -5,6 +5,7 @@ import './Testimonials.scss';
 
 const testimonialSliderSettings = {
   dots: true,
+  arrows: false,
   infinite: true,
   speed: 350,
   slidesToShow: 1,
@@ -28,7 +29,7 @@ export default class Testimonials extends Component {
   render() {
     const { loading, testimonials } = this.state;
     return (
-      <section className="testimonials bg-dark bg-dark--with-pattern">
+      <section className="testimonials bg-light">
         <div className="container testimonials__inner">
           <div className="testimonials__quote-label">
             <i className="fa fa-quote-left" />

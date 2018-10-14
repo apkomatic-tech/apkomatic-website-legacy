@@ -1,5 +1,5 @@
 import React from 'react';
-import { App, Header, Footer, Wrapper, FaqBlock, Splash } from '../components';
+import { Wrapper, FaqBlock, Splash } from '../components';
 import { FAQ } from '../data';
 
 import '../css/faq.scss';
@@ -11,8 +11,7 @@ const splashProps = {
 };
 
 export default () => (
-  <App>
-    <Header path="/faq" />
+  <React.Fragment>
     <Splash {...splashProps} />
     <Wrapper>
       <section className="faq-wrapper">
@@ -21,6 +20,5 @@ export default () => (
         ))}
       </section>
     </Wrapper>
-    <Footer />
-  </App>
+  </React.Fragment>
 );

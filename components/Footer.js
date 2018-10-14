@@ -9,7 +9,7 @@ const year = d.getFullYear();
 const socialIcons = SOCIAL.filter(s => Boolean(s.active));
 
 const Footer = () => (
-  <footer className="site-footer">
+  <footer className="site-footer bg-light">
     <div className="top py-3">
       <div className="container">
         <div className="row">
@@ -52,7 +52,7 @@ const Footer = () => (
                 ))}
               </ul>
             )}
-            <a href="apkomatic@gmail.com" className="text-light" style={{ textDecoration: 'none' }}>
+            <a href="apkomatic@gmail.com" className="small text-dark" style={{ textDecoration: 'none' }}>
               <i className="fas fa-at" /> apkomatic@gmail.com
             </a>
           </div>

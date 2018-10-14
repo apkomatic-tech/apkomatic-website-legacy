@@ -1,0 +1,36 @@
+@import '../css/config';
+@import '../css/global.scss';
+
+.hero-columns {
+
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+
+    &__header {
+        margin: 0 0 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        h4 {
+            margin: 0 0 .5rem;
+        }
+        p {
+            margin: 0;
+        }
+    }
+
+    &__top-icon {
+        display: block;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    &__title {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0 0 1rem;
+    }
+
+    &__column-text {
+        font-size: .925rem;
+    }
+
+}
