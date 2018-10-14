@@ -25,7 +25,7 @@ export default class FaqBlock extends Component {
     return (
       <article className="faq-block">
         <h4 className="faq-block__question">{question}</h4>
-        <p className="faq-block__answer">{answer.text}</p>
+        <p className="faq-block__answer small">{answer.text}</p>
       </article>
     );
   }

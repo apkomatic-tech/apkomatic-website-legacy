@@ -1,4 +1,4 @@
-export { default as App } from './App';
+export { default as Page } from './Page';
 export { default as Callout } from './Callout';
 export { default as Wrapper } from './Wrapper';
 export { default as CustomControl } from './CustomControl';
@@ -17,3 +17,5 @@ export { default as ContactForm } from './ContactForm';
 export { default as ContactStatic } from './ContactStatic';
 export { default as PortfolioDisplay } from './PortfolioDisplay';
 export { default as PortfolioDetail } from './PorfolioDetail';
+export { default as HeroColumns } from './HeroColumns';
+export { default as HeroCallout } from './HeroCallout';

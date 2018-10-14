@@ -1,26 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Hero, HeroColumns, HeroCallout, Testimonials } from '../components';
 
-import { App, Header, Footer, Hero, Callout, Featured, Testimonials } from '../components';
-
-export default class Index extends Component {
-  static async getInitialProps({ pathname }) {
-    return { path: pathname };
-  }
-
-  render() {
-    const { path } = this.props;
-
-    return (
-      <App>
-        <Header path={path} fixed />
-        <Hero />
-        <div id="featured">
-          <Featured />
-        </div>
-        <Testimonials />
-        <Callout title="Ready to get started?" href="/contact" />
-        <Footer />
-      </App>
-    );
-  }
-}
+export default () => (
+  <React.Fragment>
+    <Hero />
+    <HeroColumns />
+    <Testimonials />
+    <HeroCallout />
+  </React.Fragment>
+);

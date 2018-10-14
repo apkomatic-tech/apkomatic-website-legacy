@@ -1,9 +1,8 @@
 import React from 'react';
-import { App, Header, Footer, Wrapper } from '../components';
+import { Wrapper } from '../components';
 
-const ThankYou = props => (
-  <App>
-    <Header />
+export default () => (
+  <React.Fragment>
     <Wrapper>
       <section className="thanks">
         <h2>
@@ -12,12 +11,5 @@ const ThankYou = props => (
         <p className="lead">Someone from our team will reach out to you shortly.</p>
       </section>
     </Wrapper>
-    <Footer />
-  </App>
+  </React.Fragment>
 );
-
-ThankYou.getInitialProps = async ({ pathname }) => ({
-  path: pathname
-});
-
-export default ThankYou;
