@@ -68,7 +68,7 @@ h1 {
         color: $dark;
         background-color: $white;
         border-color: $dark;
-        
+
 
         &:hover {
             background-color: $dark;
@@ -76,6 +76,20 @@ h1 {
 
         }
     }
+
+    &-muted {
+        color: $dark;
+        background-color: $white;
+        border-color: $dark;
+
+        &:hover {
+            background-color: $dark;
+            color: $white;
+
+        }
+
+    }
+
 }
 
 // helpers
@@ -85,3 +99,4 @@ h1 {
         transform: scale(1.075);
     }
 }
+>>>>>>> f392505bea7aa8eae296896022ff7a435c9368d3

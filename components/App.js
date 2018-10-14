@@ -13,7 +13,7 @@ Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-export default class ApkomaticApp extends Component {
+export default class App extends Component {
   componentDidMount() {
     Sentry.init({
       dsn: SENTRY_KEY,
