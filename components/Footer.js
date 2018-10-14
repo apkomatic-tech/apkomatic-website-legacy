@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import ReactGA from 'react-ga';
 import { SOCIAL } from '../config/global';
 import SmallLogo from '../static/apkomatic_logo_small.svg';
@@ -10,7 +9,7 @@ const year = d.getFullYear();
 const socialIcons = SOCIAL.filter(s => Boolean(s.active));
 
 const Footer = () => (
-  <footer className="site-footer text-dark">
+  <footer className="site-footer">
     <div className="top py-3">
       <div className="container">
         <div className="row">
@@ -21,7 +20,7 @@ const Footer = () => (
                 <div className="d-flex align-items-start">
                   <SmallLogo style={{ width: '60px' }} className="site-footer__logo" />
 
-                  <p className="text-muted small">
+                  <p className="small">
                     We are a group of passionate web designers and developers. We design and develop high quality and
                     affordable web applications and sites for individuals and businesses.
                   </p>
@@ -53,8 +52,8 @@ const Footer = () => (
                 ))}
               </ul>
             )}
-            <a href="apkomatic@gmail.com" className="text-dark">
-              apkomatic@gmail.com
+            <a href="apkomatic@gmail.com" className="text-light" style={{ textDecoration: 'none' }}>
+              <i className="fas fa-at" /> apkomatic@gmail.com
             </a>
           </div>
         </div>
@@ -65,12 +64,7 @@ const Footer = () => (
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center">
-            <p className="small copyright">
-              &copy; Apkomatic, All Rights Reserved {year} |{' '}
-              <Link href={{ pathname: '/faq' }}>
-                <a>FAQ</a>
-              </Link>
-            </p>
+            <p className="small copyright">&copy; Apkomatic, All Rights Reserved {year}</p>
           </div>
         </div>
       </div>

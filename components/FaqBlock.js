@@ -20,15 +20,12 @@ export default class FaqBlock extends Component {
   };
 
   render() {
-    const { answerExpanded } = this.state;
+    // const { answerExpanded } = this.state;
     const { id, question, answer } = this.props;
     return (
-      <article key={id} className="faq-block">
-        <button className={`faq-block__q${answerExpanded ? ' expanded' : ''}`} onClick={this.toggleExpanded}>
-          <i className={`faq-block__q-icon fa${answerExpanded ? ' fa-angle-down' : ' fa-angle-right'}`} />
-          {question}
-        </button>
-        <div className={`faq-block__a${!answerExpanded ? ' d-none' : ''}`}>{answer.text}</div>
+      <article className="faq-block">
+        <h4 className="faq-block__question">{question}</h4>
+        <p className="faq-block__answer">{answer.text}</p>
       </article>
     );
   }

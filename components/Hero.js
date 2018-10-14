@@ -59,7 +59,7 @@ export default class Hero extends React.Component {
             <i className="fa fa-arrow-down animated pulse infinite" />
           </button>
         </div>
-        <section
+        {/* <section
           className="section-about"
           ref={el => {
             this.aboutSection = el;
@@ -81,7 +81,7 @@ export default class Hero extends React.Component {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
       </React.Fragment>
     );
   }

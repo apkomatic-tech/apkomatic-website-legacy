@@ -1,0 +1,31 @@
+@import './config.scss';
+@import './global.scss';
+
+.about-us {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+
+    p {
+        font-size: 1.5rem;
+        &:last-child {
+            margin-top: 2.5rem;
+        }
+    }
+}
+
+// .about-us {
+//     max-width: 43rem;
+//     margin: 5rem auto;
+//     text-align: center;
+
+//     &__title {
+//         margin-bottom: 2rem;
+//     }
+//     &__text-block {
+//         margin-bottom: 2rem;
+//     }
+// }

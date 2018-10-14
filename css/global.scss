@@ -62,14 +62,13 @@ h1 {
             background-color: $ternary_color;
             border-color: $ternary_color;
         }
-
     }
 
     &-muted {
         color: $dark;
         background-color: $white;
         border-color: $dark;
-        
+
 
         &:hover {
             background-color: $dark;

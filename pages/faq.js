@@ -1,16 +1,23 @@
 import React from 'react';
-import { App, Splash, Header, Footer, Wrapper, FaqBlock } from '../components';
+import { App, Header, Footer, Wrapper, FaqBlock, Splash } from '../components';
 import { FAQ } from '../data';
+
+import '../css/faq.scss';
+
+const splashProps = {
+  title: 'Apkomatic FAQ',
+  isFaq: true,
+  splashStyle: 'splash--alt2'
+};
 
 export default () => (
   <App>
-    <Header />
-    <Splash title="Frequently Asked Questions" />
-
+    <Header path="/faq" />
+    <Splash {...splashProps} />
     <Wrapper>
-      <section className="faq-wrapper" style={{ marginTop: '3rem' }}>
+      <section className="faq-wrapper">
         {FAQ.map(faq => (
-          <FaqBlock {...faq} />
+          <FaqBlock key={faq.id} {...faq} />
         ))}
       </section>
     </Wrapper>

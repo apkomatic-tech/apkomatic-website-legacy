@@ -5,9 +5,7 @@ import { Checkmark } from '.';
 
 import './Card.scss';
 
-
 const cardTextAlignStyle = 'text-left';
-
 class CardStack extends Component {
   componentDidMount() {
     const cards = this.targetNode.querySelectorAll('.card');

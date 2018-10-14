@@ -1,0 +1,14 @@
+@import './config.scss';
+@import './global.scss';
+
+.faq-wrapper {
+    max-width: 40rem;
+    margin: 4.5rem auto;
+    &__title {
+        margin-bottom: 3rem;
+        .fas {
+            font-size: 90%;
+            color: $success_color;
+        }
+    }
+}

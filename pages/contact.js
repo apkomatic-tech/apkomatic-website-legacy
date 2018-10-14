@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
 import { DISPLAY_CONTACT_FORM } from '../config/global';
-import { App, Header, Footer, Wrapper, ContactForm, ContactStatic } from '../components';
+import { App, Header, Footer, Wrapper, ContactForm, ContactStatic, Splash } from '../components';
 
 export default class Contact extends React.Component {
   static async getInitialProps({ pathname }) {
@@ -15,8 +15,9 @@ export default class Contact extends React.Component {
     return (
       <App id="contact">
         <Header path={path} />
+        <Splash title="Contact Us" />
         <div className="animated fadeIn">
-          <Wrapper animated>
+          <Wrapper className="animated fadeInUp" style={{ animationDelay: '400ms' }}>
             <div className="row">
               <div className="col-md-12 col-lg-8 mx-auto">
                 {DISPLAY_CONTACT_FORM && <ContactForm />}
