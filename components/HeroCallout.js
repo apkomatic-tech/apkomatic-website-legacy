@@ -5,7 +5,7 @@ import { Wrapper } from '.';
 import './HeroCallout.scss';
 
 export default () => (
-  <section className="hero-callout text-center">
+  <section className="hero-callout text-center" data-aos="fade-up">
     <Wrapper>
       <h3>Ready to get started?</h3>
       <p>Drop us a line. It only takes a few minutes. We will take care of the rest.</p>

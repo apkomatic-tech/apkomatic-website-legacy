@@ -30,10 +30,10 @@ export default class Testimonials extends Component {
     const { loading, testimonials } = this.state;
     return (
       <section className="testimonials bg-light">
-        <div className="container testimonials__inner">
-          <div className="testimonials__quote-label">
-            <i className="fa fa-quote-left" />
-          </div>
+        <div className="testimonials__quote-label">
+          <i className="fa fa-quote-left" />
+        </div>
+        <div className="container testimonials__inner" data-aos="fade-up">
           <h3 className="testimonials__title text-center">What Customers are Saying About Us</h3>
           <div className="testimonials-slider">
             {loading && (
