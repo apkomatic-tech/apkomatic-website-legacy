@@ -20,16 +20,15 @@ export default class ApkomaticApp extends App {
 
   render() {
     const { Component, router } = this.props;
+    console.log(this.props);
 
     return (
       <Container>
-        <Header path={router.pathname} fixed={router.pathname === '/'} />
         <ErrorBoundary>
-          <Page>
+          <Page {...router}>
             <Component />
           </Page>
         </ErrorBoundary>
-        <Footer />
       </Container>
     );
   }
