@@ -6,6 +6,11 @@
     margin-top: 6rem;
     margin-bottom: 6rem;
 
+    @media only screen and (max-width: 767px) {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
     &__header {
         margin: 0 0 2rem;
         padding-bottom: 2rem;
@@ -16,6 +21,10 @@
         p {
             margin: 0;
         }
+
+        @media only screen and (max-width: 767px) {
+            text-align: center;
+        }
     }
 
     &__top-icon {
@@ -24,13 +33,21 @@
         margin-bottom: 1rem;
     }
     &__title {
-        font-size: 1rem;
+        font-size: 1.25rem;
         font-weight: 700;
         margin: 0 0 1rem;
     }
 
     &__column-text {
         font-size: .925rem;
+        margin-bottom: 2rem;
+    }
+
+    @media only screen and (max-width: 767px) {
+        &__title,
+        &__top-icon {
+            text-align: center;
+        }
     }
 
 }

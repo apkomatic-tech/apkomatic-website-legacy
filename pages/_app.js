@@ -20,7 +20,6 @@ export default class ApkomaticApp extends App {
 
   render() {
     const { Component, router } = this.props;
-    console.log(this.props);
 
     return (
       <Container>
