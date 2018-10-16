@@ -25,7 +25,7 @@ export default class Hero extends React.Component {
         >
           <div className="container">
             <h1 className="hero-title text-center animated fadeInDown" style={{ animationDuration: '500ms' }}>
-              Take your website or app <br /> to a whole new level.
+              Take your website <br /> to a whole new level.
             </h1>
 
             <div className="animated fadeInUp" style={{ animationDelay: '300ms' }}>

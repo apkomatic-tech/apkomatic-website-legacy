@@ -10,12 +10,12 @@
     background-color: #f3f8ff;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 220px);
     color: $dark;
     background-image: linear-gradient(rgba($white,.85), rgba($white,.5)), url('/static/images/hero.jpg');
     
     @media only screen and (max-width: 767px) {
-        min-height: 420px;
+        min-height: 450px;
     }
 
     @media only screen and (max-width: 767px) and (device-pixel-ratio: 1) {

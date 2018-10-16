@@ -10,7 +10,7 @@ const socialIcons = SOCIAL.filter(s => Boolean(s.active));
 
 const Footer = () => (
   <footer className="site-footer bg-light">
-    <div className="top py-3">
+    <div className="top">
       <div className="container">
         <div className="row">
           <div className="col-md-6">
@@ -32,6 +32,12 @@ const Footer = () => (
           <div className="col-md-6 text-right">
             {socialIcons.length > 0 && (
               <ul className="footer__social list-unstyled small">
+                <li className="sep">Connect |</li>
+                <li>
+                  <a href="mailto:apkomatic@gmail.com">
+                    <i className="fas fa-at" />
+                  </a>
+                </li>
                 {socialIcons.map(s => (
                   <li key={s.id}>
                     <a
@@ -52,19 +58,16 @@ const Footer = () => (
                 ))}
               </ul>
             )}
-            <a href="apkomatic@gmail.com" className="small text-dark" style={{ textDecoration: 'none' }}>
-              <i className="fas fa-at" /> apkomatic@gmail.com
-            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <div className="site-footer__bottom py-3 text-muted">
+    <div className="site-footer__bottom text-muted">
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center">
-            <p className="small copyright">&copy; Apkomatic, All Rights Reserved {year}</p>
+            <p className="small text-muted">&copy; Apkomatic, All Rights Reserved {year}</p>
           </div>
         </div>
       </div>

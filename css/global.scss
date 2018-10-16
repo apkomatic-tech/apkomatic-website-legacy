@@ -41,6 +41,10 @@ h1 {
     color: $success_color!important;
 }
 
+.container {
+    padding: 1.5rem;
+}
+
 .btn {
     box-shadow: 0 5px 20px rgba(0,0,0,.15);
     transition: box-shadow 600ms linear, border 300ms ease;

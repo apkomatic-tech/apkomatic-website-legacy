@@ -13,7 +13,7 @@ export default () => (
     <section className="about-us">
       <Wrapper>
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-6 mb-3 mb-md-0">
             <h4>About Apkomatic</h4>
             <p className="text-muted small mb-3">
               <strong>Apkomatic</strong> is a Los Angeles based web design and development group of professionals who
@@ -23,7 +23,7 @@ export default () => (
             </p>
             <p>
               <Link href="/contact">
-                <a className="btn btn-primary btn--with-direction-right" style={{ maxWidth: '300px' }}>
+                <a className="btn btn-primary btn--with-direction-right mx-auto mx-md-0" style={{ maxWidth: '300px' }}>
                   Contact Us <i className="direction-icon fas fa-chevron-right" />
                 </a>
               </Link>
