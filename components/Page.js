@@ -1,5 +1,6 @@
 import React from 'react';
-import { Header, Footer } from '.';
+import Head from 'next/head';
+import { Meta, Header, Footer } from '.';
 
 const Page = props => {
   const { pathname, children } = props;
