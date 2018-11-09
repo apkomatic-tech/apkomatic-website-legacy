@@ -20,4 +20,3 @@ export { default as PortfolioDetail } from './PorfolioDetail';
 export { default as HeroColumns } from './HeroColumns';
 export { default as HeroCallout } from './HeroCallout';
 export { default as HomePage } from './HomePage';
-export { default as Meta } from './Meta';

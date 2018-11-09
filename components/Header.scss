@@ -70,31 +70,6 @@
         padding-bottom: 5px;
         letter-spacing: 0.056rem;
         font-size: .9rem;
-
-        &:before,
-        &:after {
-            content: "";
-            display: block;
-            position: absolute;
-            top: calc(100% - 2px);
-            height: 2px;
-            background: $ternary_color;
-            width: 0;
-            transition: width 150ms ease-in-out;
-        }
-
-        &:before {
-            left: 50%;
-        }
-        &:after {
-            right: 50%;
-        }
-
-        &:hover:before,
-        &:hover:after {
-            width: 50%;
-        }
-
         // text-transform: uppercase;
         .header--alt & {
             color: $dark;
