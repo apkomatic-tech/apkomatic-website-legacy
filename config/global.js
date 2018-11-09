@@ -23,32 +23,33 @@ export const LINKS = [
   },
   {
     id: 2,
+    href: '/about',
+    pathname: '/about',
+    label: 'About',
+    active: true
+  },
+  {
+    id: 3,
     href: '/services',
     pathname: '/services',
     label: 'Services',
     active: true
   },
   {
-    id: 3,
+    id: 4,
     href: '/work',
     pathname: '/work',
     label: 'Work',
     active: DISPLAY_WORK
   },
   {
-    id: 4,
+    id: 5,
     href: '/contact',
     pathname: '/contact',
     label: 'Contact',
     active: true
   },
-  {
-    id: 5,
-    href: '/about',
-    pathname: '/about',
-    label: 'About',
-    active: true
-  },
+
   {
     id: 6,
     href: '/faq',

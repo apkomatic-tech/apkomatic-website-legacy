@@ -8,16 +8,16 @@ const HeroColumns = () => (
   <section className="hero-columns">
     <Wrapper>
       <header className="hero-columns__header">
-        <div className="row">
+        <div className="row align-content-center">
           <div className="col-md-8 mb-3">
             <h4>Based in Los Angeles, CA</h4>
             <p className="text-muted">
               We offer <strong>reliable</strong> and <strong>high-quality</strong> web development work.
             </p>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 align-">
             <Link href="/contact">
-              <a className="btn btn-muted btn-block btn-lg btn--with-direction-right">
+              <a className="btn btn-primary btn-block btn--with-direction-right">
                 Contact Us <i className="direction-icon fas fa-chevron-right" />
               </a>
             </Link>
@@ -35,7 +35,7 @@ const HeroColumns = () => (
             or mid-size organization looking to refresh your website look or add new features - we got you covered.
           </p>
         </div>
-        <div className="col-md-4" data-aos="fade-up" style={{ transitionDelay: '200ms' }}>
+        <div className="col-md-4" data-aos="fade-up" style={{ transitionDelay: '100ms' }}>
           <i className="hero-columns__top-icon text-success fab fa-node-js" />
           <h3 className="hero-columns__title">Development</h3>
           <p className="hero-columns__column-text text-muted">
@@ -43,7 +43,7 @@ const HeroColumns = () => (
             technologies and languages is the key to build responsive and optimized websites and apps.
           </p>
         </div>
-        <div className="col-md-4" data-aos="fade-up" style={{ transitionDelay: '400ms' }}>
+        <div className="col-md-4" data-aos="fade-up" style={{ transitionDelay: '200ms' }}>
           <i className="hero-columns__top-icon text-ternary fas fa-handshake" />
           <h3 className="hero-columns__title">Relationships First</h3>
           <p className="hero-columns__column-text text-muted">

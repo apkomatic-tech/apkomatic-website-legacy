@@ -9,7 +9,7 @@ const year = d.getFullYear();
 const socialIcons = SOCIAL.filter(s => Boolean(s.active));
 
 const Footer = () => (
-  <footer className="site-footer bg-light">
+  <footer className="site-footer">
     <div className="top">
       <div className="container">
         <div className="row">
