@@ -7,7 +7,7 @@ export default () => (
   <React.Fragment>
     <Splash title="Contact Us" />
     <div className="animated fadeIn">
-      <Wrapper className="animated fadeInUp" style={{ animationDelay: '400ms' }}>
+      <Wrapper>
         <div className="row">
           <div className="col-md-12 col-lg-8 mx-auto" style={{ marginBottom: '3rem' }}>
             {DISPLAY_CONTACT_FORM && <ContactForm />}

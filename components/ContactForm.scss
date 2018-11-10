@@ -3,45 +3,37 @@
 // contact
 
 .contact-form {
-    padding: 3rem 0 2rem 0;
     border-radius: 4px;
-    border: 1px solid rgba(0,0,0,.15);
     background-color:$white;
     max-width: 43rem;
     margin: auto;
 
+    &__submit-btn-wrapper {
+        margin-top: 2rem;
+    }
     &__submit-btn {
         height: 40px;
     }
 }
 
 .form-section {
-    margin-bottom: 30px;
-    &.last {
-        margin-bottom: 0;
-    }
-
+    padding: 1rem;
+    background: rgba($dark, .025);
+    border: 1px solid rgba($dark, .05);
+    border-radius: 5px;
     label {
         font-weight: 700;
+        font-size: .9rem;
+        cursor: pointer;
     }
 }
 
 .form-section-heading {
-
     font-weight: 700;
-    background: $dark;
-    color: $white;
     position: relative;
     z-index: 1;
-    transform: translateY(-35px) translateX(-60px);
-    display: inline-block;
-    margin: 0;
-    text-align: left;
-
-    @media only screen and (max-width: 767px) {
-        transform: translateY(-35px) translateX(5px);
-        margin: 0 -2rem;
-    }
+    margin: 2.5rem 0 1rem;
+    font-size: 1.1rem;
 }
 
 .form-control {
