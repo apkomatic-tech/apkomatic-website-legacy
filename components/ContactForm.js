@@ -42,9 +42,8 @@ class ContactForm extends Component {
             this.formNode = node;
           }}
         >
-          <div className="form-section p-3">
-            <div className="py-2 px-3 form-section-heading">Tell us about you</div>
-
+          <div className="form-section-heading">Tell us about you</div>
+          <div className="form-section">
             <div className="form-group">
               <label htmlFor="email">Email address *</label>
               <input
@@ -67,9 +66,9 @@ class ContactForm extends Component {
             </div>
           </div>
 
-          <div className="form-section p-3">
-            <div className="py-2 px-3 form-section-heading">Tell us about your goal</div>
+          <div className="form-section-heading">Tell us about your goal</div>
 
+          <div className="form-section">
             <div className="form-group">
               <label htmlFor="business-info" title="Tell us about your business (industry, competitors, etc)">
                 Business info *
@@ -86,13 +85,13 @@ class ContactForm extends Component {
 
             <div className="form-group">
               <label
-                htmlFor="business-info"
+                htmlFor="objectives"
                 title="Why do you want a website? What features are you looking for? A simple website? An app? An e-commerce site?"
               >
                 Objectives *
               </label>
               <textarea
-                id="business-info"
+                id="objectives"
                 className="form-control"
                 placeholder="Why do you want a website? What features are you looking for? A simple website? An app? An e-commerce site?"
                 rows={5}
@@ -121,7 +120,7 @@ class ContactForm extends Component {
             <div className="form-group">
               <CustomControl
                 type="checkbox"
-                labelText="I have a website"
+                labelText="I have an existing website"
                 name="hasWebsite"
                 id="hasWebsite"
                 onChange={this.toggleHasWebsite}
@@ -142,8 +141,9 @@ class ContactForm extends Component {
             </div>
           </div>
 
-          <div className="form-section last p-3">
-            <div className="py-2 px-3 form-section-heading">Additional Info</div>
+          <div className="form-section-heading">Additional Info</div>
+
+          <div className="form-section last">
             <div className="form-group">
               <label htmlFor="inspirations">Inspirations (optional)</label>
               <textarea
@@ -166,7 +166,7 @@ class ContactForm extends Component {
             </div>
           </div>
 
-          <div className="px-3">
+          <div className="contact-form__submit-btn-wrapper">
             <button onClick={this.handleFormSubmit} className="btn btn-primary btn-block contact-form__submit-btn">
               <i className="fa fa-envelope" /> Send
             </button>
