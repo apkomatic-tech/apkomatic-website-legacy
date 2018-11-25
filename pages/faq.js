@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper, FaqBlock, Splash } from '../components';
-import { FAQ } from '../data';
+import faqJSON from '../data/faq.json';
 
 import '../css/faq.scss';
 
@@ -15,7 +15,7 @@ export default () => (
     <Splash {...splashProps} />
     <Wrapper>
       <section className="faq-wrapper">
-        {FAQ.map(faq => (
+        {faqJSON.map(faq => (
           <FaqBlock key={faq.id} {...faq} />
         ))}
       </section>
