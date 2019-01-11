@@ -17,7 +17,7 @@ const HeroColumns = () => (
           </div>
           <div className="col-md-4">
             <Link href="/contact">
-              <a className="btn btn-muted btn-block btn--with-direction-right">
+              <a className="btn btn-lg btn-muted btn-block btn--with-direction-right">
                 Contact Us <i className="direction-icon fas fa-chevron-right" />
               </a>
             </Link>

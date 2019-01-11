@@ -9,18 +9,12 @@
     margin: auto;
 
     &__submit-btn-wrapper {
-        margin-top: 2rem;
-    }
-    &__submit-btn {
-        height: 40px;
+        margin-top: 1rem;
     }
 }
 
 .form-section {
-    padding: 1rem;
-    background: rgba($dark, .025);
-    border: 1px solid rgba($dark, .05);
-    border-radius: 5px;
+    padding: 1rem 0;
     label {
         font-weight: 700;
         font-size: .9rem;

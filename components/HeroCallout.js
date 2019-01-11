@@ -12,12 +12,12 @@ export default () => (
       <p className="mt-3">
         <Link href="/contact">
           <a
-            className="btn btn-primary btn btn-lg btn-block mx-auto btn--hero btn--with-direction-right"
+            className="btn btn-muted btn btn-lg btn-block mx-auto btn--with-direction-right"
             style={{
               maxWidth: '300px'
             }}
           >
-            Contact Us <i className="direction-icon fas fa-chevron-right" />
+            Get a quote <i className="direction-icon fas fa-chevron-right" />
           </a>
         </Link>
       </p>
