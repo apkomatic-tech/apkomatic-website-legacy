@@ -4,6 +4,7 @@ module.exports = withSass({
   exportPathMap() {
     return {
       '/': { page: '/' },
+      '/about': { page: '/about' },
       '/services': { page: '/services' },
       '/contact': { page: '/contact' },
       '/work': { page: '/work' },
