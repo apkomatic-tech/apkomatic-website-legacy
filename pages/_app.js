@@ -4,7 +4,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import * as Sentry from '@sentry/browser';
 import { IS_DEV, SENTRY_KEY } from '../config/global';
-import { Page, Header, Footer, ErrorBoundary } from '../components';
+import { Page, ErrorBoundary } from '../components';
 
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();

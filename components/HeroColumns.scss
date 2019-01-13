@@ -3,12 +3,12 @@
 
 .hero-columns {
 
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
 
     @media only screen and (max-width: 767px) {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
     &__header {

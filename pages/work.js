@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { PROJECTS } from '../data';
+import projectsJSON from '../data/projects.json';
 import { DISPLAY_WORK } from '../config/global';
 import { Wrapper, Splash, PortfolioDisplay } from '../components';
 
@@ -17,7 +17,7 @@ export default () => (
     <Wrapper>
       {DISPLAY_WORK && (
         <div className="row d-flex align-items-stretch mt-3 pt-3">
-          <PortfolioDisplay items={PROJECTS} />
+          <PortfolioDisplay items={projectsJSON} />
         </div>
       )}
       {!DISPLAY_WORK && (
