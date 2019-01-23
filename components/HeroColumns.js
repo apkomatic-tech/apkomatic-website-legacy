@@ -10,7 +10,7 @@ const HeroColumns = () => (
       <header className="hero-columns__header">
         <div className="row">
           <div className="col-md-8 mb-3">
-            <h4>Based in Los Angeles, CA</h4>
+            <p className="lead">Web development company located in Los Angeles, CA</p>
             <p className="text-muted">
               We offer <strong>reliable</strong> and <strong>high-quality</strong> web development work.
             </p>

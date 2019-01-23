@@ -8,7 +8,7 @@ export default () => (
   <section className="hero-callout text-center">
     <Wrapper data-aos="fade-up">
       <h2>Ready to get started?</h2>
-      <p>Drop us a line. It only takes a few minutes. We will take care of the rest.</p>
+      <p className="lead">Drop us a line. It only takes a few minutes. We will take care of the rest.</p>
       <p className="mt-3">
         <Link href="/contact">
           <a
