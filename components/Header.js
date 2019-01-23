@@ -39,10 +39,19 @@ class Header extends Component {
     document.body.classList.toggle('nav-open');
   };
 
+  renderDesktopLink = ({ label, pathname, isButton }) => {
+    if (isButton) {
+      return <a className="btn btn-tertiary">{label}</a>;
+    }
+    const { path } = this.props;
+    return <a className={`top-nav__link${path === pathname ? ' active' : ''}`}>{label}</a>;
+  };
+
   render() {
+    const { fixed } = this.props;
     return (
       <React.Fragment>
-        <header className={`header${this.props.fixed ? ' header--fixed' : ''}`}>
+        <header className={`header${fixed ? ' header--fixed' : ''}`}>
           <div className="container header__inner">
             <Link prefetch href="/">
               <a className="brand">
@@ -51,10 +60,10 @@ class Header extends Component {
             </Link>
             <i role="navigation" className="top-nav__toggle fa fa-bars" onClick={this.toggleNav} />
             <ul className="top-nav">
-              {LINKS.filter(({ active }) => Boolean(active)).map(({ id, href, label, pathname }) => (
+              {LINKS.filter(({ active }) => Boolean(active)).map(({ id, href, ...linkProps }) => (
                 <li key={id} className="top-nav__item">
                   <Link prefetch href={href}>
-                    <a className={`top-nav__link${this.props.path === pathname ? ' active' : ''}`}>{label}</a>
+                    {this.renderDesktopLink(linkProps)}
                   </Link>
                 </li>
               ))}
@@ -78,11 +87,13 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  path: PropTypes.string
+  path: PropTypes.string,
+  fixed: PropTypes.bool
 };
 
 Header.defaultProps = {
-  path: ''
+  path: '',
+  fixed: false
 };
 
 export default Header;

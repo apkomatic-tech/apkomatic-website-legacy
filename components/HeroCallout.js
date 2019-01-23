@@ -5,14 +5,14 @@ import { Wrapper } from '.';
 import './HeroCallout.scss';
 
 export default () => (
-  <section className="hero-callout text-center" data-aos="fade-up">
-    <Wrapper>
-      <h3>Ready to get started?</h3>
-      <p>Drop us a line. It only takes a few minutes. We will take care of the rest.</p>
+  <section className="hero-callout text-center">
+    <Wrapper data-aos="fade-up">
+      <h2>Ready to get started?</h2>
+      <p className="lead">Drop us a line. It only takes a few minutes. We will take care of the rest.</p>
       <p className="mt-3">
         <Link href="/contact">
           <a
-            className="btn btn-muted btn btn-lg btn-block mx-auto btn--with-direction-right"
+            className="hero-callout__btn btn btn-muted btn btn-lg btn-block mx-auto btn--with-direction-right"
             style={{
               maxWidth: '300px'
             }}
