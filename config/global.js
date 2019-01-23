@@ -37,24 +37,25 @@ export const LINKS = [
   },
   {
     id: 4,
-    href: '/contact',
-    pathname: '/contact',
-    label: 'Contact',
-    active: true
-  },
-  {
-    id: 5,
     href: '/about',
     pathname: '/about',
     label: 'About',
     active: true
   },
   {
-    id: 6,
+    id: 5,
     href: '/faq',
     pathname: '/faq',
     label: 'FAQ',
     active: true
+  },
+  {
+    id: 6,
+    href: '/contact',
+    pathname: '/contact',
+    label: 'Get a Quote',
+    active: true,
+    isButton: true
   }
 ];
 export const SOCIAL = [
