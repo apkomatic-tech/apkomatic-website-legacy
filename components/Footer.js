@@ -35,6 +35,7 @@ const Footer = () => (
                 <li className="sep">Connect |</li>
                 <li>
                   <a href="mailto:apkomatic@gmail.com">
+                    <span className="sr-only">Email Apkomatic</span>
                     <i className="fas fa-at" />
                   </a>
                 </li>
@@ -52,6 +53,7 @@ const Footer = () => (
                         });
                       }}
                     >
+                      <span className="sr-only">{s.label}</span>
                       <i className={`fab fa-${s.iconLabel}`} />
                     </a>
                   </li>

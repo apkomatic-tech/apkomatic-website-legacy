@@ -56,8 +56,10 @@ export default class Testimonials extends Component {
                         <p className="testimonial__text">{testimonial.content}</p>
                       </section>
                       <section className="testimonial__footer">
-                        <div className="testimonial__author">{testimonial.author.name}</div>
-                        <div className="testimonial__company">{testimonial.author.company}</div>
+                        <div className="testimonial__author mb-1">{testimonial.author.name}</div>
+                        <div className="testimonial__company">
+                          <strong>{testimonial.author.company}</strong>
+                        </div>
                       </section>
                     </article>
                   ))}
