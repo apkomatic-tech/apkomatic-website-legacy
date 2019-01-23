@@ -11,8 +11,13 @@ class Header extends Component {
   };
 
   componentDidMount() {
+    const { fixed: isFixedHeader } = this.props;
+
     ReactGA.initialize(GUA_TRACKING_ID, { debug: IS_DEV });
     if (typeof window !== 'undefined') {
+      if (isFixedHeader) {
+        this.initStickyHeader();
+      }
       ReactGA.pageview(window.location.pathname + window.location.search);
     }
 
@@ -22,6 +27,48 @@ class Header extends Component {
       document.body.classList.add('background-blend-supported');
     }
   }
+
+  displayStickyHeader = () => {
+    this.headerNode.classList.add('fadeInDown');
+    this.headerNode.classList.add('sticky');
+  };
+
+  hideStickyHeader = () => {
+    this.headerNode.classList.remove('fadeInDown');
+    this.headerNode.classList.remove('sticky');
+  };
+
+  initStickyHeader = (scrollThreshold = 150) => {
+    let lastScroll = 0;
+
+    // on initial page load check if page was scrolled
+    if (window.pageYOffset > scrollThreshold) {
+      this.displayStickyHeader();
+    }
+
+    this.headerNode.classList.add('animated');
+
+    window.addEventListener('scroll', () => {
+      // close navigation when scrolling
+      if (document.body.classList.contains('nav-open')) {
+        this.closeNav();
+      }
+
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > scrollThreshold) {
+        if (scrollTop >= lastScroll) {
+          this.displayStickyHeader();
+        } else {
+          this.hideStickyHeader();
+        }
+      } else {
+        this.hideStickyHeader();
+      }
+
+      lastScroll = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  };
 
   closeNav = () => {
     this.setState({
@@ -51,7 +98,7 @@ class Header extends Component {
     const { fixed } = this.props;
     return (
       <React.Fragment>
-        <header className={`header${fixed ? ' header--fixed' : ''}`}>
+        <header ref={node => (this.headerNode = node)} className={`header${fixed ? ' header--fixed' : ''}`}>
           <div className="container header__inner">
             <Link prefetch href="/">
               <a className="brand">
