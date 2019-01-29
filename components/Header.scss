@@ -12,7 +12,7 @@
   background-color: $white;
   transition: background-color 320ms linear;
 
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 992px) {
     height: 80px;
     max-height: 80px;
   }
@@ -37,7 +37,7 @@
       background-color: $white;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.045);
     }
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 992px) {
       background-color: $white;
     }
   }

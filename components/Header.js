@@ -29,13 +29,17 @@ class Header extends Component {
   }
 
   displayStickyHeader = () => {
-    this.headerNode.classList.add('fadeInDown');
-    this.headerNode.classList.add('sticky');
+    if (this.headerNode) {
+      this.headerNode.classList.add('fadeInDown');
+      this.headerNode.classList.add('sticky');
+    }
   };
 
   hideStickyHeader = () => {
-    this.headerNode.classList.remove('fadeInDown');
-    this.headerNode.classList.remove('sticky');
+    if (this.headerNode) {
+      this.headerNode.classList.remove('fadeInDown');
+      this.headerNode.classList.remove('sticky');
+    }
   };
 
   initStickyHeader = (scrollThreshold = 150) => {
