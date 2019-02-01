@@ -1,9 +1,47 @@
+/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
+
 import { CONTACT_ENDPOINT, EMAIL_CONFIRMATION_URL } from '../config/global';
+import Button from './shared/Button';
 import './ContactForm.scss';
 
 class ContactForm extends Component {
+  state = {
+    formState: {
+      email: '',
+      fullName: '',
+      deadline: '',
+      message: ''
+    }
+  };
+
+  componentDidMount() {
+    if (window.localStorage) {
+      if (window.localStorage.getItem('formState')) {
+        this.setState({
+          formState: JSON.parse(window.localStorage.getItem('formState'))
+        });
+      }
+    }
+  }
+
+  saveFormStateInStorage = () => {
+    if (window.localStorage) {
+      const { formState } = this.state;
+      window.localStorage.setItem('formState', JSON.stringify(formState));
+    }
+  };
+
+  clearFormStateInStorage = () => {
+    if (window.localStorage) {
+      if (window.localStorage.getItem('formState')) {
+        window.localStorage.removeItem('formState');
+      }
+    }
+  };
+
   handleFormSubmit = () => {
     const formIsValid = this.formNode.checkValidity();
     if (formIsValid) {
@@ -11,10 +49,37 @@ class ContactForm extends Component {
         category: 'Contact',
         action: 'Submit-Contact-Form'
       });
+
+      this.clearFormStateInStorage();
     }
   };
 
+  handleInputChange = e => {
+    const fieldName = e.target.name;
+    const fieldValue = e.target.value;
+    this.setState(
+      currentState => ({
+        formState: {
+          ...currentState.formState,
+          [fieldName]: fieldValue
+        }
+      }),
+      this.saveFormStateInStorage
+    );
+  };
+
   render() {
+    const { formState } = this.state;
+    const { email, fullName, deadline, message } = formState;
+
+    const submitButtonProps = {
+      look: 'primary',
+      size: 'lg',
+      block: true,
+      type: 'submit',
+      className: 'contact-form__submit-btn'
+    };
+
     return (
       <div id="contact-form">
         <form
@@ -34,9 +99,7 @@ class ContactForm extends Component {
                 className="form-control"
                 placeholder="Email"
                 name="email"
-                ref={input => {
-                  this.emailInput = input;
-                }}
+                value={email}
                 onChange={this.handleInputChange}
                 required
               />
@@ -44,7 +107,16 @@ class ContactForm extends Component {
 
             <div className="form-group">
               <label htmlFor="full-name">Name</label>
-              <input id="full-name" type="text" className="form-control" placeholder="Name" name="name" required />
+              <input
+                id="full-name"
+                type="text"
+                className="form-control"
+                placeholder="Name"
+                name="fullName"
+                value={fullName}
+                onChange={this.handleInputChange}
+                required
+              />
             </div>
 
             <div className="form-group">
@@ -53,7 +125,8 @@ class ContactForm extends Component {
                 className="custom-select custom-select mb-3"
                 id="deadline"
                 name="deadline"
-                defaultValue=""
+                value={deadline}
+                onChange={this.handleInputChange}
                 required
               >
                 <option value="">Select...</option>
@@ -69,19 +142,18 @@ class ContactForm extends Component {
                 className="form-control"
                 id="inspirations"
                 placeholder="Please provide any details here. It can help us better estimate project scope and pricing."
-                name="inspirations"
-                rows={4}
+                name="message"
+                value={message}
+                onChange={this.handleInputChange}
+                rows={5}
               />
             </div>
           </div>
 
           <div className="contact-form__submit-btn-wrapper">
-            <button
-              onClick={this.handleFormSubmit}
-              className="btn btn-primary btn-lg btn-block contact-form__submit-btn"
-            >
+            <Button onClick={this.handleFormSubmit} {...submitButtonProps}>
               Get In Touch
-            </button>
+            </Button>
           </div>
 
           <input type="hidden" name="_next" value={EMAIL_CONFIRMATION_URL} />
