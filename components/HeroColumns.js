@@ -7,7 +7,7 @@ import './HeroColumns.scss';
 const HeroColumns = () => (
   <section className="hero-columns">
     <Wrapper>
-      <header className="hero-columns__header">
+      <header className="hero-columns__header" data-aos="fade-up">
         <div className="row">
           <div className="col-md-8 mb-3">
             <p className="lead">Web development company located in Los Angeles, CA</p>
