@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import React from 'react';
-import { Wrapper, ContactForm, ContactStatic, Splash } from '../components';
+import { Wrapper, ContactForm, Splash } from '../components';
 
 export default () => (
   <React.Fragment>
