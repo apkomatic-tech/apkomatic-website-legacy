@@ -10,10 +10,10 @@ export default class PortfolioDisplay extends Component {
     detail: null
   };
 
-  onDetailClick = id => {
-    const display = items.filter(item => item.id === Number(id))[0];
+  onDetailClick = projectId => {
+    const { items } = this.props;
+    const display = items.filter(item => item.id === Number(projectId))[0];
 
-    console.log(display);
     if (display) {
       this.setState({
         detail: display
@@ -34,16 +34,26 @@ export default class PortfolioDisplay extends Component {
     return (
       <React.Fragment>
         <PortfolioDetail {...this.state} {...this.props} onDetailClose={this.onDetailClose} />
-        {items.map(project => (
-          <div key={project.id} className="col-lg-6 mb-3">
-            <article className={`card project h-100 ${cardTextAlignStyle}`}>
-              <div className="card-body">
+        <div className="porfolio-display">
+          {items.map(project => (
+            <div key={project.id} className="portfolio-display__item">
+              <div className="portfolio-display__item__info">
                 <h3>{project.name}</h3>
-                <img className="img-fluid project__image" src={project.imageUrl} alt={project.name} />
+                <div style={{ marginTop: '1rem' }}>
+                  <button
+                    type="button"
+                    className="btn btn-tertiary btn-sm btn--with-direction-right"
+                    onClick={() => this.onDetailClick(project.id)}
+                    style={{ minWidth: '150px' }}
+                  >
+                    See Details <i className="far fa-eye direction-icon" />
+                  </button>
+                </div>
               </div>
-            </article>
-          </div>
-        ))}
+              <img className="portfolio-display__item__image" src={project.imageUrl} alt={project.name} />
+            </div>
+          ))}
+        </div>
       </React.Fragment>
     );
   }

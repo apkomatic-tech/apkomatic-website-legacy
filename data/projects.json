@@ -1,44 +1,44 @@
 [
-    {
-        "id": 1,
-        "name": "Home Inspectors California",
-        "description": "A website for Home Inspectors California Company",
-        "url": "//homeinspectorscalifornia.com/",
-        "imageUrl": "/static/images/work/homeinspectors.png",
-        "features": [
-            "Mobile",
-            "Responsive",
-            "Contact Form",
-            "Custom Minimalistic Design",
-            "Rich Images"
-        ]
-    },
-    {
-        "id": 2,
-        "name": "Caremed Transport",
-        "description": "A website for Caremed Transport Company",
-        "url": "//caremedtransportoc.com",
-        "imageUrl": "/static/images/work/caremedtransport.png",
-        "features": [
-            "Mobile",
-            "Responsive",
-            "Contact Form",
-            "Custom Minimalistic Design",
-            "Rich Images"
-        ]
-    },
-    {
-        "id": 3,
-        "name": "Restaurant Mockup (Nicola's Kitchen)",
-        "description": "A mockup we made for a real business - Nicola's Kitchen",
-        "url": "//nicolaskitchennext-gmumbduoym.now.sh/",
-        "imageUrl": "/static/images/work/nicola_kitchen.jpg",
-        "features": [
-            "Mobile",
-            "Responsive",
-            "Contact Form",
-            "Custom Minimalistic Design",
-            "Rich Images"
-        ]
-    }
+  {
+    "id": 1,
+    "name": "Home Inspectors California",
+    "description": "Home Inspectors California is dedicated to setting the standard in affordability, professionalism, and efficiency in the home inspection business. They understand that every real estate transaction is different, each property is unique. Their goal is to give you the best price for your property inspection. ",
+    "url": "//homeinspectorscalifornia.com/",
+    "imageUrl": "/static/images/work/home-inspectors.jpg",
+    "features": [
+      "Mobile",
+      "Responsive",
+      "Contact Form",
+      "Custom Minimalistic Design",
+      "Rich Images"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Caremed Transport",
+    "description": "Care MED Transport is a privately owned and operated company providing Non-emergency transportation to the community of Greater Los Angeles and Orange County. Care MED Transport was founded in 2016 based on experience that many people needed a service for transportation to go for doctor's appointment, medical treatments and other medical necessity.",
+    "url": "//caremedtransportinc.com",
+    "imageUrl": "/static/images/work/caremed.jpg",
+    "features": [
+      "Mobile",
+      "Responsive",
+      "Contact Form",
+      "Custom Minimalistic Design",
+      "Rich Images"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Nicola's Kitchen (proof of concept)",
+    "description": "Established in 1990, Nicola's Kitchen has been serving the San Fernando Valley for many years. In that time we have developed a style of Italian food with influences ranging from the California Coast to the shores of Thailand. We hope that you and your family have had the pleasure of experiencing our unique homemade food as well as our prompt and friendly service.",
+    "url": "//nicolakitchen-demo.netlify.com/",
+    "imageUrl": "/static/images/work/nicola-kitchen.jpg",
+    "features": [
+      "Mobile",
+      "Responsive",
+      "Contact Form",
+      "Custom Minimalistic Design",
+      "Rich Images"
+    ]
+  }
 ]
