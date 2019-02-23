@@ -52,34 +52,4 @@ const PortfolioDetails = props => {
   );
 };
 
-// const PortfolioDetails = ({ detail, onDetailClose }) => (
-//   <div className={`portfolio-details ${detail ? ' portfolio-details--shown' : ''}`}>
-//     <a href="#" onClick={onDetailClose} className="portfolio-details__close">
-//       <i className="fas fa-times" />
-//     </a>
-//     {detail && (
-//       <div key={detail.id} className="portfolio-details__wrapper">
-//         <h3>{detail.name}</h3>
-//         <p className="text-muted">{detail.description}</p>
-//         <img className="img-fluid image" src={detail.imageUrl} alt={detail.name} />
-//         {detail.features.length > 0 &&
-//           detail.features.map((feature, index) => (
-//             <article key={index} className="feature">
-//               <i className="fa fa-check-circle" />
-//               {feature}
-//             </article>
-//           ))}
-//         }
-//         <div className="card-body">
-//           {detail.url && (
-//             <a href={detail.url} className="portfolio-details__visit-btn btn btn-tertiary">
-//               Visit Website <i className="fa fa-link" />
-//             </a>
-//           )}
-//         </div>
-//       </div>
-//     )}
-//   </div>
-// );
-
 export default PortfolioDetails;
