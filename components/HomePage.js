@@ -5,7 +5,7 @@ class HomePage extends Component {
   componentDidMount() {
     AOS.init({
       duration: 500,
-      once: true
+      once: false
     });
   }
 

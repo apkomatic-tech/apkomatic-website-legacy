@@ -14,7 +14,7 @@ export default () => (
   <React.Fragment>
     {DISPLAY_WORK && <Splash {...splashProps} />}
 
-    <Wrapper>
+    <div style={{ maxWidth: '95%', padding: '0 1rem', margin: '2rem auto' }}>
       {DISPLAY_WORK && (
         <div className="row d-flex align-items-stretch mt-3 pt-3">
           <PortfolioDisplay items={projectsJSON} />
@@ -33,6 +33,6 @@ export default () => (
           </Link>
         </div>
       )}
-    </Wrapper>
+    </div>
   </React.Fragment>
 );

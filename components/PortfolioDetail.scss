@@ -1,46 +1,115 @@
 @import './../css/_config.scss';
 @import './../css/_mixins.scss';
 
+.portfolio-detail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: $dark;
+  color: $white;
+  transition: all 300ms ease;
+  text-decoration: none;
+  overflow: hidden;
+  opacity: 0.01;
+  transform: translateY(100%);
 
+  &--shown {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 
-.portfolio-details {
+  &__wrapper {
+    flex: 0 1 800px;
+    padding: 2rem;
+    height: 100vh;
+    overflow-y: auto;
+  }
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10000;
-    background: rgba(0, 0, 0, .6);
+  &__title {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+    color: $white;
+  }
+
+  &__desc {
+    margin: 0 0 2rem;
+    color: rgba($white, 0.8);
+  }
+
+  &__title,
+  &__desc {
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    color: rgba($white, 0.8);
+    z-index: 1005;
+    transform-origin: center;
+    transition: color 150ms linear;
+    &:hover {
+      color: $white;
+    }
+
+    @media only screen and (min-width: 767px) {
+      top: 35px;
+      right: 35px;
+      font-size: 30px;
+    }
+  }
+
+  &__btn-wrapper {
+    margin-bottom: 2rem;
     display: flex;
-    align-items: center;
     justify-content: center;
-    pointer-events: none;
-    opacity: 0;
-
-    transition: all 300ms ease-in-out;
-
-    &--shown {
-        opacity: 1;
-        pointer-events: auto;
+    .btn {
+      flex: 0 1 300px;
     }
+  }
 
+  &__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid rgba($white, 0.35);
+    display: block;
+    margin-bottom: 2rem;
+  }
 
-    &__wrapper {
-        background: #fff;
-        padding: 2rem;
+  &__features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    > div {
+      font-size: 0.8rem;
+      margin-right: 1rem;
+      padding: 0.15rem 0.5rem;
+      background: rgba($white, 0.1);
+      color: rgba($white, 0.7);
+      border-radius: 5px;
+      margin-bottom: 0.75rem;
     }
+  }
 
-    &__close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        font-size: 2rem;
-        color: $white;
-        z-index: 10001;
-        &:hover {
-            color: $white;
-        }
+  @media only screen and (max-width: 767px) {
+    &__btn-wrapper {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      .btn {
+        flex: 1 1 100%;
+      }
     }
-
+  }
 }

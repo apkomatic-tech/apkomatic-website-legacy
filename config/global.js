@@ -4,8 +4,7 @@ export const SENTRY_KEY =
   process.env.NODE_ENV === 'production'
     ? 'https://7dcedfd697fa495cb02c6bfd0e177260@sentry.io/1284502'
     : 'https://b437d768b74a4b179edcb38b4d801a60@sentry.io/1284503';
-export const DISPLAY_WORK = false;
-export const DISPLAY_CONTACT_FORM = true;
+export const DISPLAY_WORK = true;
 export const CONTACT_ENDPOINT =
   process.env.NODE_ENV === 'production'
     ? 'https://formspree.io/apkomatic@gmail.com'
