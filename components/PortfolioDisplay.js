@@ -29,11 +29,12 @@ export default class PortfolioDisplay extends Component {
   };
 
   render() {
+    const { detail } = this.state;
     const { items } = this.props;
 
     return (
       <React.Fragment>
-        <PortfolioDetail {...this.state} {...this.props} onDetailClose={this.onDetailClose} />
+        {detail && <PortfolioDetail {...this.state} {...this.props} onDetailClose={this.onDetailClose} />}
         <div className="porfolio-display">
           {items.map(project => (
             <div key={project.id} className="portfolio-display__item">
@@ -46,7 +47,7 @@ export default class PortfolioDisplay extends Component {
                     onClick={() => this.onDetailClick(project.id)}
                     style={{ minWidth: '150px' }}
                   >
-                    See Details <i className="far fa-eye direction-icon" />
+                    Details <i className="far fa-eye direction-icon" />
                   </button>
                 </div>
               </div>

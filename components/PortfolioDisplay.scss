@@ -38,6 +38,18 @@
         font-size: 1.1rem;
       }
     }
+
+    .btn {
+      background-color: transparent;
+      border-color: $white;
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $white;
+        color: $dark;
+        border-color: $white;
+      }
+    }
   }
 
   @media only screen and (min-width: 767px) {

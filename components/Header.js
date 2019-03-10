@@ -92,7 +92,7 @@ class Header extends Component {
 
   renderDesktopLink = ({ label, pathname, isButton }) => {
     if (isButton) {
-      return <a className="btn btn-tertiary">{label}</a>;
+      return <a className="btn btn-tertiary nav-btn">{label}</a>;
     }
     const { path } = this.props;
     return <a className={`top-nav__link${path === pathname ? ' active' : ''}`}>{label}</a>;

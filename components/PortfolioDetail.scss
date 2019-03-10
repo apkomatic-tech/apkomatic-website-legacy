@@ -29,19 +29,24 @@
   &__wrapper {
     flex: 0 1 800px;
     padding: 2rem;
-    height: 100vh;
-    overflow-y: auto;
   }
 
   &__title {
     font-size: 2rem;
     margin: 0 0 1rem;
     color: $white;
+    @media only screen and (max-width: 767px) {
+      font-size: 1.6rem;
+    }
   }
 
   &__desc {
     margin: 0 0 2rem;
+    font-size: 1rem;
     color: rgba($white, 0.8);
+    @media only screen and (max-width: 767px) {
+      font-size: 0.8rem;
+    }
   }
 
   &__title,
@@ -50,22 +55,27 @@
   }
 
   &__close {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 20px;
+    appearance: none;
+    background: transparent;
+    border: none;
     color: rgba($white, 0.8);
-    z-index: 1005;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 400;
+    position: absolute;
+    right: 25px;
+    top: 40px;
     transform-origin: center;
     transition: color 150ms linear;
+    z-index: 1005;
     &:hover {
       color: $white;
     }
 
-    @media only screen and (min-width: 767px) {
-      top: 35px;
-      right: 35px;
-      font-size: 30px;
+    @media only screen and (max-width: 640px) {
+      top: 15px;
+      right: 15px;
+      font-size: 20px;
     }
   }
 
@@ -73,8 +83,18 @@
     margin-bottom: 2rem;
     display: flex;
     justify-content: center;
+    transition: 320ms ease-in-out;
     .btn {
       flex: 0 1 300px;
+      border-color: rgba($white, 0.1);
+      background: rgba($white, 0.1);
+      box-shadow: 0 7px 30px rgba(0, 0, 0, 0.25);
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: rgba($white, 0.2);
+        background: rgba($white, 0.2);
+      }
     }
   }
 
