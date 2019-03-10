@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './PortfolioDetail.scss';
 
 const PortfolioDetail = props => {
-  const [width, updateWidth] = useState(window.innerWidth);
-  const [height, updateHeight] = useState(window.innerHeight);
   const { detail, onDetailClose } = props;
   const containerClass = `portfolio-detail${detail ? ' portfolio-detail--shown' : ''}`;
 
@@ -14,19 +12,6 @@ const PortfolioDetail = props => {
       document.body.classList.remove('fixed');
     };
   }, []);
-
-  useEffect(() => {
-    function handleResize() {
-      updateWidth(window.innerWidth);
-      updateHeight(window.innerHeight);
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  });
 
   function renderProjectFeatures() {
     if (detail && detail.features.length) {
