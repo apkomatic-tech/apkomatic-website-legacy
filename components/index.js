@@ -11,7 +11,7 @@ export { default as Testimonials } from './Testimonials';
 export { default as Slider } from './Slider';
 export { default as FaqBlock } from './FaqBlock';
 export { default as Checkmark } from './shared/Checkmark';
-export { default as CardStack } from './CardStack';
+export { default as ServiceOptions } from './servicePage/ServiceOptions';
 export { default as ContactForm } from './ContactForm';
 export { default as PortfolioDisplay } from './PortfolioDisplay';
 export { default as PortfolioDetail } from './PorfolioDetail';

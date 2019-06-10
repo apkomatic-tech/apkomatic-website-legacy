@@ -30,7 +30,7 @@ const PortfolioDisplay = props => {
       <div className="porfolio-display">
         {props.items.map(project => (
           <div key={project.id} className="portfolio-display__item">
-            <div className="portfolio-display__item__info">
+            <div className="portfolio-display__item__info" role="button" onClick={() => onDetailClick(project.id)}>
               <h3>{project.name}</h3>
               <div style={{ marginTop: '1rem' }}>
                 <button

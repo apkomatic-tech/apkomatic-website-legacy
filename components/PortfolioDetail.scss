@@ -12,7 +12,11 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  background: $dark;
+  background-color: $dark;
+  background-image: linear-gradient(
+    rgba($ternary_color, 0.5),
+    rgba($dark, 0.5)
+  );
   color: $white;
   transition: all 300ms ease;
   text-decoration: none;

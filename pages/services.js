@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, Splash, CardStack } from '../components';
+import { Wrapper, Splash, ServiceOptions } from '../components';
 
 const splashProps = {
   title: 'Our Services',
@@ -11,7 +11,7 @@ export default () => (
   <React.Fragment>
     <Splash {...splashProps} />
     <Wrapper style={{ marginBottom: '3rem' }}>
-      <CardStack />
+      <ServiceOptions />
     </Wrapper>
   </React.Fragment>
 );
