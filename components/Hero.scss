@@ -7,43 +7,45 @@
   border-radius: 0;
   overflow: hidden;
   background-position: center;
-  background-color: #f3f8ff;
+  background-color: $dark;
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
-  color: $dark;
-  background-image: linear-gradient(
-      rgba($white, 0.85),
-      rgba($white, 0.65) 70%,
-      rgba($white, 0.99)
-    ),
-    url('/static/images/hero.jpg');
+  color: $white;
+  background-image: linear-gradient(rgba($dark, 0.65), rgba($dark, 0.65)),
+    url('/static/images/home/hero-background-desktop.jpg');
 
   @media only screen and (max-width: 767px) {
     min-height: 450px;
+    background-image: linear-gradient(
+        rgba($dark, 0.85),
+        rgba($dark, 0.65) 70%,
+        rgba($dark, 0.99)
+      ),
+      url('/static/images/home/hero-background-mobile.jpg');
   }
 
-  @media only screen and (max-width: 767px) and (device-pixel-ratio: 1) {
-    background-image: linear-gradient(
-        rgba($white, 0.78) 40%,
-        rgba($white, 0.78)
-      ),
-      url('/static/images/hero-mobile@1x.jpg');
-  }
-  @media only screen and (max-width: 767px) and (device-pixel-ratio: 2) {
-    background-image: linear-gradient(
-        rgba($white, 0.78) 40%,
-        rgba($white, 0.78)
-      ),
-      url('/static/images/hero-mobile@2x.jpg');
-  }
-  @media only screen and (max-width: 767px) and (device-pixel-ratio: 3) {
-    background-image: linear-gradient(
-        rgba($white, 0.78) 40%,
-        rgba($white, 0.78)
-      ),
-      url('/static/images/hero-mobile@3x.jpg');
-  }
+  // @media only screen and (max-width: 767px) and (device-pixel-ratio: 1) {
+  //   background-image: linear-gradient(
+  //       rgba($white, 0.78) 40%,
+  //       rgba($white, 0.78)
+  //     ),
+  //     url('/static/images/hero-mobile@1x.jpg');
+  // }
+  // @media only screen and (max-width: 767px) and (device-pixel-ratio: 2) {
+  //   background-image: linear-gradient(
+  //       rgba($white, 0.78) 40%,
+  //       rgba($white, 0.78)
+  //     ),
+  //     url('/static/images/hero-mobile@2x.jpg');
+  // }
+  // @media only screen and (max-width: 767px) and (device-pixel-ratio: 3) {
+  //   background-image: linear-gradient(
+  //       rgba($white, 0.78) 40%,
+  //       rgba($white, 0.78)
+  //     ),
+  //     url('/static/images/hero-mobile@3x.jpg');
+  // }
 
   &-company {
     margin-top: 0;
