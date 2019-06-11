@@ -8,10 +8,13 @@ const Testimonials = () => {
     dots: true,
     arrows: false,
     infinite: true,
-    speed: 350,
+    speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
-    easing: 'cubic-bezier(.22,-0.12,.65,1.11)'
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    easing: 'cubic-bezier(.55,-0.16,.75,1.16)'
   };
   const testimonialsContent = (
     <Slider settings={testimonialSliderSettings}>
