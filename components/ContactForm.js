@@ -86,6 +86,7 @@ const ContactForm = () => {
           formNode = node;
         }}
       >
+        <input type="hidden" name="form-name" value="apkomatic-contact" />
         <div style={{ display: 'none' }}>
           <input name="bot-field" />
         </div>
