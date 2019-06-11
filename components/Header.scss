@@ -34,7 +34,7 @@
 
     &.sticky {
       background-color: $white;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.045);
+      box-shadow: 0 5px 30px rgba($dark, 0.15);
     }
     @media only screen and (max-width: 992px) {
       background-color: $white;
@@ -63,7 +63,7 @@
   margin: 0;
   &__toggle {
     display: block;
-    color: $primary_color;
+    color: $dark;
     cursor: pointer;
     font-size: 1.5rem;
   }
@@ -77,11 +77,25 @@
   .nav-btn {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: 210ms ease;
+    border-color: $dark;
+    color: $dark;
     &:hover,
     &:focus,
     &:active {
-      background: transparent;
-      color: $primary_color;
+      background: $dark;
+      color: $white;
+    }
+
+    #landing .header:not(.sticky) & {
+      border-color: $white;
+      color: $white;
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: $primary_color;
+        color: $primary_color;
+        background: transparent;
+      }
     }
   }
 
@@ -141,12 +155,14 @@
 .mobile-nav {
   position: fixed;
   top: 0;
-  background: $dark;
+  background: $white;
   left: 0;
   width: 100%;
   z-index: 999;
   transform: translateY(-100%);
   transition: transform 300ms ease;
+  border-top: 1px solid rgba($dark, 0.2);
+  box-shadow: 0 10px 35px rgba($dark, 0.3);
 
   &--alt {
     background: #f5f9fff5;
@@ -163,9 +179,9 @@
   }
 
   &__link {
-    color: $white;
+    color: $dark;
     display: block;
-    border-bottom: 1px solid rgba($white, 0.05);
+    border-bottom: 1px solid rgba($dark, 0.1);
     text-align: center;
     padding: 1rem;
     .mobile-nav--alt & {
