@@ -77,12 +77,18 @@ const ContactForm = () => {
     <div id="contact-form">
       <form
         className="contact-form form mt-3"
-        action={CONTACT_ENDPOINT}
-        method="POST"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        data-netlify-recaptcha="true"
+        name="apkomatic-contact"
         ref={node => {
           formNode = node;
         }}
       >
+        <div style={{ display: 'none' }}>
+          <input name="bot-field" />
+        </div>
         <div className="form-section">
           <div className="form-group">
             <label htmlFor="email">Email address</label>
@@ -143,14 +149,12 @@ const ContactForm = () => {
           </div>
         </div>
 
+        <div data-netlify-recaptcha="true" />
         <div className="contact-form__submit-btn-wrapper">
           <Button onClick={handleFormSubmit} {...submitButtonProps}>
             Get In Touch
           </Button>
         </div>
-
-        <input type="hidden" name="_next" value={EMAIL_CONFIRMATION_URL} />
-        <input type="text" name="_gotcha" style={{ display: 'none' }} />
       </form>
     </div>
   );
