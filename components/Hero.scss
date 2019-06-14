@@ -16,7 +16,8 @@
     url('/static/images/home/hero-background-desktop.jpg');
 
   @media only screen and (max-width: 767px) {
-    min-height: 450px;
+    // header height is set to 80px
+    min-height: calc(100vh - 80px);
     background-image: linear-gradient(
         rgba($dark, 0.85),
         rgba($dark, 0.65) 70%,
@@ -24,28 +25,6 @@
       ),
       url('/static/images/home/hero-background-mobile.jpg');
   }
-
-  // @media only screen and (max-width: 767px) and (device-pixel-ratio: 1) {
-  //   background-image: linear-gradient(
-  //       rgba($white, 0.78) 40%,
-  //       rgba($white, 0.78)
-  //     ),
-  //     url('/static/images/hero-mobile@1x.jpg');
-  // }
-  // @media only screen and (max-width: 767px) and (device-pixel-ratio: 2) {
-  //   background-image: linear-gradient(
-  //       rgba($white, 0.78) 40%,
-  //       rgba($white, 0.78)
-  //     ),
-  //     url('/static/images/hero-mobile@2x.jpg');
-  // }
-  // @media only screen and (max-width: 767px) and (device-pixel-ratio: 3) {
-  //   background-image: linear-gradient(
-  //       rgba($white, 0.78) 40%,
-  //       rgba($white, 0.78)
-  //     ),
-  //     url('/static/images/hero-mobile@3x.jpg');
-  // }
 
   &-company {
     margin-top: 0;
@@ -59,12 +38,6 @@
     margin: 0 0 2.6rem;
     text-align: center;
   }
-
-  // @media only screen and (max-width: 992px) {
-  //     &-title {
-  //         font-size: 2rem;
-  //     }
-  // }
 
   &-cta {
     box-shadow: 0 10px 35px rgba($dark, 0.15);
