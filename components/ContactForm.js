@@ -2,19 +2,29 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import ReactGA from 'react-ga';
-
-import { CONTACT_ENDPOINT, EMAIL_CONFIRMATION_URL } from '../config/global';
 import Button from './shared/Button';
 import './ContactForm.scss';
+
+const CONTACT_FORM_NAME = process.env.NODE_ENV === 'production' ? 'apkomatic-prod-contact' : 'apkomatic-dev-contact';
+const initialFormState = {
+  email: '',
+  fullName: '',
+  deadline: '',
+  message: ''
+};
+function encode(data) {
+  return Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+}
 
 const ContactForm = () => {
   let formNode;
 
-  const [formState, setFormState] = useState({
-    email: '',
-    fullName: '',
-    deadline: '',
-    message: ''
+  const [formState, setFormState] = useState(initialFormState);
+  const [formValidation, setFormValidation] = useState({
+    success: false,
+    fail: false
   });
 
   const submitButtonProps = {
@@ -39,15 +49,32 @@ const ContactForm = () => {
     }
   };
 
-  const handleFormSubmit = () => {
+  const sendEmail = async () => {
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: encode({ 'form-name': CONTACT_FORM_NAME, ...formState })
+      });
+      setFormValidation({ success: true, fail: false });
+      clearFormStateInStorage();
+      setFormState({ ...initialFormState });
+    } catch (e) {
+      setFormValidation({ success: false, fail: true });
+    }
+  };
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
     const formIsValid = formNode.checkValidity();
     if (formIsValid) {
       ReactGA.event({
         category: 'Contact',
         action: 'Submit-Contact-Form'
       });
-
-      clearFormStateInStorage();
+      sendEmail();
     }
   };
 
@@ -75,14 +102,34 @@ const ContactForm = () => {
 
   return (
     <div id="contact-form">
+      {formValidation.success && (
+        <div
+          style={{
+            padding: '1rem 1.25rem',
+            background: '#f6f6f6',
+            color: '#111',
+            textAlign: 'left',
+            border: '1px solid #eee'
+          }}
+        >
+          <h4>Thank you!</h4>
+          <p>We have received your contact request. Someone from our team will contact you shortly.</p>
+        </div>
+      )}
+      {formValidation.fail && (
+        <p className="lead text-red text-center">Form submission request failed. Please try again.</p>
+      )}
       <form
+        name={CONTACT_FORM_NAME}
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleFormSubmit}
         className="contact-form form mt-3"
-        action={CONTACT_ENDPOINT}
-        method="POST"
         ref={node => {
           formNode = node;
         }}
       >
+        <input type="hidden" name="form-name" value={CONTACT_FORM_NAME} />
         <div className="form-section">
           <div className="form-group">
             <label htmlFor="email">Email address</label>
@@ -148,9 +195,6 @@ const ContactForm = () => {
             Get In Touch
           </Button>
         </div>
-
-        <input type="hidden" name="_next" value={EMAIL_CONFIRMATION_URL} />
-        <input type="text" name="_gotcha" style={{ display: 'none' }} />
       </form>
     </div>
   );
