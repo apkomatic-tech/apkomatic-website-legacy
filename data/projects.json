@@ -26,19 +26,5 @@
       "Custom Minimalistic Design",
       "Rich Images"
     ]
-  },
-  {
-    "id": 3,
-    "name": "Nicola's Kitchen (proof of concept)",
-    "description": "Established in 1990, Nicola's Kitchen has been serving the San Fernando Valley for many years. In that time we have developed a style of Italian food with influences ranging from the California Coast to the shores of Thailand. We hope that you and your family have had the pleasure of experiencing our unique homemade food as well as our prompt and friendly service.",
-    "url": "//nicolakitchen-demo.netlify.com/",
-    "imageUrl": "/static/images/work/nicola-kitchen.jpg",
-    "features": [
-      "Mobile",
-      "Responsive",
-      "Contact Form",
-      "Custom Minimalistic Design",
-      "Rich Images"
-    ]
   }
 ]

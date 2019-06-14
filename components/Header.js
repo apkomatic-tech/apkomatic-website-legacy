@@ -7,15 +7,16 @@ import './Header.scss';
 
 class Header extends Component {
   state = {
-    navOpen: false
+    navOpen: false,
+    stickyInitialized: false
   };
 
   componentDidMount() {
-    const { fixed: isFixedHeader } = this.props;
+    const { fixed } = this.props;
 
     ReactGA.initialize(GUA_TRACKING_ID, { debug: IS_DEV });
     if (typeof window !== 'undefined') {
-      if (isFixedHeader) {
+      if (fixed) {
         this.initStickyHeader();
       }
       ReactGA.pageview(window.location.pathname + window.location.search);
@@ -25,6 +26,14 @@ class Header extends Component {
       document.body.classList.add('background-blend-unsupported');
     } else {
       document.body.classList.add('background-blend-supported');
+    }
+  }
+
+  componentDidUpdate() {
+    const { fixed } = this.props;
+    const { stickyInitialized } = this.state;
+    if (fixed && !stickyInitialized) {
+      this.initStickyHeader();
     }
   }
 
@@ -72,6 +81,10 @@ class Header extends Component {
 
       lastScroll = scrollTop <= 0 ? 0 : scrollTop;
     });
+
+    this.setState({
+      stickyInitialized: true
+    });
   };
 
   closeNav = () => {
@@ -92,7 +105,7 @@ class Header extends Component {
 
   renderDesktopLink = ({ label, pathname, isButton }) => {
     if (isButton) {
-      return <a className="btn btn-tertiary">{label}</a>;
+      return <a className="btn nav-btn">{label}</a>;
     }
     const { path } = this.props;
     return <a className={`top-nav__link${path === pathname ? ' active' : ''}`}>{label}</a>;

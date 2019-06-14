@@ -7,7 +7,7 @@ import '../css/faq.scss';
 const splashProps = {
   title: 'Apkomatic FAQ',
   isFaq: true,
-  splashStyle: 'splash--alt2'
+  splashStyle: 'splash--alt1'
 };
 
 export default () => (

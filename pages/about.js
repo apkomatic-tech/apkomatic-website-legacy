@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Link from 'next/link';
-import { Wrapper } from '../components';
+import { Wrapper, Splash } from '../components';
 
 import '../css/about.scss';
 
@@ -9,11 +9,11 @@ const contactBtnStyle = {
 };
 
 export default () => (
-  <section className="about-us">
+  <Fragment>
+    <Splash title="About Us" />
     <Wrapper>
       <div className="row">
         <div className="col-md-6 mb-3 mb-md-0">
-          <h4>About Apkomatic</h4>
           <p className="text-muted small mb-3">
             <strong>Apkomatic</strong> is a Los Angeles based web design and development group of professionals who love
             producing high quality and affordable web applications and sites for individuals and businesses. We strive
@@ -33,5 +33,5 @@ export default () => (
         </div>
       </div>
     </Wrapper>
-  </section>
+  </Fragment>
 );

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './PortfolioDetail.scss';
 
-const PortfolioDetails = props => {
+const PortfolioDetail = props => {
   const { detail, onDetailClose } = props;
   const containerClass = `portfolio-detail${detail ? ' portfolio-detail--shown' : ''}`;
+
+  useEffect(() => {
+    document.body.classList.add('fixed');
+    return () => {
+      document.body.classList.remove('fixed');
+    };
+  }, []);
 
   function renderProjectFeatures() {
     if (detail && detail.features.length) {
@@ -25,10 +33,9 @@ const PortfolioDetails = props => {
         <React.Fragment>
           <h2 className="portfolio-detail__title">{detail.name}</h2>
           <p className="portfolio-detail__desc">{detail.description}</p>
-          <img className="portfolio-detail__image img-fluid" src={detail.imageUrl} alt={detail.name} />
           <div className="portfolio-detail__btn-wrapper">
             <a href={detail.url} className="btn btn-tertiary btn--with-direction-right">
-              Visit Website <i className="fas fa-link direction-icon" />
+              Visit <i className="fas fa-link direction-icon" />
             </a>
           </div>
         </React.Fragment>
@@ -40,9 +47,9 @@ const PortfolioDetails = props => {
 
   return (
     <div className={containerClass}>
-      <a href="#" onClick={onDetailClose} className="portfolio-detail__close">
+      <button type="button" onClick={onDetailClose} className="portfolio-detail__close">
         <i className="fas fa-times" />
-      </a>
+      </button>
 
       <div className="portfolio-detail__wrapper">
         {renderProjectInfo()}
@@ -52,4 +59,9 @@ const PortfolioDetails = props => {
   );
 };
 
-export default PortfolioDetails;
+PortfolioDetail.propTypes = {
+  detail: PropTypes.shape({}).isRequired,
+  onDetailClose: PropTypes.func.isRequired
+};
+
+export default PortfolioDetail;

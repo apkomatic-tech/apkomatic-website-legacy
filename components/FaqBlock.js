@@ -1,32 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './FaqBlock.scss';
 
-export default class FaqBlock extends Component {
-  static propTypes = {
-    id: PropTypes.number.isRequired,
-    question: PropTypes.string.isRequired,
-    answer: PropTypes.shape().isRequired
-  };
+const FaqBlock = ({ question, answer }) => (
+  <article className="faq-block">
+    <h4 className="faq-block__question">{question}</h4>
+    <p className="faq-block__answer small">{answer}</p>
+  </article>
+);
 
-  state = {
-    answerExpanded: this.props.answer.expanded
-  };
+FaqBlock.propTypes = {
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired
+};
 
-  toggleExpanded = () => {
-    this.setState({
-      answerExpanded: !this.state.answerExpanded
-    });
-  };
-
-  render() {
-    // const { answerExpanded } = this.state;
-    const { id, question, answer } = this.props;
-    return (
-      <article className="faq-block">
-        <h4 className="faq-block__question">{question}</h4>
-        <p className="faq-block__answer small">{answer.text}</p>
-      </article>
-    );
-  }
-}
+export default FaqBlock;
