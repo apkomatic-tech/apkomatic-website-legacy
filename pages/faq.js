@@ -3,6 +3,7 @@ import { Wrapper, FaqBlock, Splash } from '../components';
 import faqJSON from '../data/faq.json';
 
 import '../css/faq.scss';
+import FaqAccordion from '../components/FaqAccordion';
 
 const splashProps = {
   title: 'Apkomatic FAQ',
@@ -15,9 +16,7 @@ export default () => (
     <Splash {...splashProps} />
     <Wrapper>
       <section className="faq-wrapper">
-        {faqJSON.map(faq => (
-          <FaqBlock key={faq.id} {...faq} />
-        ))}
+        <FaqAccordion items={faqJSON} />
       </section>
     </Wrapper>
   </React.Fragment>

@@ -1,0 +1,43 @@
+@import './../css/_config.scss';
+
+.accordion-item {
+  margin-bottom: 10px;
+  &__question {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    &:hover {
+      background: rgba($dark, 0.025);
+    }
+  }
+  &:not(.collapsed) &__question {
+    background: rgba($dark, 0.025);
+  }
+  &__toggle {
+    transform: rotate(-90deg);
+    appearance: none;
+    background: none;
+    padding: 0;
+    display: inline-block;
+    border: 0;
+    transition: 300ms transform ease;
+    .collapsed & {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__answer {
+    overflow: hidden;
+    .content {
+      max-height: 400px;
+      transition: 300ms ease;
+      padding: 0 0 0 30px;
+      .collapsed & {
+        max-height: 0;
+      }
+    }
+  }
+}
