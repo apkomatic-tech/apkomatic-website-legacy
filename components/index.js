@@ -9,7 +9,7 @@ export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as Splash } from './Splash';
 export { default as Testimonials } from './Testimonials';
 export { default as Slider } from './Slider';
-export { default as FaqBlock } from './FaqBlock';
+export { default as FaqAccordion } from './FaqAccordion';
 export { default as Checkmark } from './shared/Checkmark';
 export { default as ServiceOptions } from './servicePage/ServiceOptions';
 export { default as ContactForm } from './ContactForm';

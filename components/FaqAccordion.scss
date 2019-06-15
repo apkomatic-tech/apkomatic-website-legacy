@@ -1,0 +1,35 @@
+@import './../css/_config.scss';
+
+.accordion-item {
+  &__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+  }
+  &__toggle {
+    transform: rotate(-90deg);
+    appearance: none;
+    background: none;
+    padding: 0;
+    display: inline-block;
+    border: 0;
+    transition: 300ms transform ease;
+    .collapsed & {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__answer {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    color: rgba(#111, 0.7);
+    .content {
+      padding: 1rem 2rem;
+      .collapsed & {
+        display: none;
+      }
+    }
+  }
+}
