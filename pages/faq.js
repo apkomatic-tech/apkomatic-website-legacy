@@ -1,9 +1,8 @@
 import React from 'react';
-import { Wrapper, FaqBlock, Splash } from '../components';
+import { Wrapper, FaqAccordion, Splash } from '../components';
 import faqJSON from '../data/faq.json';
 
 import '../css/faq.scss';
-import FaqAccordion from '../components/FaqAccordion';
 
 const splashProps = {
   title: 'Apkomatic FAQ',

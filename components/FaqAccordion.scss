@@ -1,20 +1,12 @@
 @import './../css/_config.scss';
 
 .accordion-item {
-  margin-bottom: 10px;
   &__question {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
     align-items: center;
     cursor: pointer;
-    padding: 10px;
-    &:hover {
-      background: rgba($dark, 0.025);
-    }
-  }
-  &:not(.collapsed) &__question {
-    background: rgba($dark, 0.025);
+    padding: 1rem;
   }
   &__toggle {
     transform: rotate(-90deg);
@@ -31,12 +23,12 @@
 
   &__answer {
     overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    color: rgba(#111, 0.7);
     .content {
-      max-height: 400px;
-      transition: 300ms ease;
-      padding: 0 0 0 30px;
+      padding: 1rem 2rem;
       .collapsed & {
-        max-height: 0;
+        display: none;
       }
     }
   }
