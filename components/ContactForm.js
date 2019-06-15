@@ -8,7 +8,7 @@ import Toast from './shared/Toast';
 import './ContactForm.scss';
 
 const CONTACT_FORM_NAME = process.env.NODE_ENV === 'production' ? 'apkomatic-prod-contact' : 'apkomatic-dev-contact';
-const notificationDelay = 2500;
+const notificationDelay = 3500;
 const initialFormState = {
   email: '',
   fullName: '',
@@ -64,7 +64,16 @@ const ContactForm = () => {
         body: encode({ 'form-name': CONTACT_FORM_NAME, ...formState })
       });
       if (response.ok) {
-        setSubmission({ success: true, fail: false });
+        setSubmission({
+          success: {
+            ...submission.success,
+            show: true
+          },
+          error: {
+            ...submission.error,
+            show: false
+          }
+        });
         setFormState({ ...initialFormState });
       } else {
         showRequestFail();
@@ -72,6 +81,17 @@ const ContactForm = () => {
     } catch (e) {
       showRequestFail();
     }
+    // TODO: dev only remove before deploying!!
+    // setSubmission({
+    //   success: {
+    //     ...submission.success,
+    //     show: true
+    //   },
+    //   error: {
+    //     ...submission.error,
+    //     show: false
+    //   }
+    // });
   };
 
   const handleFormSubmit = e => {
@@ -156,9 +176,7 @@ const ContactForm = () => {
 
   return (
     <React.Fragment>
-      <Toast type="success" show={submission.success.show}>
-        {submission.success.message}
-      </Toast>
+      <Toast show={submission.success.show}>{submission.success.message}</Toast>
       <Toast type="error" show={submission.error.show}>
         {submission.error.message}
       </Toast>
@@ -217,7 +235,7 @@ const ContactForm = () => {
                 onChange={handleInputChange}
                 required
               >
-                <option value="">Select...</option>
+                <option value="">Select Deadline...</option>
                 <option value="1-2 weeks">1-2 weeks</option>
                 <option value="2-4 weeks">2-4 weeks</option>
                 <option value="4-6 weeks">4-6 weeks</option>
