@@ -1,0 +1,32 @@
+@import '../../css/config';
+
+$error_color: #b9003e;
+
+.toast {
+  position: fixed;
+  z-index: 999999;
+  padding: 2rem;
+  background: $dark;
+  color: #fff;
+  text-align: center;
+  transition: transform 325ms ease;
+  bottom: 0;
+  min-width: 320px;
+  left: 50%;
+  pointer: cursor;
+  &--success {
+    background: $success_color;
+    color: $white;
+  }
+  &--error {
+    background: $error_color;
+    color: $white;
+  }
+  &--show {
+    transform: translateY(-10px) translateX(-50%);
+  }
+  &--hide {
+    pointer-events: none;
+    transform: translateY(100%) translateX(-50%);
+  }
+}

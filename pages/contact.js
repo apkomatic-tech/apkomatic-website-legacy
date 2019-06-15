@@ -5,7 +5,7 @@ import { Wrapper, ContactForm, Splash } from '../components';
 export default () => (
   <React.Fragment>
     <Splash title="Contact Us" />
-    <div className="animated fadeIn">
+    <div>
       <Wrapper>
         <div className="row">
           <div className="col-md-12 col-lg-8 mx-auto" style={{ marginBottom: '3rem' }}>
