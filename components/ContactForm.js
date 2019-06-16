@@ -40,7 +40,13 @@ const ContactForm = () => {
   });
 
   const formNode = useRef(null);
-  const isFormValid = () => formState.email !== '' && formState.fullName !== '' && formState.deadline !== '';
+  const isFormValid = () => {
+    if (formState.email !== '' && formState.fullName !== '' && formState.deadline !== '') {
+      return true;
+    }
+
+    return false;
+  };
   const showRequestFail = () => {
     setSubmission({
       success: {

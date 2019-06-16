@@ -4,4 +4,9 @@ const encode = data =>
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&');
 
-export { encode };
+const validateEmail = value => {
+  const regexPattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  return regexPattern.test(value);
+};
+
+export { encode, validateEmail };
