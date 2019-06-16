@@ -8,7 +8,7 @@ import Button from './shared/Button';
 import Toast from './shared/Toast';
 import './ContactForm.scss';
 
-console.warn('build context', process.env.CONTEXT);
+console.warn('build context', process);
 
 const CONTACT_FORM_NAME = process.env.NODE_ENV === 'production' ? 'apkomatic-prod-contact' : 'apkomatic-dev-contact';
 const notificationDelay = 3500;
