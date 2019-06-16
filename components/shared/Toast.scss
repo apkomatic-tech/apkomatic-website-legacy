@@ -14,6 +14,8 @@ $error_color: #b9003e;
   min-width: 320px;
   left: 50%;
   pointer: cursor;
+  border-radius: 3px;
+  box-shadow: 0 5px 40px rgba($dark, 0.1);
   &--success {
     background: $success_color;
     color: $white;
