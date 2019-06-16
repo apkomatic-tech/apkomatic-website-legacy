@@ -96,6 +96,13 @@ const ContactForm = () => {
           }
         });
         setFormState({ ...initialFormState });
+        setValidation({
+          ...validation,
+          formValid: true,
+          email: '',
+          fullName: '',
+          deadline: ''
+        });
         setProcessing(false);
       } else {
         showRequestFail();
