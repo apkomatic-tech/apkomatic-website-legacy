@@ -3,53 +3,62 @@
 // contact
 
 .contact-form {
-    border-radius: 4px;
-    background-color:$white;
-    max-width: 43rem;
-    margin: auto;
+  border-radius: 4px;
+  background-color: $white;
+  max-width: 43rem;
+  margin: auto;
 
-    &__submit-btn-wrapper {
-        margin-top: 1rem;
-    }
+  &__submit-btn-wrapper {
+    margin-top: 1rem;
+  }
+}
+
+.label--with-hint {
+  display: flex;
+  justify-content: space-between;
+  .hint {
+    font-size: 11px;
+    color: rgba($dark, 0.5);
+  }
 }
 
 .form-section {
-    padding: 1rem 0;
-    label {
-        font-weight: 700;
-        font-size: .9rem;
-        cursor: pointer;
-    }
+  padding: 1rem 0;
+  label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
 }
 
 .form-section-heading {
-    font-weight: 700;
-    position: relative;
-    z-index: 1;
-    margin: 2.5rem 0 1rem;
-    font-size: 1.1rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  margin: 2.5rem 0 1rem;
+  font-size: 1.1rem;
 }
 
 .form-control {
-    border-color: #aaa;
+  border-color: #aaa;
 }
 
 // Static contact
 
 .static-contact {
-    background: $white;
-    box-shadow: 0 5px 30px rgba(0,0,0,.1);
-    padding: 1.2rem;
+  background: $white;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem;
 
-    .top {
-        padding: 1rem 0;
-        border-bottom: 1px solid #ccc;
-        margin-bottom: 1rem;
-    }
+  .top {
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
 }
 
 .thanks {
-   padding-top: 80px;
-   padding-bottom: 80px;
-   text-align: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  text-align: center;
 }
