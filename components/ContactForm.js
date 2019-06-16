@@ -1,8 +1,9 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect, useRef } from 'react';
 import ReactGA from 'react-ga';
-import { encode } from '../utils';
+import { encode, validateEmail } from '../utils';
 import Button from './shared/Button';
 import Toast from './shared/Toast';
 import './ContactForm.scss';
@@ -23,10 +24,20 @@ const submitButtonProps = {
   className: 'contact-form__submit-btn'
 };
 
+const VALIDATION_MESSAGES = {
+  required: 'This field is required',
+  email: 'Please provide a valid email address',
+  deadline: 'Please choose deadline'
+};
+
 const ContactForm = () => {
   const [formState, setFormState] = useState(initialFormState);
+  const [formInitialized, setFormInitialized] = useState(false);
   const [validation, setValidation] = useState({
-    formValid: false
+    formValid: false,
+    email: '',
+    fullName: '',
+    deadline: ''
   });
   const [submission, setSubmission] = useState({
     success: {
@@ -38,13 +49,16 @@ const ContactForm = () => {
       message: ''
     }
   });
+  const [processing, setProcessing] = useState(false);
 
   const formNode = useRef(null);
-  const isFormValid = () => {
+  const validateForm = () => {
     if (formState.email !== '' && formState.fullName !== '' && formState.deadline !== '') {
-      return true;
+      if (validateEmail(formState.email)) {
+        return true;
+      }
+      return false;
     }
-
     return false;
   };
   const showRequestFail = () => {
@@ -62,6 +76,7 @@ const ContactForm = () => {
 
   const sendEmail = async () => {
     try {
+      setProcessing(true);
       const response = await fetch('/', {
         method: 'POST',
         headers: {
@@ -81,39 +96,32 @@ const ContactForm = () => {
           }
         });
         setFormState({ ...initialFormState });
+        setProcessing(false);
       } else {
         showRequestFail();
+        setProcessing(false);
       }
     } catch (e) {
       showRequestFail();
+      setProcessing(false);
     }
-    // TODO: dev only remove before deploying!!
-    // setSubmission({
-    //   success: {
-    //     ...submission.success,
-    //     show: true
-    //   },
-    //   error: {
-    //     ...submission.error,
-    //     show: false
-    //   }
-    // });
   };
 
   const handleFormSubmit = e => {
     e.preventDefault();
-
-    if (!isFormValid()) {
-      return setSubmission({
-        success: {
-          ...submission.success,
-          show: false
-        },
-        error: {
-          show: true,
-          message: 'Submission error: Please fill out all required fields'
-        }
-      });
+    const failedSubmissionState = {
+      success: {
+        ...submission.success,
+        show: false
+      },
+      error: {
+        show: true,
+        message: 'Submission failed: Please fix validation errors'
+      }
+    };
+    if (!validateForm()) {
+      showValidationErrors();
+      return setSubmission(failedSubmissionState);
     }
 
     ReactGA.event({
@@ -123,13 +131,47 @@ const ContactForm = () => {
     return sendEmail();
   };
 
-  const handleInputChange = e => {
-    const fieldName = e.target.name;
-    const fieldValue = e.target.value;
+  const toggleValidationFieldError = field => {
+    if (field === 'email') {
+      if (formState[field] === '') {
+        setValidation({ ...validation, email: VALIDATION_MESSAGES.required });
+      } else if (!validateEmail(formState[field])) {
+        setValidation({ ...validation, email: VALIDATION_MESSAGES.email });
+      } else {
+        setValidation({ ...validation, email: '' });
+      }
+    } else {
+      setValidation({
+        ...validation,
+        [field]: formState[field] === '' ? VALIDATION_MESSAGES.required : ''
+      });
+    }
+  };
 
+  const showValidationErrors = () => {
+    function setEmailMessage(value) {
+      if (value) {
+        if (!validateEmail(value)) {
+          return VALIDATION_MESSAGES.email;
+        }
+        return '';
+      }
+
+      return VALIDATION_MESSAGES.required;
+    }
+
+    setValidation({
+      ...validation,
+      email: setEmailMessage(formState.email),
+      fullName: formState.fullName ? '' : VALIDATION_MESSAGES.required,
+      deadline: formState.deadline ? '' : VALIDATION_MESSAGES.deadline
+    });
+  };
+
+  const handleInputChange = e => {
     setFormState({
       ...formState,
-      [fieldName]: fieldValue
+      [e.target.name]: e.target.value
     });
   };
 
@@ -146,31 +188,53 @@ const ContactForm = () => {
     });
   };
 
-  // component did mount
-  // only run once on mount
   useEffect(() => {
-    if (window.localStorage) {
-      if (window.localStorage.getItem('formState')) {
-        const newFormState = JSON.parse(window.localStorage.getItem('formState'));
-        setFormState(newFormState);
-        if (isFormValid()) {
-          setValidation({
-            formValid: true
-          });
-        }
-      }
-    }
+    setFormInitialized(true);
+    return () => {
+      setFormInitialized(false);
+    };
   }, []);
 
+  // run validation on page load in case the fields were pre-filled
   useEffect(
     () => {
       setValidation({
-        formValid: isFormValid()
+        ...validation,
+        formValid: validateForm()
       });
     },
     [formState]
   );
 
+  useEffect(
+    () => {
+      if (formInitialized) {
+        toggleValidationFieldError('email');
+      }
+    },
+    [formState.email]
+  );
+
+  useEffect(
+    () => {
+      if (formInitialized) {
+        toggleValidationFieldError('fullName');
+      }
+    },
+    [formState.fullName]
+  );
+
+  useEffect(
+    () => {
+      if (formInitialized) {
+        toggleValidationFieldError('deadline');
+      }
+    },
+    [formState.deadline]
+  );
+
+  // check submission state
+  // -- if success or error message is currently displayed, run a timeout to hide it
   useEffect(
     () => {
       if (submission.success.show || submission.error.show) {
@@ -204,13 +268,14 @@ const ContactForm = () => {
               <input
                 id="email"
                 type="email"
-                className="form-control"
+                className={`form-control ${validation.email ? 'error' : ''}`}
                 placeholder="Email"
                 name="email"
                 value={formState.email}
                 onChange={handleInputChange}
                 required
               />
+              {validation.email && <div className="error-message">{validation.email}</div>}
             </div>
 
             <div className="form-group">
@@ -220,13 +285,14 @@ const ContactForm = () => {
               <input
                 id="full-name"
                 type="text"
-                className="form-control"
+                className={`form-control ${validation.fullName ? 'error' : ''}`}
                 placeholder="Name"
                 name="fullName"
                 value={formState.fullName}
                 onChange={handleInputChange}
                 required
               />
+              {validation.fullName && <div className="error-message">{validation.fullName}</div>}
             </div>
 
             <div className="form-group">
@@ -234,7 +300,7 @@ const ContactForm = () => {
                 When do you need it done? <span className="hint">Required</span>
               </label>
               <select
-                className="custom-select custom-select mb-3"
+                className={`custom-select ${validation.deadline ? 'error' : ''}`}
                 id="deadline"
                 name="deadline"
                 value={formState.deadline}
@@ -247,6 +313,7 @@ const ContactForm = () => {
                 <option value="4-6 weeks">4-6 weeks</option>
                 <option value="6+ weeks">More than 6 weeks</option>
               </select>
+              {validation.deadline && <div className="error-message">{validation.deadline}</div>}
             </div>
             <div className="form-group">
               <label className="label--with-hint" htmlFor="inspirations">
@@ -265,7 +332,7 @@ const ContactForm = () => {
           </div>
 
           <div className="contact-form__submit-btn-wrapper">
-            <Button onClick={handleFormSubmit} {...submitButtonProps}>
+            <Button disabled={processing} onClick={handleFormSubmit} {...submitButtonProps}>
               Get In Touch
             </Button>
           </div>

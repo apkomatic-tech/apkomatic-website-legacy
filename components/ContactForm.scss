@@ -1,6 +1,7 @@
 @import './../css/_config.scss';
 
 // contact
+$error_color: #b9003e;
 
 .contact-form {
   border-radius: 4px;
@@ -31,6 +32,20 @@
   }
 }
 
+.form-group {
+  position: relative;
+  padding-bottom: 2rem;
+  margin-bottom: 0;
+}
+
+.error-message {
+  color: #b9003e;
+  font-size: 12px;
+  position: absolute;
+  bottom: 12px;
+  left: 5px;
+}
+
 .form-section-heading {
   font-weight: 700;
   position: relative;
@@ -41,6 +56,11 @@
 
 .form-control {
   border-color: #aaa;
+}
+
+.form-control.error,
+.custom-select.error {
+  border-color: $error_color;
 }
 
 // Static contact
