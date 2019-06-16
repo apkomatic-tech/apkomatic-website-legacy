@@ -13,26 +13,26 @@
   "author": "Apkomatic",
   "license": "ISC",
   "dependencies": {
-    "@sentry/browser": "^4.0.0",
-    "@zeit/next-sass": "^0.2.0",
-    "aos": "^2.3.3",
-    "next": "^6.1.2",
+    "@sentry/browser": "^5.4.0",
+    "@zeit/next-sass": "^1.0.1",
+    "aos": "^2.3.4",
+    "next": "^8.1.0",
     "nprogress": "^0.2.0",
-    "prop-types": "^15.6.1",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-ga": "^2.5.3",
-    "react-intersection-observer": "^6.2.3",
-    "react-slick": "^0.23.1",
-    "vanilla-tilt": "^1.4.1"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-ga": "^2.5.7",
+    "react-intersection-observer": "^8.23.0",
+    "react-slick": "^0.24.0",
+    "vanilla-tilt": "^1.7.0"
   },
   "devDependencies": {
-    "babel-plugin-inline-react-svg": "^0.5.2",
+    "babel-plugin-inline-react-svg": "^1.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "node-sass": "^4.9.0",
-    "svgo": "^1.0.5"
+    "node-sass": "^4.12.0",
+    "svgo": "^1.2.2"
   }
 }
