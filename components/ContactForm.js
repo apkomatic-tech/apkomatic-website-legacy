@@ -20,7 +20,7 @@ const initialFormState = {
 };
 const submitButtonProps = {
   look: 'primary',
-  size: 'lg',
+  size: 'md',
   block: true,
   type: 'submit',
   className: 'contact-form__submit-btn'
@@ -271,31 +271,34 @@ const ContactForm = () => {
           <input type="hidden" name="form-name" value={CONTACT_FORM_NAME} />
           <div className="form-section">
             <div className="form-group">
-              <label className="label--with-hint" htmlFor="email">
+              <label className={`label label--with-hint ${formState.email ? 'label--shift-top' : ''}`} htmlFor="email">
                 Email address <span className="hint">Required</span>
               </label>
               <input
                 id="email"
                 type="email"
                 className={`form-control ${validation.email ? 'error' : ''}`}
-                placeholder="Email"
                 name="email"
                 value={formState.email}
-                onChange={handleInputChange}
+                onChange={e => {
+                  handleInputChange(e);
+                }}
                 required
               />
               {validation.email && <div className="error-message">{validation.email}</div>}
             </div>
 
             <div className="form-group">
-              <label className="label--with-hint" htmlFor="full-name">
+              <label
+                className={`label label--with-hint ${formState.fullName ? 'label--shift-top' : ''}`}
+                htmlFor="full-name"
+              >
                 Name <span className="hint">Required</span>
               </label>
               <input
                 id="full-name"
                 type="text"
                 className={`form-control ${validation.fullName ? 'error' : ''}`}
-                placeholder="Name"
                 name="fullName"
                 value={formState.fullName}
                 onChange={handleInputChange}
@@ -303,35 +306,16 @@ const ContactForm = () => {
               />
               {validation.fullName && <div className="error-message">{validation.fullName}</div>}
             </div>
-
             <div className="form-group">
-              <label className="label--with-hint" htmlFor="deadline">
-                When do you need it done? <span className="hint">Required</span>
-              </label>
-              <select
-                className={`custom-select ${validation.deadline ? 'error' : ''}`}
-                id="deadline"
-                name="deadline"
-                value={formState.deadline}
-                onChange={handleInputChange}
-                required
+              <label
+                className={`label label--with-hint ${formState.message ? 'label--shift-top' : ''}`}
+                htmlFor="inspirations"
               >
-                <option value="">Select Deadline...</option>
-                <option value="1-2 weeks">1-2 weeks</option>
-                <option value="2-4 weeks">2-4 weeks</option>
-                <option value="4-6 weeks">4-6 weeks</option>
-                <option value="6+ weeks">More than 6 weeks</option>
-              </select>
-              {validation.deadline && <div className="error-message">{validation.deadline}</div>}
-            </div>
-            <div className="form-group">
-              <label className="label--with-hint" htmlFor="inspirations">
                 Message <span className="hint">Optional</span>
               </label>
               <textarea
                 className="form-control"
                 id="inspirations"
-                placeholder="Please provide any details here. It can help us better estimate project scope and pricing."
                 name="message"
                 value={formState.message}
                 onChange={handleInputChange}

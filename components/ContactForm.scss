@@ -14,27 +14,33 @@ $error_color: #b9003e;
   }
 }
 
-.label--with-hint {
-  display: flex;
-  justify-content: space-between;
-  .hint {
-    font-size: 11px;
-    color: rgba($dark, 0.5);
+.label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: initial;
+  color: rgba(#111, 0.5);
+  padding: 0 0.75rem;
+  transform: translateY(38px);
+  transition: 200ms ease;
+  &--shift-top {
+    font-size: 0.75rem;
+    transform: translateY(0);
+    color: #111;
   }
-}
-
-.form-section {
-  padding: 1rem 0;
-  label {
-    font-weight: 700;
-    font-size: 0.9rem;
-    cursor: pointer;
+  &--with-hint {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .hint {
+      font-size: 11px;
+      color: rgba($dark, 0.5);
+    }
   }
 }
 
 .form-group {
   position: relative;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
   margin-bottom: 0;
 }
 
@@ -42,8 +48,8 @@ $error_color: #b9003e;
   color: #b9003e;
   font-size: 12px;
   position: absolute;
-  bottom: 12px;
-  left: 5px;
+  bottom: 4px;
+  left: 0.75rem;
 }
 
 .form-section-heading {
@@ -61,24 +67,4 @@ $error_color: #b9003e;
 .form-control.error,
 .custom-select.error {
   border-color: $error_color;
-}
-
-// Static contact
-
-.static-contact {
-  background: $white;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-  padding: 1.2rem;
-
-  .top {
-    padding: 1rem 0;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 1rem;
-  }
-}
-
-.thanks {
-  padding-top: 80px;
-  padding-bottom: 80px;
-  text-align: center;
 }
