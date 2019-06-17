@@ -23,9 +23,8 @@ $error_color: #b9003e;
   transform: translateY(38px);
   transition: 200ms ease;
   &--shift-top {
-    font-size: 0.75rem;
     transform: translateY(0);
-    color: #111;
+    color: rgba(#111, 0.8);
   }
   &--with-hint {
     display: flex;
