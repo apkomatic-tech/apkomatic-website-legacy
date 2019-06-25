@@ -16,6 +16,7 @@ $error_color: #b9003e;
   pointer: cursor;
   border-radius: 3px;
   box-shadow: 0 5px 40px rgba($dark, 0.1);
+  opacity: 1;
   &--success {
     background: $success_color;
     color: $white;
@@ -28,6 +29,7 @@ $error_color: #b9003e;
     transform: translateY(-10px) translateX(-50%);
   }
   &--hide {
+    opacity: 0;
     pointer-events: none;
     transform: translateY(100%) translateX(-50%);
   }
