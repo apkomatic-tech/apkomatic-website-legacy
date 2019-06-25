@@ -18,7 +18,7 @@ const initialFormState = {
 };
 const submitButtonProps = {
   look: 'primary',
-  size: 'md',
+  size: 'lg',
   block: true,
   type: 'submit',
   className: 'contact-form__submit-btn'
