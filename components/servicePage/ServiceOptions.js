@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import Link from 'next/link';
 import VanillaTilt from 'vanilla-tilt';
 import { Checkmark } from '..';
 
 import '../Card.scss';
 
-const ServiceOptions = () => {
+const ServiceOptions = memo(() => {
   let targetNode;
   useEffect(() => {
     const cardNodes = targetNode.querySelectorAll('.card');
@@ -124,6 +124,6 @@ const ServiceOptions = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ServiceOptions;
