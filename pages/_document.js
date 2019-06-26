@@ -8,6 +8,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+          <meta name="description" content="Apkomatic is a Los Angeles based web development company specializing in building websites and web applications." />
           <title>Apkomatic</title>
           <link rel="icon" href="/static/favicon.gif" />
           <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
