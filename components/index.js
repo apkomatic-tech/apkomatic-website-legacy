@@ -1,5 +1,4 @@
 export { default as Page } from './Page';
-export { default as Callout } from './Callout';
 export { default as Wrapper } from './Wrapper';
 export { default as CustomControl } from './shared/CustomControl';
 export { default as Header } from './Header';
@@ -19,3 +18,4 @@ export { default as HeroColumns } from './HeroColumns';
 export { default as HeroCallout } from './HeroCallout';
 export { default as HomePage } from './HomePage';
 export { default as Button } from './shared/Button';
+export { default as Grid } from './shared/Grid';
