@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import ReactGA from 'react-ga';
 import { LINKS, GUA_TRACKING_ID, IS_DEV } from '../config/global';
-import './Header.scss';
 
 class Header extends Component {
   state = {

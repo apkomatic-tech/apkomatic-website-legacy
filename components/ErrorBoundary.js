@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
-import * as Sentry from '@sentry/browser';
-
-import './ErrorBoundary.scss';
+import React, { Component } from 'react'
+import * as Sentry from '@sentry/browser'
 
 class ErrorBoundary extends Component {
   state = {
     error: null
-  };
+  }
 
   componentDidCatch(error, info) {
-    this.setState(state => ({ ...state, errorInfo: info, error }));
+    this.setState(state => ({ ...state, errorInfo: info, error }))
     Sentry.configureScope(scope => {
       Object.keys(info).forEach(key => {
-        scope.setExtra(key, info[key]);
-      });
-    });
-    Sentry.captureException(error);
+        scope.setExtra(key, info[key])
+      })
+    })
+    Sentry.captureException(error)
   }
 
   render() {
-    const { error } = this.state;
-    const { children } = this.props;
+    const { error } = this.state
+    const { children } = this.props
 
     if (error) {
       return (
@@ -35,11 +33,11 @@ class ErrorBoundary extends Component {
             Report this issue
           </button>
         </div>
-      );
+      )
     }
 
-    return children;
+    return children
   }
 }
 
-export default ErrorBoundary;
+export default ErrorBoundary
