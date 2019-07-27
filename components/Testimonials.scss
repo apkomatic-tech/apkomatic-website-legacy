@@ -9,10 +9,6 @@
   position: relative;
   z-index: 1;
 
-  &__title {
-    font-size: 1.6rem;
-  }
-
   &__quote-label {
     position: absolute;
     z-index: 100;
@@ -63,13 +59,12 @@
 }
 
 .testimonials-slider {
-  max-width: 40rem;
+  max-width: 48rem;
   margin: 2rem auto 0 auto;
 }
 
 .testimonial {
-  padding: 1rem 2.5rem;
-  text-align: center;
+  padding: 1rem 0;
   position: relative;
   z-index: 1;
 
@@ -78,18 +73,19 @@
   }
 
   &__text {
-    font-size: 0.89rem;
     color: rgba($dark, 0.8);
   }
 
   &__author {
-    font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 700;
   }
 
   &__company {
-    font-size: 0.85rem;
-    color: darken($success_color, 25%);
     font-style: italic;
+  }
+
+  &__author,
+  &__company {
+    text-align: right;
   }
 }
