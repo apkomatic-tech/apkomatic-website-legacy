@@ -1,37 +1,25 @@
-import React, { Fragment } from 'react';
-import Link from 'next/link';
-import { Wrapper, Splash } from '../components';
+import React, { Fragment } from 'react'
+import { Wrapper, Grid } from '../components'
 
-import '../css/about.scss';
-
-const contactBtnStyle = {
-  maxWidth: '300px'
-};
+import '../css/about.scss'
 
 export default () => (
   <Fragment>
-    <Splash title="About Us" />
     <Wrapper>
-      <div className="row">
-        <div className="col-md-6 mb-3 mb-md-0">
-          <p className="text-muted small mb-3">
-            <strong>Apkomatic</strong> is a Los Angeles based web design and development group of professionals who love
-            producing high quality and affordable web applications and sites for individuals and businesses. We strive
-            to deliver high-quality work at low cost for small and mid-size businesses to better reach out to their
-            customers through technology.
-          </p>
+      <Grid columns={2}>
+        <div className="v-centered">
+          <h1>About Apkomatic</h1>
           <p>
-            <Link href="/contact">
-              <a className="btn btn-primary btn--with-direction-right mx-auto mx-md-0" style={contactBtnStyle}>
-                Contact Us <i className="direction-icon fas fa-chevron-right" />
-              </a>
-            </Link>
+            We are a web development company based in Los Angeles, California. Our company consists of professionals who
+            are passionate about web technology and aim at delivering high quality work. We work with all type of
+            clients - individuals, profit and non-profit businesses/organizations. Our goal is to deliver quality work
+            at affordable prices.
           </p>
         </div>
-        <div className="col-md-6">
-          <img src="/static/images/about-splash.jpg" className="img-fluid" alt="About Apkomatic" />
+        <div>
+          <img className="img-fluid" src="/static/images/about-splash.svg" alt="about graphic" />
         </div>
-      </div>
+      </Grid>
     </Wrapper>
   </Fragment>
-);
+)

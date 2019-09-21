@@ -26,7 +26,7 @@ const Testimonials = () => {
           <section className="testimonial__footer">
             <div className="testimonial__author mb-1">{testimonial.author.name}</div>
             <div className="testimonial__company">
-              <strong>{testimonial.author.company}</strong>
+              {testimonial.author.company}
             </div>
           </section>
         </article>
@@ -40,7 +40,7 @@ const Testimonials = () => {
         <i className="fa fa-quote-left" />
       </div>
       <div className="container testimonials__inner" data-aos="fade-up">
-        <h3 className="testimonials__title text-center">What Customers are Saying About Us</h3>
+        <h2 className="testimonials__title text-center">What Customers are Saying About Us</h2>
         <div className="testimonials-slider">{testimonialsContent}</div>
       </div>
     </section>

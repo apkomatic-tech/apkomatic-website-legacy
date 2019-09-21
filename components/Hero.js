@@ -1,26 +1,33 @@
-import React from 'react';
-import Link from 'next/link';
-import './Hero.scss';
+import React from 'react'
+import Link from 'next/link'
 
 export default () => (
   <>
-    <div className="hero jumbotron d-flex align-items-center mb-0">
-      <div className="container">
-        <h1 className="hero-title text-center animated fadeInDown" style={{ animationDuration: '500ms' }}>
-          Take your website <br /> to a whole new level.
-        </h1>
-
-        <div className="animated fadeInUp" style={{ animationDelay: '300ms' }}>
+    <div className="hero mb-0">
+      <div
+        className="container hero__wrapper animated fadeIn"
+        style={{ animationDuration: '400ms' }}
+      >
+        <div className="hero__col1">
+          <h1>
+            Let us take your website
+            <br /> to next level.
+          </h1>
+          <p>
+            Apkomatic is dedicated to deliver high quality website solutions.
+          </p>
           <Link href="/contact">
-            <a
-              style={{ maxWidth: '300px' }}
-              className="btn btn-tertiary mx-auto text-uppercase btn--with-direction-right btn-lg btn-block btn--hero"
-            >
-              Get a Quote <i className="direction-icon fas fa-chevron-right" />
-            </a>
+            <a className="hero__cta btn btn-lg btn-primary">Get a Quote</a>
           </Link>
+        </div>
+        <div className="hero__col2">
+          <img
+            className="img-fluid"
+            src="/static/hero-graphic-alt4.svg"
+            alt="hero"
+          />
         </div>
       </div>
     </div>
   </>
-);
+)

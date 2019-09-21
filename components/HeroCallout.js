@@ -1,13 +1,11 @@
-import React from 'react';
-import Link from 'next/link';
-import { Wrapper } from '.';
-
-import './HeroCallout.scss';
+import React from 'react'
+import Link from 'next/link'
+import { Wrapper } from '.'
 
 export default () => (
   <section className="hero-callout text-center">
-    <Wrapper data-aos="fade-up">
-      <h2>Ready to get started?</h2>
+    <Wrapper data-aos="fade-in">
+      <h1>Ready to get started?</h1>
       <p className="lead">Drop us a line. It only takes a few minutes. We will take care of the rest.</p>
       <p className="mt-3">
         <Link href="/contact">
@@ -23,4 +21,4 @@ export default () => (
       </p>
     </Wrapper>
   </section>
-);
+)
