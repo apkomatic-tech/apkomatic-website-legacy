@@ -189,36 +189,12 @@ p {
   z-index: 1000;
   font-family: "Poppins", sans-serif;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.025);
-  background-color: $white;
   transition: background-color 320ms linear;
+  background-color: #fff;
 
   @media only screen and (max-width: 992px) {
     height: 80px;
     max-height: 80px;
-  }
-
-  &--fixed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: transparent;
-    box-shadow: none;
-    width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    &.sticky {
-      position: fixed;
-      height: 90px;
-    }
-
-    &.sticky {
-      background-color: $white;
-      box-shadow: 0 5px 30px rgba($dark, 0.15);
-    }
-    // @media only screen and (max-width: 992px) {
-    //   background-color: $white;
-    // }
   }
   &__inner {
     display: flex;
@@ -245,7 +221,7 @@ p {
     display: block;
     color: $dark;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   &__item {
     margin-right: 1.6rem;
@@ -317,23 +293,24 @@ p {
 }
 
 .mobile-nav {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 80px;
   background: $white;
   left: 0;
   width: 100%;
   z-index: 999;
-  transform: translateY(-100%);
-  transition: transform 300ms ease;
   border-top: 1px solid rgba($dark, 0.2);
   box-shadow: 0 10px 35px rgba($dark, 0.3);
-
-  &--alt {
-    background: #f5f9fff5;
-  }
+  transform: translateY(-10px);
+  transition: opacity 50ms linear,
+    transform 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 0.01;
+  pointer-events: none;
 
   &.open {
-    transform: translateY(80px);
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
   }
 
   &__list {

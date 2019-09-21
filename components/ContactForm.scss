@@ -1,4 +1,4 @@
-@import './../css/_config.scss';
+@import "./../css/_config.scss";
 
 // contact
 $error_color: #b9003e;
@@ -15,11 +15,11 @@ $error_color: #b9003e;
 }
 
 .label {
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: 400;
+  font-size: 1.4rem;
   cursor: initial;
   color: rgba(#111, 0.5);
-  transform: translate(7px, 38px);
+  transform: translate(7px, 3.5rem);
   transition: 200ms ease;
   padding: 0 5px;
   &--shift-top {
@@ -35,10 +35,10 @@ $error_color: #b9003e;
       color: rgba($dark, 0.5);
       margin-left: 8px;
       &:before {
-        content: '(';
+        content: "(";
       }
       &:after {
-        content: ')';
+        content: ")";
       }
     }
   }
@@ -68,6 +68,9 @@ $error_color: #b9003e;
 
 .form-control {
   border-color: #aaa;
+  padding: 1rem;
+  font-size: inherit;
+  line-height: 1;
   &:focus {
     border-color: #111;
     box-shadow: none;

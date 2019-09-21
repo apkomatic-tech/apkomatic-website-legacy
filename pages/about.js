@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
-import { Wrapper, Grid } from '../components';
+import React, { Fragment } from 'react'
+import { Wrapper, Grid } from '../components'
 
-import '../css/about.scss';
+import '../css/about.scss'
 
 export default () => (
   <Fragment>
@@ -22,4 +22,4 @@ export default () => (
       </Grid>
     </Wrapper>
   </Fragment>
-);
+)
