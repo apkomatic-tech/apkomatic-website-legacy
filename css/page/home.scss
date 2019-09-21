@@ -8,10 +8,13 @@
   z-index: 1;
   border-radius: 0;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  min-height: calc(100vh - 10rem);
   background: transparent;
+
+  @media screen and (min-width: 767px) {
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 10rem);
+  }
 
   &__wrapper {
     // margin-top: 6rem;

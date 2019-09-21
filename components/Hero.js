@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default () => (
   <>
-    <div className="hero jumbotron d-flex align-items-center mb-0">
+    <div className="hero mb-0">
       <div
         className="container hero__wrapper animated fadeIn"
         style={{ animationDuration: '400ms' }}
