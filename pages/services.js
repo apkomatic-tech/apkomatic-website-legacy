@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react'
 import { Wrapper, ServiceOptions } from '../components'
 
@@ -6,10 +7,9 @@ export default () => (
     <Wrapper style={{ marginBottom: '3rem' }}>
       <h1>Our Services</h1>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam dolore esse, porro sunt aut consequuntur odit
-        minus sint commodi in quisquam? Tempore quos eveniet et asperiores quam itaque quod accusantium ad eligendi
-        quaerat dolores aspernatur quisquam, fuga, assumenda voluptate tenetur inventore repudiandae in nam adipisci
-        dignissimos repellat dolorum atque exercitationem?
+        Part of our mission is to build affordable websites for all kind of
+        businesses and organizations. We have different service plans tailored
+        to your needs.
       </p>
       <ServiceOptions />
     </Wrapper>
