@@ -1,7 +1,7 @@
-import React from 'react';
-import { Slider } from '.';
-import testimonialsJson from '../data/testimonials.json';
-import './Testimonials.scss';
+import React from "react"
+import { Slider } from "."
+import testimonialsJson from "../data/testimonials.json"
+import "./Testimonials.scss"
 
 const Testimonials = () => {
   const testimonialSliderSettings = {
@@ -14,8 +14,8 @@ const Testimonials = () => {
     fade: true,
     autoplay: true,
     autoplaySpeed: 7000,
-    easing: 'cubic-bezier(.55,-0.16,.75,1.16)'
-  };
+    easing: "cubic-bezier(.55,-0.16,.75,1.16)"
+  }
   const testimonialsContent = (
     <Slider settings={testimonialSliderSettings}>
       {testimonialsJson.map(testimonial => (
@@ -24,7 +24,9 @@ const Testimonials = () => {
             <p className="testimonial__text">{testimonial.content}</p>
           </section>
           <section className="testimonial__footer">
-            <div className="testimonial__author mb-1">{testimonial.author.name}</div>
+            <div className="testimonial__author mb-1">
+              {testimonial.author.name}
+            </div>
             <div className="testimonial__company">
               {testimonial.author.company}
             </div>
@@ -32,7 +34,7 @@ const Testimonials = () => {
         </article>
       ))}
     </Slider>
-  );
+  )
 
   return (
     <section className="testimonials bg-light">
@@ -40,11 +42,13 @@ const Testimonials = () => {
         <i className="fa fa-quote-left" />
       </div>
       <div className="container testimonials__inner" data-aos="fade-up">
-        <h2 className="testimonials__title text-center">What Customers are Saying About Us</h2>
+        <h2 className="testimonials__title text-center">
+          What Customers are Saying About Us
+        </h2>
         <div className="testimonials-slider">{testimonialsContent}</div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonials;
+export default Testimonials

@@ -54,7 +54,7 @@ export const LINKS = [
     id: 6,
     href: '/contact',
     pathname: '/contact',
-    label: 'Get a Quote',
+    label: 'Contact Us',
     active: true,
     isButton: true,
   },
