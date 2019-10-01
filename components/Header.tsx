@@ -39,14 +39,10 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <div className="container header__inner">
+        <div className="header__inner">
           <Link prefetch href="/">
             <a className="brand">
-              <img
-                src="/static/apkomatic_logo_lg.png"
-                width={160}
-                alt="Apkomatic Logo"
-              />
+              <img src="/static/apkomatic_logo_lg.png" alt="Apkomatic Logo" />
             </a>
           </Link>
           <i

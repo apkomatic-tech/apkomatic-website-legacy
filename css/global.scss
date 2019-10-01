@@ -180,7 +180,7 @@ p {
 .header {
   align-items: center;
   background-color: #fff;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.025);
+  border-bottom: 1px solid rgba(49, 53, 56, 0.11);
   display: flex;
   font-family: "Poppins", sans-serif;
   height: $header_height;
@@ -192,6 +192,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-basis: 100%;
+    padding: 0 1rem;
   }
 }
 
@@ -201,6 +203,15 @@ p {
   }
   color: $white !important;
   text-decoration: none !important;
+
+  img {
+    display: block;
+    width: 130px;
+    transition: width 100ms ease;
+    @media screen and (min-width: 1024px) {
+      width: 150px;
+    }
+  }
 }
 
 .top-nav {
@@ -223,14 +234,15 @@ p {
   }
 
   .nav-btn {
-    border-color: $dark;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    color: $dark;
+    border-color: $ternary_color;
+    color: $ternary_color;
     transition: 210ms ease;
+    font-weight: 400;
+    margin-left: 4rem;
     &:hover,
     &:focus,
     &:active {
-      background: $dark;
+      background: $ternary_color;
       color: $white;
     }
   }
@@ -248,12 +260,12 @@ p {
     z-index: 1;
 
     &.active {
-      color: $dark;
+      color: $primary_color;
     }
 
     &:hover {
       text-decoration: none;
-      color: $dark;
+      color: $primary_color;
     }
 
     &:before,
