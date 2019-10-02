@@ -81,11 +81,11 @@ p {
   }
 
   &-secondary {
-    color: $white;
+    color: #111;
 
     &,
     &:hover {
-      color: $white;
+      color: #111;
       background-color: $secondary_color;
       border-color: $secondary_color;
     }
@@ -180,7 +180,7 @@ p {
 .header {
   align-items: center;
   background-color: #fff;
-  border-bottom: 1px solid rgba(49, 53, 56, 0.11);
+  border-bottom: 1px solid rgba(49, 53, 56, 0.07);
   display: flex;
   font-family: "Poppins", sans-serif;
   height: $header_height;
