@@ -5,7 +5,7 @@ import BackgroundLayout from "../components/BackgroundLayout"
 
 export default () => (
   <React.Fragment>
-    <BackgroundLayout background="/static/images/contact-page-bg.jpg">
+    <BackgroundLayout background="/static/images/contact-page-bg-compressed.jpg">
       <h1>Contact Us</h1>
       <p className="lead">Let's get in touch about your exciting project!</p>
       <ContactForm />

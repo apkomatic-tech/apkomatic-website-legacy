@@ -8,9 +8,8 @@ export default class Services extends React.Component {
       <React.Fragment>
         <Splash
           title="Our Services"
-          text="Part of our mission is to build affordable websites for all kind of
-            businesses and organizations. We have different service plans
-            tailored to your needs."
+          text="Our mission is to build affordable websites for all kind of
+            businesses and organizations. We offer different pricing plans to match your needs."
         />
         <Wrapper>
           <ServiceOptions />

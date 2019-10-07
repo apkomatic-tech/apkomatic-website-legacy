@@ -12,8 +12,8 @@ $splashBottomColor: rgba($dark, 0.3);
   position: relative;
   z-index: 1;
   margin-bottom: 1rem;
-  color: $dark;
-  background-color: $lightgray;
+  color: $white;
+  background-color: $primary_color;
 
   &__inner {
     animation-delay: 150ms;

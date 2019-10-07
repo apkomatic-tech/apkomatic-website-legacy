@@ -42,7 +42,7 @@ const Header = () => {
         <div className="header__inner">
           <Link prefetch href="/">
             <a className="brand">
-              <img src="/static/apkomatic_logo_lg.png" alt="Apkomatic Logo" />
+              <img src="/static/logo-lg.svg" alt="Apkomatic Logo" />
             </a>
           </Link>
           <i

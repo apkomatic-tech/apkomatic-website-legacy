@@ -69,6 +69,10 @@ p {
   transition: box-shadow 600ms linear, border 300ms ease;
   border-radius: 2px;
 
+  &-lg {
+    font-size: 2rem;
+  }
+
   &-primary {
     color: $white;
 
@@ -206,10 +210,10 @@ p {
 
   img {
     display: block;
-    width: 130px;
+    width: 145px;
     transition: width 100ms ease;
     @media screen and (min-width: 1024px) {
-      width: 150px;
+      width: 185px;
     }
   }
 }
@@ -222,9 +226,9 @@ p {
   margin: 0;
   &__toggle {
     display: block;
-    color: $dark;
+    color: $primary_color;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   &__item {
     margin-right: 1.6rem;

@@ -14,13 +14,16 @@ const Footer = () => (
           <div className="col-md-6">
             <div className="d-flex align-items-center">
               <div>
-                <p className="lead">Apkomatic</p>
+                <img
+                  src="/static/logo-lg.svg"
+                  alt="Apkomatic"
+                  title="Apkomatic"
+                  style={{
+                    maxWidth: "125px",
+                    marginBottom: "1rem"
+                  }}
+                />
                 <div className="d-flex align-items-start">
-                  <img
-                    src="/static/apkomatic_logo_small.svg"
-                    width={60}
-                    className="site-footer__logo"
-                  />
                   <p className="small">
                     We are a group of passionate web designers and developers.
                     We design and develop high quality and affordable web
