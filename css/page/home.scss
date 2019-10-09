@@ -30,21 +30,6 @@
     margin-right: 60px;
   }
 
-  @media screen and (max-width: 920px) {
-    &__inner {
-      flex-wrap: wrap;
-    }
-    &__intro {
-      flex-basis: 100%;
-      margin-right: 0;
-      margin-bottom: 60px;
-      text-align: center;
-    }
-    &__image {
-      max-width: 400px;
-    }
-  }
-
   &__heading {
     font-size: 4rem;
     letter-spacing: -0.1rem;
@@ -58,6 +43,25 @@
     font-family: "Nunito", sans-serif;
     font-size: 1.8rem;
     margin-bottom: 3rem;
+  }
+
+  @media screen and (max-width: 920px) {
+    &__inner {
+      flex-wrap: wrap;
+    }
+    &__heading {
+      font-size: 3.4rem;
+    }
+    &__intro {
+      flex-basis: 100%;
+      margin-bottom: 60px;
+      text-align: center;
+      margin-right: 0;
+      padding-top: 0;
+    }
+    &__image {
+      max-width: 400px;
+    }
   }
 }
 
