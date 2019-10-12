@@ -66,11 +66,13 @@ p {
 
 .btn {
   font-size: inherit;
-  transition: box-shadow 600ms linear, border 300ms ease;
+  transition: 300ms ease;
   border-radius: 2px;
+  padding: 6px 15px;
 
   &-lg {
     font-size: 2rem;
+    padding: 10px 20px;
   }
 
   &-primary {
