@@ -23,7 +23,7 @@
     "react-dom": "^16.9.0",
     "react-ga": "^2.6.0",
     "react-intersection-observer": "^8.24.2",
-    "react-slick": "^0.25.2"
+    "swiper": "^5.0.4"
   },
   "devDependencies": {
     "@testing-library/react": "^9.3.0",
