@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Link from "next/link"
 import { LINKS } from "../config/global"
 import { pageContext, navContext } from "./context"
+import Logo from "./Logo"
 
 const Header = () => {
   const [navOpen, setNavOpen] = useState<Boolean>(false)
@@ -42,7 +43,7 @@ const Header = () => {
         <div className="header__inner">
           <Link prefetch href="/">
             <a className="brand">
-              <img src="/static/logo-lg.svg" alt="Apkomatic Logo" />
+              <Logo width={170} height={50} />
             </a>
           </Link>
           <i

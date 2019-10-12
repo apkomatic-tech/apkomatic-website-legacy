@@ -1,6 +1,7 @@
 import React from "react"
 import ReactGA from "react-ga"
 import { SOCIAL } from "../config/global"
+import Logo from "./Logo"
 
 const d = new Date()
 const year = d.getFullYear()
@@ -14,15 +15,7 @@ const Footer = () => (
           <div className="col-md-6">
             <div className="d-flex align-items-center">
               <div>
-                <img
-                  src="/static/logo-lg.svg"
-                  alt="Apkomatic"
-                  title="Apkomatic"
-                  style={{
-                    maxWidth: "125px",
-                    marginBottom: "1rem"
-                  }}
-                />
+                <Logo width={100} height={30} />
                 <div className="d-flex align-items-start">
                   <p className="small">
                     We are a group of passionate web designers and developers.
