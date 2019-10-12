@@ -19,9 +19,9 @@ export default () => (
           </p>
           <Link href="/contact">
             <a
-              className="hero__cta btn btn-lg btn-primary animated fadeInUp"
+              className="hero__cta btn btn-lg btn-secondary animated fadeInUp"
               style={{
-                animationDelay: "1000ms"
+                animationDelay: "1400ms"
               }}
             >
               Let's Start Building
@@ -34,8 +34,8 @@ export default () => (
             alt=""
             className="img-fluid animated fadeInUp"
             style={{
-              animationDuration: "200ms",
-              animationDelay: "500ms"
+              animationDuration: "400ms",
+              animationDelay: "1000ms"
             }}
           />
         </div>
