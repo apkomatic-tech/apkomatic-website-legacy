@@ -3,12 +3,10 @@ import ReactGA from "react-ga"
 import { SOCIAL } from "../config/global"
 import Logo from "./Logo"
 
-const d = new Date()
-const year = d.getFullYear()
 const socialIcons = SOCIAL.filter(s => Boolean(s.active))
 
 const Footer = () => (
-  <footer className="site-footer bg-light">
+  <footer className="site-footer">
     <div className="top">
       <div className="container">
         <div className="row">
@@ -17,7 +15,7 @@ const Footer = () => (
               <div>
                 <Logo width={100} height={30} />
                 <div className="d-flex align-items-start">
-                  <p className="small">
+                  <p>
                     We are a group of passionate web designers and developers.
                     We design and develop high quality and affordable web
                     applications and sites for individuals and businesses.
@@ -29,7 +27,7 @@ const Footer = () => (
           {/* end of column 1 */}
           <div className="col-md-6 text-right">
             {socialIcons.length > 0 && (
-              <ul className="footer__social list-unstyled small">
+              <ul className="footer__social list-unstyled">
                 <li className="sep">Connect |</li>
                 <li>
                   <a href="mailto:apkomatic@gmail.com">
@@ -60,15 +58,10 @@ const Footer = () => (
             )}
           </div>
         </div>
-      </div>
-    </div>
-
-    <div className="site-footer__bottom text-muted">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12 text-center">
-            <p className="small text-muted">
-              &copy; Apkomatic, All Rights Reserved {year}
+        <div className="row mt-3">
+          <div className="col-md-12">
+            <p>
+              &copy; Apkomatic, All Rights Reserved {new Date().getFullYear()}
             </p>
           </div>
         </div>
