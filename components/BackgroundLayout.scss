@@ -1,0 +1,53 @@
+@import "../css/config";
+
+.background-layout {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  @media screen and (min-width: 767px) {
+    min-height: 600px;
+    height: 50vh;
+  }
+
+  .side {
+    flex: 1;
+    width: 50%;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &--content {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      padding-left: 4rem;
+      h1 {
+        margin-bottom: 1rem;
+      }
+      p {
+        margin-bottom: 3rem;
+      }
+    }
+    &--background {
+      background-color: $lightgray;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      justify-content: center;
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    display: block;
+    .side {
+      width: 100%;
+      text-align: center;
+      padding-left: 2rem;
+      justify-content: center;
+      &--background {
+        height: 30vh;
+      }
+    }
+  }
+}

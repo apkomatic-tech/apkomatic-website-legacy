@@ -1,5 +1,5 @@
-@import './../css/_config.scss';
-@import './../css/_mixins.scss';
+@import "./../css/_config.scss";
+@import "./../css/_mixins.scss";
 
 $splashArrowDim: 35px;
 $splashBottomColor: rgba($dark, 0.3);
@@ -13,7 +13,8 @@ $splashBottomColor: rgba($dark, 0.3);
   z-index: 1;
   margin-bottom: 1rem;
   color: $white;
-  background-color: $dark;
+  background-color: $primary_color;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 88%);
 
   &__inner {
     animation-delay: 150ms;

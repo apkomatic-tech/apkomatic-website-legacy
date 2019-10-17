@@ -1,4 +1,4 @@
-const withSass = require('@zeit/next-sass');
+const withSass = require('@zeit/next-sass')
 
 module.exports = withSass({
   exportPathMap() {
@@ -7,9 +7,9 @@ module.exports = withSass({
       '/about': { page: '/about' },
       '/services': { page: '/services' },
       '/contact': { page: '/contact' },
-      '/work': { page: '/work' },
+      // '/work': { page: '/work' },
       '/faq': { page: '/faq' },
-      '/thank-you': { page: '/thank-you' }
-    };
-  }
-});
+      '/thank-you': { page: '/thank-you' },
+    }
+  },
+})

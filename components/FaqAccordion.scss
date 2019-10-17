@@ -1,12 +1,15 @@
-@import './../css/_config.scss';
+@import "./../css/_config.scss";
 
 .accordion-item {
+  margin-bottom: 1rem;
   &__question {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
+    background: $lightgray;
+    border-radius: 5px;
   }
   &__toggle {
     transform: rotate(-90deg);
@@ -23,10 +26,10 @@
 
   &__answer {
     overflow: hidden;
-    border-bottom: 1px solid #ccc;
     color: rgba(#111, 0.7);
+    background: lighten($lightgray, 6%);
     .content {
-      padding: 1rem 2rem;
+      padding: 2rem;
       .collapsed & {
         display: none;
       }
