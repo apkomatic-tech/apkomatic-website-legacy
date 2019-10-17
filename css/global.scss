@@ -227,9 +227,13 @@ p {
   margin: 0;
   &__toggle {
     display: block;
-    color: $primary_color;
+    // color: $white;
     cursor: pointer;
     font-size: 2.2rem;
+    padding: 0.6rem;
+    border: 2px solid $dark;
+    color: $dark;
+    border-radius: 3px;
   }
   &__item {
     margin-right: 1.6rem;
@@ -303,12 +307,12 @@ p {
 
 .mobile-nav {
   position: absolute;
-  top: 80px;
+  top: $header_height;
   background: $white;
   left: 0;
   width: 100%;
   z-index: 999;
-  border-top: 1px solid rgba($dark, 0.2);
+  border-top: 1px solid rgba($dark, 0.1);
   box-shadow: 0 10px 35px rgba($dark, 0.3);
   transform: translateY(-10px);
   transition: opacity 50ms linear,
@@ -336,10 +340,6 @@ p {
     text-align: center;
     .mobile-nav--alt & {
       color: $primary_color;
-    }
-
-    .mobile-nav--alt &:first-child {
-      border-top: 1px solid rgba($dark, 0.8);
     }
 
     &.active,
