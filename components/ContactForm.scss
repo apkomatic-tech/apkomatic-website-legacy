@@ -38,11 +38,12 @@ $error_color: #b9003e;
   font-size: 1.4rem;
   display: flex;
   justify-content: space-between;
-  color: #889;
+  color: #191919;
   cursor: pointer;
   margin-bottom: 0.5rem;
   .hint {
-    color: lighten(#889, 20%);
+    font-size: 1.2rem;
+    color: #686868;
   }
 }
 
