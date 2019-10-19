@@ -36,9 +36,9 @@ const Logo = ({ width, height }: LogoProps) => {
         <text
           transform="translate(164 196)"
           fill="#b60045"
-          font-size="34"
-          font-family="Nunito-SemiBold, Nunito"
-          font-weight="600"
+          fontSize="34"
+          fontFamily="Nunito-SemiBold, Nunito"
+          fontWeight="600"
         >
           <tspan x="-33.685" y="0">
             APK
@@ -47,9 +47,9 @@ const Logo = ({ width, height }: LogoProps) => {
         <text
           transform="translate(301 196)"
           fill="#b60045"
-          font-size="34"
-          font-family="Nunito-SemiBold, Nunito"
-          font-weight="600"
+          fontSize="34"
+          fontFamily="Nunito-SemiBold, Nunito"
+          fontWeight="600"
         >
           <tspan x="-54.329" y="0">
             MATIC
