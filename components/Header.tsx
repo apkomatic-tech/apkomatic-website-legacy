@@ -47,9 +47,15 @@ const Header = () => {
             </a>
           </Link>
           <i
-            role="navigation"
+            role="button"
+            tabIndex={0}
             className="top-nav__toggle fa fa-bars"
             onClick={toggleNav}
+            onKeyDown={e => {
+              if (e.keyCode === 13) {
+                toggleNav()
+              }
+            }}
           />
           <ul className="top-nav">
             {LINKS.filter(({ active }) => Boolean(active)).map(
