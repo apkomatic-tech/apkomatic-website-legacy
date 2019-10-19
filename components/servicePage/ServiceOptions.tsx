@@ -1,21 +1,26 @@
-import React, { memo } from 'react'
-import Link from 'next/link'
-import { Checkmark } from '..'
+import React, { memo } from "react"
+import Link from "next/link"
+import { Checkmark } from ".."
 
-import '../Card.scss'
+import "../Card.scss"
 
 const ServiceOptions = memo(() => (
   <div className="services-card-stack row d-flex align-items-stretch mt-3 pt-3">
-    <div className="col-lg-4 mb-3 animated fadeInUp" style={{ animationDelay: '200ms' }}>
+    <div
+      className="col-lg-4 mb-3 animated fadeInUp"
+      style={{ animationDelay: "200ms" }}
+    >
       <div
         className="card h-100 text-left"
         style={{
-          borderTop: '8px solid #FFBF69'
+          borderTop: "8px solid #FFBF69"
         }}
       >
         <div className="card-body bg-light">
           <h3>Essential</h3>
-          <p className="text-muted">Perfect for clean, light, and interactive websites.</p>
+          <p className="text-muted">
+            Perfect for clean, light, and interactive websites.
+          </p>
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
@@ -31,7 +36,9 @@ const ServiceOptions = memo(() => (
         </ul>
         <div className="card-body">
           <Link href="/contact">
-            <a className="btn btn-tertiary d-block">Contact for price</a>
+            <a className="btn btn-tertiary d-block" tabIndex={0} role="button">
+              Contact for price
+            </a>
           </Link>
         </div>
       </div>
@@ -41,12 +48,15 @@ const ServiceOptions = memo(() => (
       <div
         className="card h-100 text-left"
         style={{
-          borderTop: '8px solid #DB324D'
+          borderTop: "8px solid #DB324D"
         }}
       >
         <div className="card-body bg-light">
           <h3>Balanced</h3>
-          <p className="text-muted">Perfect for more complicated websites with more content and rich interactions.</p>
+          <p className="text-muted">
+            Perfect for more complicated websites with more content and rich
+            interactions.
+          </p>
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
@@ -64,22 +74,29 @@ const ServiceOptions = memo(() => (
         </ul>
         <div className="card-body">
           <Link href="/contact">
-            <a className="btn btn-tertiary d-block">Contact for price</a>
+            <a className="btn btn-tertiary d-block" tabIndex={0} role="button">
+              Contact for price
+            </a>
           </Link>
         </div>
       </div>
     </div>
 
-    <div className="col-lg-4 mb-3 animated fadeInUp" style={{ animationDelay: '200ms' }}>
+    <div
+      className="col-lg-4 mb-3 animated fadeInUp"
+      style={{ animationDelay: "200ms" }}
+    >
       <div
         className="card h-100 text-left"
         style={{
-          borderTop: '8px solid #6C9DD1'
+          borderTop: "8px solid #6C9DD1"
         }}
       >
         <div className="card-body bg-light">
           <h3>Advanced</h3>
-          <p className="text-muted">Perfect for more complicated products, like e-commerce or web apps.</p>
+          <p className="text-muted">
+            Perfect for more complicated products, like e-commerce or web apps.
+          </p>
         </div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
@@ -97,7 +114,9 @@ const ServiceOptions = memo(() => (
         </ul>
         <div className="card-body">
           <Link href="/contact">
-            <a className="btn btn-tertiary d-block">Contact for price</a>
+            <a className="btn btn-tertiary d-block" tabIndex={0} role="button">
+              Contact for price
+            </a>
           </Link>
         </div>
       </div>

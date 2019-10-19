@@ -1,9 +1,8 @@
 import React from "react"
+import Link from "next/link"
 import ReactGA from "react-ga"
-import { SOCIAL } from "../config/global"
+import { SOCIAL as socialLinks } from "../config/global"
 import Logo from "./Logo"
-
-const socialIcons = SOCIAL.filter(s => Boolean(s.active))
 
 const Footer = () => (
   <footer className="site-footer">
@@ -13,7 +12,11 @@ const Footer = () => (
           <div className="col-md-6">
             <div className="d-flex align-items-center">
               <div>
-                <Logo width={100} height={30} />
+                <Link href="/" passHref>
+                  <a>
+                    <Logo width={100} height={30} />
+                  </a>
+                </Link>
                 <div className="d-flex align-items-start">
                   <p>
                     We are a group of passionate web designers and developers.
@@ -26,7 +29,7 @@ const Footer = () => (
           </div>{" "}
           {/* end of column 1 */}
           <div className="col-md-6 text-right">
-            {socialIcons.length > 0 && (
+            {socialLinks.length > 0 && (
               <ul className="footer__social list-unstyled">
                 <li className="sep">Connect |</li>
                 <li>
@@ -35,25 +38,27 @@ const Footer = () => (
                     <i className="fas fa-at" />
                   </a>
                 </li>
-                {socialIcons.map(s => (
-                  <li key={s.id}>
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={s.href}
-                      onClick={() => {
-                        ReactGA.event({
-                          category: "Footer",
-                          action: "Social-Icon-Click",
-                          label: s.label
-                        })
-                      }}
-                    >
-                      <span className="sr-only">{s.label}</span>
-                      <i className={`fab fa-${s.iconLabel}`} />
-                    </a>
-                  </li>
-                ))}
+                {socialLinks
+                  .filter(s => Boolean(s.active))
+                  .map(s => (
+                    <li key={s.id}>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={s.href}
+                        onClick={() => {
+                          ReactGA.event({
+                            category: "Footer",
+                            action: "Social-Icon-Click",
+                            label: s.label
+                          })
+                        }}
+                      >
+                        <span className="sr-only">{s.label}</span>
+                        <i className={`fab fa-${s.iconLabel}`} />
+                      </a>
+                    </li>
+                  ))}
               </ul>
             )}
           </div>
