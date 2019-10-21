@@ -5,6 +5,8 @@ import { GUA_TRACKING_ID, IS_DEV } from "../config/global"
 import { Header, Footer } from "."
 import { pageContext, navContext } from "./context"
 
+import "../css/global.scss"
+
 const Page = props => {
   const { pathname, children } = props
   const pageName = pathname === "/" ? "landing" : pathname.replace("/", "")

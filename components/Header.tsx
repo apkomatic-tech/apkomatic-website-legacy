@@ -41,7 +41,7 @@ const Header = () => {
     <>
       <header className="header">
         <div className="header__inner">
-          <Link prefetch href="/">
+          <Link href="/">
             <a className="brand">
               <Logo width={170} height={50} />
             </a>
@@ -61,9 +61,7 @@ const Header = () => {
             {LINKS.filter(({ active }) => Boolean(active)).map(
               ({ id, href, ...linkProps }) => (
                 <li key={id} className="top-nav__item">
-                  <Link prefetch href={href}>
-                    {renderDesktopLink(linkProps)}
-                  </Link>
+                  <Link href={href}>{renderDesktopLink(linkProps)}</Link>
                 </li>
               )
             )}
@@ -75,7 +73,7 @@ const Header = () => {
           {LINKS.filter(({ active }) => Boolean(active)).map(
             ({ id, href, label, pathname }) => (
               <li key={id} className="mobile-nav__item" onClick={closeNav}>
-                <Link prefetch href={href}>
+                <Link href={href}>
                   <a
                     className={`mobile-nav__link${
                       path === pathname ? " active" : ""

@@ -20,12 +20,12 @@ export default props => {
     }
   }, [])
   return (
-    <Container>
+    <React.Fragment>
       <ErrorBoundary>
         <Page {...router}>
           <Component />
         </Page>
       </ErrorBoundary>
-    </Container>
+    </React.Fragment>
   )
 }
