@@ -1,6 +1,4 @@
-import React, { Attributes } from "react"
-import "../css/global.scss"
-import { jsxAttribute } from "@babel/types"
+import React from "react"
 
 interface WrapperProps {
   children: any
@@ -10,7 +8,13 @@ interface WrapperProps {
   style?: any
 }
 
-const Wrapper = ({animated = false, fluid = false, animationClass="fadeIn", children, ...rest}: WrapperProps) => {
+const Wrapper = ({
+  animated = false,
+  fluid = false,
+  animationClass = "fadeIn",
+  children,
+  ...rest
+}: WrapperProps) => {
   return (
     <div
       className={`container${fluid ? " container-fluid" : ""}${
@@ -22,24 +26,5 @@ const Wrapper = ({animated = false, fluid = false, animationClass="fadeIn", chil
     </div>
   )
 }
-
-// const Wrapper = ({
-//   animated,
-//   fluid,
-//   children,
-//   ...rest
-// }: IWrapper) => {
-
-//   return (
-//     <div
-//       className={`container${fluid ? " container-fluid" : ""}${
-//         animated ? " animated fadeIn" : ""
-//       }`}
-//       {...rest}
-//     >
-//       {children}
-//     </div>
-//   )
-// }
 
 export default Wrapper
