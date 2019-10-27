@@ -31,7 +31,6 @@ const Footer = () => (
           <div className="col-md-6 text-right">
             {socialLinks.length > 0 && (
               <ul className="footer__social list-unstyled">
-                <li className="sep">Connect |</li>
                 <li>
                   <a href="mailto:apkomatic@gmail.com">
                     <span className="sr-only">Email Apkomatic</span>
@@ -65,7 +64,7 @@ const Footer = () => (
         </div>
         <div className="row mt-3">
           <div className="col-md-12">
-            <p>
+            <p className="copyright">
               &copy; Apkomatic, All Rights Reserved {new Date().getFullYear()}
             </p>
           </div>

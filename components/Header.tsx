@@ -52,7 +52,7 @@ const Header = () => {
             role="button"
             tabIndex={0}
             id="toggle-nav"
-            className={`top-nav__toggle`}
+            className={`top-nav__toggle${navOpen ? " open" : ""}`}
             onClick={toggleNav}
             onKeyDown={e => {
               if (e.keyCode === 13) {
@@ -80,7 +80,7 @@ const Header = () => {
         variants={mobileNavVariants}
         transition={{
           type: "tween",
-          duration: 0.2
+          duration: 0.26
         }}
         className={`mobile-nav${navOpen ? " open" : ""}`}
       >
