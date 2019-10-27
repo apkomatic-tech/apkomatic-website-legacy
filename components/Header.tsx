@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useContext, useRef } from "react"
 import PropTypes from "prop-types"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import { LINKS } from "../config/global"
-import { pageContext, navContext } from "./context"
+import { pageContext } from "./context"
 import Logo from "./Logo"
 
 const Header = () => {
   const [navOpen, setNavOpen] = useState<Boolean>(false)
   const path = useContext(pageContext)
+  const headerRef = useRef(null)
 
   const closeNav = () => {
     setNavOpen(false)
@@ -26,37 +28,41 @@ const Header = () => {
       </a>
     )
   }
-
-  useEffect(() => {
-    if (navOpen) {
-      document.body.classList.add("nav-open")
-    } else if (!navOpen) {
-      document.body.classList.remove("nav-open")
+  const mobileNavVariants = {
+    show: {
+      y: headerRef.current ? headerRef.current.clientHeight : 0
+    },
+    hide: {
+      y: "-100%"
     }
-  }, [navOpen])
+  }
 
   // render
 
   return (
     <>
-      <header className="header">
+      <header ref={headerRef} className="header">
         <div className="header__inner">
           <Link href="/">
             <a className="brand">
               <Logo width={170} height={50} />
             </a>
           </Link>
-          <i
+          <div
             role="button"
             tabIndex={0}
-            className="top-nav__toggle fa fa-bars"
+            id="toggle-nav"
+            className={`top-nav__toggle`}
             onClick={toggleNav}
             onKeyDown={e => {
               if (e.keyCode === 13) {
                 toggleNav()
               }
             }}
-          />
+          >
+            <span className="sr-only">Toggle Navigation</span>
+            <div className="icon"></div>
+          </div>
           <ul className="top-nav">
             {LINKS.filter(({ active }) => Boolean(active)).map(
               ({ id, href, ...linkProps }) => (
@@ -68,7 +74,16 @@ const Header = () => {
           </ul>
         </div>
       </header>
-      <div className={`mobile-nav${navOpen ? " open" : ""}`}>
+      <motion.nav
+        initial={false}
+        animate={navOpen ? "show" : "hide"}
+        variants={mobileNavVariants}
+        transition={{
+          type: "tween",
+          duration: 0.2
+        }}
+        className={`mobile-nav${navOpen ? " open" : ""}`}
+      >
         <ul className="mobile-nav__list">
           {LINKS.filter(({ active }) => Boolean(active)).map(
             ({ id, href, label, pathname }) => (
@@ -86,7 +101,7 @@ const Header = () => {
             )
           )}
         </ul>
-      </div>
+      </motion.nav>
     </>
   )
 }
