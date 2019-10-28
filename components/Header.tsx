@@ -61,7 +61,9 @@ const Header = () => {
             }}
           >
             <span className="sr-only">Toggle Navigation</span>
-            <div className="icon"></div>
+            <div className="top"></div>
+            <div className="center"></div>
+            <div className="bottom"></div>
           </div>
           <ul className="top-nav">
             {LINKS.filter(({ active }) => Boolean(active)).map(
