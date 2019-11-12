@@ -5,8 +5,7 @@ import faqJSON from "../data/faq.json"
 import "../css/faq.scss"
 
 const splashProps = {
-  title: "Apkomatic FAQ",
-  isFaq: true,
+  title: "Frequently Asked Questions",
   splashStyle: "splash--alt1"
 }
 
