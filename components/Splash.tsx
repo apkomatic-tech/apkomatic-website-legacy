@@ -5,15 +5,9 @@ interface ISplash extends JSX.IntrinsicAttributes {
   title: string
   text?: string
   splashStyle?: string
-  isFaq?: boolean
 }
 
-const Splash = ({
-  title,
-  text,
-  splashStyle = "splash--alt1",
-  isFaq = false
-}: ISplash) => (
+const Splash = ({ title, text, splashStyle = "splash--alt1" }: ISplash) => (
   <div className={`splash ${splashStyle}`}>
     <div className="container splash__inner">
       <div className="text-center">
@@ -21,7 +15,7 @@ const Splash = ({
           className="splash__title animated fadeInDown text-center"
           style={{ animationDuration: "500ms", animationDelay: "200ms" }}
         >
-          {isFaq && <i className="fas fa-question-circle" />} {title}
+          {title}
         </h2>
         {text && (
           <p

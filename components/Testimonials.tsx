@@ -6,7 +6,20 @@ import "./Testimonials.scss"
 const Testimonials = () => {
   useEffect(() => {
     new Swiper(".swiper-container", {
-      grabCursor: true
+      grabCursor: true,
+      loop: true,
+      autoplay: {
+        delay: 5000
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+        clickable: true
+      }
     })
   }, [])
   return (
@@ -39,6 +52,9 @@ const Testimonials = () => {
           </article>
         ))}
       </div>
+      <div className="testimonials__arrow swiper-button-next swiper-button-white"></div>
+      <div className="testimonials__arrow swiper-button-prev swiper-button-white"></div>
+      <div className="swiper-pagination testimonials__pagination"></div>
     </div>
   )
 }
