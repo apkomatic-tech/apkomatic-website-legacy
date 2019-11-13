@@ -6,16 +6,8 @@ $error_color: #b9003e;
 .contact-form {
   border-radius: 4px;
   background-color: $white;
-  // width: 100%;
   display: block;
   min-width: 100%;
-  // @media screen and (min-width: 1024px) {
-  //   min-width: 42rem;
-  // }
-
-  // @media screen and (min-width: 767px) {
-  //   min-width: 35rem;
-  // }
 
   &__submit-btn-wrapper {
     margin-top: 1rem;
@@ -24,6 +16,15 @@ $error_color: #b9003e;
 
 .form-control {
   font-size: inherit;
+}
+
+input.form-control,
+textarea.form-control {
+  border-color: rgba($dark, 0.4);
+  box-shadow: none !important;
+  &:focus {
+    border-color: rgba($dark, 0.75);
+  }
 }
 
 .form-group {
