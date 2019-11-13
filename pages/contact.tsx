@@ -1,14 +1,20 @@
 /* eslint-disable jsx-a11y/label-has-for */
 import React from "react"
 import { Wrapper, ContactForm, Splash } from "../components"
-import BackgroundLayout from "../components/BackgroundLayout"
+
+const splashProps = {
+  title: "Contact",
+  splashStyle: "splash--alt1",
+  text: "Let's get in touch about your exciting project!"
+}
 
 export default () => (
   <React.Fragment>
-    <BackgroundLayout background="/static/images/contact-page-bg-compressed.jpg">
-      <h1>Contact Us</h1>
-      <p className="lead">Let's get in touch about your exciting project!</p>
+    <Splash {...splashProps} />
+    <Wrapper
+      style={{ maxWidth: "50rem", paddingTop: "4rem", paddingBottom: "4rem" }}
+    >
       <ContactForm />
-    </BackgroundLayout>
+    </Wrapper>
   </React.Fragment>
 )

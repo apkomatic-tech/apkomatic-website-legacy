@@ -1,62 +1,15 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect, useRef, useReducer } from "react"
+import React, { useRef, useEffect, useReducer } from "react"
 import ReactGA from "react-ga"
-import { encode, validateEmail } from "../utils"
-import Toast from "./shared/Toast"
+import { encode } from "../utils"
 import "./ContactForm.scss"
 
 const CONTACT_FORM_NAME =
   process.env.NODE_ENV === "production"
     ? "apkomatic-prod-contact"
     : "apkomatic-dev-contact"
-const notificationDelay = 3500
-const VALIDATION_MESSAGES = {
-  required: "This field is required",
-  email: "Please provide a valid email address",
-  deadline: "Please choose deadline"
-}
-
-const formReducer = (state, action) => {
-  switch (action.type) {
-    case "SET_INPUT":
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.name]: action.value
-        }
-      }
-    case "PROCESSING":
-      return {
-        ...state,
-        processing: true
-      }
-    case "SUBMIT_SUCCESS":
-      return {
-        ...state,
-        processing: false,
-        success: true,
-        inputs: {
-          fullName: "",
-          email: "",
-          message: ""
-        },
-        submitSuccess: true,
-        submitFail: false
-      }
-    case "SUBMIT_FAIL":
-      return {
-        ...state,
-        processing: false,
-        submitSuccess: false,
-        submitFail: true
-      }
-    default:
-      return state
-  }
-}
 
 const ContactForm = () => {
   const [formState, setState] = useReducer(
@@ -77,6 +30,7 @@ const ContactForm = () => {
   )
 
   const formNode = useRef(null)
+  const emailInputRef = useRef(null)
 
   const processContactRequest = async () => {
     try {
@@ -143,6 +97,10 @@ const ContactForm = () => {
     )
   }
 
+  useEffect(() => {
+    emailInputRef.current.focus()
+  }, [])
+
   return (
     <React.Fragment>
       <div id="contact-form">
@@ -180,6 +138,7 @@ const ContactForm = () => {
               <input
                 id="email"
                 type="email"
+                ref={emailInputRef}
                 className={`form-control form-control-lg`}
                 name="email"
                 value={formState.inputs.email}
@@ -230,7 +189,7 @@ const ContactForm = () => {
           <div className="contact-form__submit-btn-wrapper">
             <button
               type="submit"
-              className="btn btn-primary btn-lg btn-block"
+              className="btn btn-primary btn-block"
               disabled={formState.processing}
             >
               Send
