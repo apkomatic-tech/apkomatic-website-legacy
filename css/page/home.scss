@@ -10,7 +10,7 @@
   overflow: hidden;
   position: relative;
   z-index: 1;
-  min-height: calc(100vh - #{$header_height});
+  min-height: 50vh;
   background-image: url(/static/images/hero-bg-image.jpg);
   background-size: cover;
   background-position: center;
@@ -47,8 +47,12 @@
     margin-right: 60px;
   }
 
+  &__image {
+    max-width: 600px;
+  }
+
   &__heading {
-    font-size: 4rem;
+    font-size: 5rem;
     letter-spacing: -0.1rem;
     line-height: 1.2;
     margin-bottom: 2rem;
@@ -58,7 +62,7 @@
   &__subheading {
     color: rgba($white, 0.7);
     font-family: "Nunito", sans-serif;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     margin-bottom: 3rem;
   }
 
@@ -74,7 +78,7 @@
       flex-wrap: wrap;
     }
     &__heading {
-      font-size: 3.4rem;
+      font-size: 4rem;
     }
     &__intro {
       flex-basis: 100%;
@@ -84,7 +88,7 @@
       padding-top: 0;
     }
     &__image {
-      max-width: 400px;
+      max-width: 330px;
     }
   }
 }
