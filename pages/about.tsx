@@ -12,8 +12,6 @@ export default () => (
     <Splash {...splashProps} />
     <Wrapper
       fluid
-      animated
-      animationClass="fadeInUp"
       style={{
         maxWidth: "70rem"
       }}

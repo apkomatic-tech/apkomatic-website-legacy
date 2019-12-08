@@ -7,7 +7,7 @@ import "../Card.scss"
 const ServiceOptions = memo(() => (
   <div className="services-card-stack row d-flex align-items-stretch mt-3 pt-3">
     <div
-      className="col-lg-4 mb-3 animated fadeInUp"
+      className="col-lg-4 mb-3 animated fadeIn"
       style={{ animationDelay: "200ms" }}
     >
       <div
@@ -44,7 +44,7 @@ const ServiceOptions = memo(() => (
       </div>
     </div>
 
-    <div className="col-lg-4 mb-3 animated fadeInUp">
+    <div className="col-lg-4 mb-3 animated fadeIn">
       <div
         className="card h-100 text-left"
         style={{
@@ -83,7 +83,7 @@ const ServiceOptions = memo(() => (
     </div>
 
     <div
-      className="col-lg-4 mb-3 animated fadeInUp"
+      className="col-lg-4 mb-3 animated fadeIn"
       style={{ animationDelay: "200ms" }}
     >
       <div

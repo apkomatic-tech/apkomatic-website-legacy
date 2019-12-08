@@ -12,7 +12,7 @@ const splashProps = {
 export default () => (
   <React.Fragment>
     <Splash {...splashProps} />
-    <Wrapper fluid animated animationClass="fadeInUp">
+    <Wrapper fluid>
       <section className="faq-wrapper">
         <FaqAccordion items={faqJSON} />
       </section>
