@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
-import AOS from 'aos';
+import React, { Component } from "react"
+// import AOS from "aos"
 
 class HomePage extends Component {
-  componentDidMount() {
-    AOS.init({
-      duration: 500,
-      once: false
-    });
-  }
+  // componentDidMount() {
+  //   AOS.init({
+  //     duration: 500,
+  //     once: false
+  //   });
+  // }
 
-  componentDidUpdate() {
-    AOS.refresh();
-  }
+  // componentDidUpdate() {
+  //   AOS.refresh();
+  // }
+
+  // TODO: do something cool here when homepage loads
 
   render() {
-    return <React.Fragment>{this.props.children}</React.Fragment>;
+    return <React.Fragment>{this.props.children}</React.Fragment>
   }
 }
 
-export default HomePage;
+export default HomePage
