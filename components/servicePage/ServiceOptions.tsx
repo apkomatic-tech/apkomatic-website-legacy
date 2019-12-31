@@ -17,7 +17,7 @@ const ServiceOptions = memo(() => (
         }}
       >
         <div className="card-body bg-light">
-          <h3>Essential</h3>
+          <h2>Essential</h2>
           <p className="text-muted">
             Perfect for clean, light, and interactive websites.
           </p>
@@ -52,7 +52,7 @@ const ServiceOptions = memo(() => (
         }}
       >
         <div className="card-body bg-light">
-          <h3>Balanced</h3>
+          <h2>Balanced</h2>
           <p className="text-muted">
             Perfect for more complicated websites with more content and rich
             interactions.
@@ -93,7 +93,7 @@ const ServiceOptions = memo(() => (
         }}
       >
         <div className="card-body bg-light">
-          <h3>Advanced</h3>
+          <h2>Advanced</h2>
           <p className="text-muted">
             Perfect for more complicated products, like e-commerce or web apps.
           </p>
