@@ -12,13 +12,11 @@ export default () => (
     <Splash {...splashProps} />
     <Wrapper
       fluid
-      animated
-      animationClass="fadeInUp"
       style={{
         maxWidth: "70rem"
       }}
     >
-      <h3>Who We Are</h3>
+      <h2>Who We Are</h2>
       <p>
         We are a web development company based in Los Angeles, California. Our
         company consists of professionals who are passionate about web
@@ -26,12 +24,12 @@ export default () => (
         type of clients - individuals, profit and non-profit
         businesses/organizations.
       </p>
-      <h3>Our Mission</h3>
+      <h2>Our Mission</h2>
       <p>
         Build hight quality websites for all individuals, businesses, or
         organizations.
       </p>
-      <h3>Ready to work with us?</h3>
+      <h2>Ready to work with us?</h2>
       <p>
         <Link href="/contact">
           <a className="btn btn-primary">Get In Touch</a>

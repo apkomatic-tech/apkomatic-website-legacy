@@ -1,15 +1,15 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useRef, useEffect, useReducer } from "react"
-import ReactGA from "react-ga"
-import { encode } from "../utils"
-import "./ContactForm.scss"
+import React, { useRef, useEffect, useReducer } from 'react'
+import ReactGA from 'react-ga'
+import { encode } from '../utils'
+import './ContactForm.scss'
 
 const CONTACT_FORM_NAME =
-  process.env.NODE_ENV === "production"
-    ? "apkomatic-prod-contact"
-    : "apkomatic-dev-contact"
+  process.env.NODE_ENV === 'production'
+    ? 'apkomatic-prod-contact'
+    : 'apkomatic-dev-contact'
 
 const ContactForm = () => {
   const [formState, setState] = useReducer(
@@ -22,9 +22,9 @@ const ContactForm = () => {
       submitSuccess: false,
       submitFail: false,
       inputs: {
-        fullName: "",
-        email: "",
-        message: ""
+        fullName: '',
+        email: '',
+        message: ''
       }
     }
   )
@@ -37,12 +37,12 @@ const ContactForm = () => {
       setState({
         processing: true
       })
-      const response = await fetch("/", {
-        method: "POST",
+      const response = await fetch('/', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: encode({ "form-name": CONTACT_FORM_NAME, ...formState.inputs })
+        body: encode({ 'form-name': CONTACT_FORM_NAME, ...formState.inputs })
       })
       if (response.ok) {
         setState({
@@ -59,8 +59,8 @@ const ContactForm = () => {
       }
       // track submissions
       ReactGA.event({
-        category: "Contact",
-        action: "Submit-Contact-Form"
+        category: 'Contact',
+        action: 'Submit-Contact-Form'
       })
     } catch (e) {
       setState({
@@ -80,26 +80,29 @@ const ContactForm = () => {
     })
   }
 
+  useEffect(() => {
+    if (!emailInputRef.current) {
+      return
+    }
+    emailInputRef.current.focus()
+  }, [])
+
   if (formState.submitSuccess) {
     return (
       <div
-        className="contact-thank-you animated fadeInUp"
+        className="contact-thank-you animated fadeInDown"
         style={{
-          animationDuration: "300ms"
+          animationDuration: '300ms'
         }}
       >
         <img src="/static/contact-success-image.svg" alt="" />
         <p>
-          Thank you for contacting us, we will respond to your request within 1
-          business day.
+          Thank you for contacting us, we will review your inquiry and respond
+          as soon as possible.
         </p>
       </div>
     )
   }
-
-  useEffect(() => {
-    emailInputRef.current.focus()
-  }, [])
 
   return (
     <React.Fragment>
@@ -129,7 +132,7 @@ const ContactForm = () => {
             <div className="form-group">
               <label
                 className={`label label--with-hint ${
-                  formState.inputs.email ? "label--shift-top" : ""
+                  formState.inputs.email ? 'label--shift-top' : ''
                 }`}
                 htmlFor="email"
               >
@@ -150,7 +153,7 @@ const ContactForm = () => {
             <div className="form-group">
               <label
                 className={`label label--with-hint ${
-                  formState.fullName ? "label--shift-top" : ""
+                  formState.fullName ? 'label--shift-top' : ''
                 }`}
                 htmlFor="full-name"
               >
@@ -169,7 +172,7 @@ const ContactForm = () => {
             <div className="form-group mb-3">
               <label
                 className={`label label--with-hint ${
-                  formState.message ? "label--shift-top" : ""
+                  formState.message ? 'label--shift-top' : ''
                 }`}
                 htmlFor="inspirations"
               >

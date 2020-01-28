@@ -1,11 +1,11 @@
-import React, { useState, useContext, useRef } from 'react'
-import Link from 'next/link'
-import { LINKS } from '../config/global'
-import { pageContext } from './context'
-import Logo from './Logo'
-import MobileNavToggle from './MobileNavToggle'
-import MobileNav from './MobileNav'
-import DesktopNav from './DesktopNav'
+import React, { useState, useContext, useRef } from "react"
+import Link from "next/link"
+import { LINKS } from "../config/global"
+import { pageContext } from "./context"
+import Logo from "./Logo"
+import MobileNavToggle from "./MobileNavToggle"
+import MobileNav from "./MobileNav"
+import DesktopNav from "./DesktopNav"
 
 const useNav = () => {
   const [navOpen, setNavOpen] = useState<Boolean>(false)
@@ -30,11 +30,12 @@ const Header = () => {
 
   return (
     <>
-      <header ref={headerRef} className='header'>
-        <div className='header__inner'>
-          <Link href='/'>
-            <a className='brand'>
+      <header ref={headerRef} className="header">
+        <div className="header__inner">
+          <Link href="/">
+            <a className="brand">
               <Logo width={170} height={50} />
+              <span className="sr-only">Apkomatic</span>
             </a>
           </Link>
           <DesktopNav navItems={LINKS} path={path} />

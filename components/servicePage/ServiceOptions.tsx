@@ -7,7 +7,7 @@ import "../Card.scss"
 const ServiceOptions = memo(() => (
   <div className="services-card-stack row d-flex align-items-stretch mt-3 pt-3">
     <div
-      className="col-lg-4 mb-3 animated fadeInUp"
+      className="col-lg-4 mb-3 animated fadeIn"
       style={{ animationDelay: "200ms" }}
     >
       <div
@@ -17,7 +17,7 @@ const ServiceOptions = memo(() => (
         }}
       >
         <div className="card-body bg-light">
-          <h3>Essential</h3>
+          <h2>Essential</h2>
           <p className="text-muted">
             Perfect for clean, light, and interactive websites.
           </p>
@@ -44,7 +44,7 @@ const ServiceOptions = memo(() => (
       </div>
     </div>
 
-    <div className="col-lg-4 mb-3 animated fadeInUp">
+    <div className="col-lg-4 mb-3 animated fadeIn">
       <div
         className="card h-100 text-left"
         style={{
@@ -52,7 +52,7 @@ const ServiceOptions = memo(() => (
         }}
       >
         <div className="card-body bg-light">
-          <h3>Balanced</h3>
+          <h2>Balanced</h2>
           <p className="text-muted">
             Perfect for more complicated websites with more content and rich
             interactions.
@@ -83,7 +83,7 @@ const ServiceOptions = memo(() => (
     </div>
 
     <div
-      className="col-lg-4 mb-3 animated fadeInUp"
+      className="col-lg-4 mb-3 animated fadeIn"
       style={{ animationDelay: "200ms" }}
     >
       <div
@@ -93,7 +93,7 @@ const ServiceOptions = memo(() => (
         }}
       >
         <div className="card-body bg-light">
-          <h3>Advanced</h3>
+          <h2>Advanced</h2>
           <p className="text-muted">
             Perfect for more complicated products, like e-commerce or web apps.
           </p>

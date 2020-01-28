@@ -40,7 +40,7 @@ export const LINKS = [
     id: 4,
     href: "/about",
     pathname: "/about",
-    label: "About",
+    label: "About Us",
     active: true
   },
   {
