@@ -1,6 +1,6 @@
-import React from "react"
-import Link from "next/link"
-import { motion } from "framer-motion"
+import React from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 const ANIMATION_SPEED = 0.3
 const Y_OFFSET = -45
 
@@ -23,7 +23,7 @@ export default () => (
               y: 0
             }}
           >
-            Take your website to next level.
+            Let's build you a website.
           </motion.h1>
           <motion.p
             className="hero__subheading"
@@ -40,7 +40,8 @@ export default () => (
               y: 0
             }}
           >
-            Apkomatic is dedicated to deliver high quality website solutions.
+            Hi there. We are Apkomatic - a company specializing in building high
+            quality web solutions.
           </motion.p>
           <Link href="/contact">
             <motion.a
@@ -64,12 +65,12 @@ export default () => (
         </div>
         <div className="hero__image">
           <img
-            src="/static/hero.svg"
-            alt=""
+            src="/static/hero-graphic-v2.svg"
+            alt="hero image"
             className="img-fluid animated fadeInUp"
             style={{
-              animationDuration: "400ms",
-              animationDelay: "1000ms"
+              animationDuration: '400ms',
+              animationDelay: '1000ms'
             }}
           />
         </div>
