@@ -1,11 +1,11 @@
-import React, { useState, useContext, useRef } from "react"
-import Link from "next/link"
-import { LINKS } from "../config/global"
-import { pageContext } from "./context"
-import Logo from "./Logo"
-import MobileNavToggle from "./MobileNavToggle"
-import MobileNav from "./MobileNav"
-import DesktopNav from "./DesktopNav"
+import React, { useState, useContext, useRef, useEffect } from 'react'
+import Link from 'next/link'
+import { LINKS } from '../config/global'
+import { pageContext } from './context'
+import Logo from './Logo'
+import MobileNavToggle from './MobileNavToggle'
+import MobileNav from './MobileNav'
+import DesktopNav from './DesktopNav'
 
 const useNav = () => {
   const [navOpen, setNavOpen] = useState<Boolean>(false)
@@ -15,6 +15,18 @@ const useNav = () => {
   const toggleNav = () => {
     setNavOpen(!navOpen)
   }
+
+  useEffect(() => {
+    const handleEscKey = (e: KeyboardEvent) => {
+      if (e.key === 'Esc' || e.key === 'Escape') {
+        setNavOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleEscKey)
+    return () => {
+      window.removeEventListener('keydown', handleEscKey)
+    }
+  }, [])
 
   return {
     navOpen,
