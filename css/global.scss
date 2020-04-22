@@ -1,17 +1,16 @@
-@import "_config.scss";
-@import "_helpers.scss";
-@import "_mixins.scss";
+@import '_config.scss';
+@import '_helpers.scss';
+@import '_mixins.scss';
 
-@import url("https://fonts.googleapis.com/css?family=Poppins:500|Nunito:400,700");
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
 html {
   font-size: 10px;
 }
 body {
   background-color: #ffffff;
-  font-family: "Nunito", Arial, Helvetica, sans-serif;
+  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 1.7rem;
-  letter-spacing: -0.05rem;
   line-height: 1.4;
   &.fixed {
     overflow-y: hidden;
@@ -22,8 +21,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Poppins", serif;
-  font-weight: 500;
+  font-weight: 700;
   margin: 0 0 2rem;
 }
 
@@ -68,7 +66,7 @@ p {
 .btn {
   font-size: inherit;
   transition: 300ms ease;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 6px 15px;
 
   &-lg {
@@ -77,13 +75,13 @@ p {
   }
 
   &-primary {
-    color: $white;
+    color: $white !important;
 
     &,
     &:hover {
-      color: $white;
-      background-color: $primary_color;
-      border-color: $primary_color;
+      color: $white !important;
+      background-color: $primary_color !important;
+      border-color: $primary_color !important;
     }
   }
 
@@ -188,9 +186,8 @@ p {
   align-items: center;
   background-color: #fff;
   display: flex;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   height: $header_height;
-  padding: 0 1rem;
   position: relative;
   transition: background-color 320ms linear;
   z-index: 1000;
@@ -199,16 +196,20 @@ p {
     align-items: center;
     justify-content: space-between;
     flex-basis: 100%;
-    padding: 0 1rem;
+    padding: 0 2rem;
   }
 }
 
 .brand {
-  .header--alt & {
-    color: $dark !important;
+  color: $dark;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 2.1rem;
+  &:hover,
+  &:focus {
+    color: $dark;
+    text-decoration: none;
   }
-  color: $white !important;
-  text-decoration: none !important;
 
   img {
     display: block;
@@ -309,12 +310,12 @@ p {
     display: block;
     font-size: 1.4rem;
     font-weight: 400;
-    letter-spacing: 0.056rem;
     overflow: hidden;
     padding-bottom: 5px;
     padding-top: 5px;
     position: relative;
     z-index: 1;
+    text-transform: uppercase;
 
     &.active {
       color: $primary_color;
@@ -329,7 +330,7 @@ p {
     &:after {
       background-color: $primary_color;
       bottom: 0;
-      content: "";
+      content: '';
       display: block;
       height: 3px;
       position: absolute;
