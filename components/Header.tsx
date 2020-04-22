@@ -45,10 +45,7 @@ const Header = () => {
       <header ref={headerRef} className="header">
         <div className="header__inner">
           <Link href="/">
-            <a className="brand">
-              <Logo width={170} height={50} />
-              <span className="sr-only">Apkomatic</span>
-            </a>
+            <a className="brand">Apkomatic</a>
           </Link>
           <DesktopNav navItems={LINKS} path={path} />
           <MobileNavToggle navOpen={navOpen} toggleNav={toggleNav} />
