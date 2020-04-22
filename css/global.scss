@@ -426,11 +426,12 @@ p {
     color: rgba($dark, 0.75);
   }
 
-  &__logo {
-    width: 50px;
-    border-radius: 2px;
-    margin-right: 1rem;
-    transform: translateY(5px);
+  &__company-name {
+    font-weight: 700;
+    color: rgba($dark, 0.7);
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
   }
 
   .container {
