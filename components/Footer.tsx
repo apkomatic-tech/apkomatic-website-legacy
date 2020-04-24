@@ -1,8 +1,7 @@
-import React from "react"
-import Link from "next/link"
-import ReactGA from "react-ga"
-import { SOCIAL as socialLinks } from "../config/global"
-import Logo from "./Logo"
+import React from 'react'
+import Link from 'next/link'
+import ReactGA from 'react-ga'
+import { SOCIAL as socialLinks } from '../config/global'
 
 const Footer = () => (
   <footer className="site-footer">
@@ -13,9 +12,7 @@ const Footer = () => (
             <div className="d-flex align-items-center">
               <div>
                 <Link href="/" passHref>
-                  <a>
-                    <Logo width={100} height={30} />
-                  </a>
+                  <a className="site-footer__company-name">Apkomatic</a>
                 </Link>
                 <div className="d-flex align-items-start">
                   <p>
@@ -26,7 +23,7 @@ const Footer = () => (
                 </div>
               </div>
             </div>
-          </div>{" "}
+          </div>{' '}
           {/* end of column 1 */}
           <div className="col-md-6 text-right">
             {socialLinks.length > 0 && (
@@ -47,8 +44,8 @@ const Footer = () => (
                         href={s.href}
                         onClick={() => {
                           ReactGA.event({
-                            category: "Footer",
-                            action: "Social-Icon-Click",
+                            category: 'Footer',
+                            action: 'Social-Icon-Click',
                             label: s.label
                           })
                         }}

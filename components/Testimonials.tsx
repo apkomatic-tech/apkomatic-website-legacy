@@ -1,22 +1,20 @@
-import React, { useEffect } from "react"
-import Swiper from "swiper"
-import testimonialsJson from "../data/testimonials.json"
-import "./Testimonials.scss"
+import React, { useEffect } from 'react'
+import Swiper from 'swiper'
+import testimonialsJson from '../data/testimonials.json'
+import './Testimonials.scss'
 
 const Testimonials = () => {
   useEffect(() => {
-    new Swiper(".swiper-container", {
+    new Swiper('.swiper-container', {
       grabCursor: true,
-      loop: true,
-      autoplay: {
-        delay: 5000
-      },
+      loop: false,
+      autoplay: false,
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       },
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
         dynamicBullets: true,
         clickable: true
       }
@@ -25,7 +23,7 @@ const Testimonials = () => {
   return (
     <div className="testimonials swiper-container">
       <div className="testimonials__title">
-        Customers Love Us{" "}
+        Customers Love Us{' '}
         <div className="testimonials__quote-label">
           <i className="fa fa-quote-left" />
         </div>
