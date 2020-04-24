@@ -28,10 +28,7 @@ const ContactForm = () => {
       }
     }
   )
-
   const formNode = useRef(null)
-  const emailInputRef = useRef(null)
-
   const processContactRequest = async () => {
     try {
       setState({
@@ -79,13 +76,6 @@ const ContactForm = () => {
       }
     })
   }
-
-  useEffect(() => {
-    if (!emailInputRef.current) {
-      return
-    }
-    emailInputRef.current.focus()
-  }, [])
 
   if (formState.submitSuccess) {
     return (
@@ -141,7 +131,6 @@ const ContactForm = () => {
               <input
                 id="email"
                 type="email"
-                ref={emailInputRef}
                 className={`form-control form-control-lg`}
                 name="email"
                 value={formState.inputs.email}
