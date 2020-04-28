@@ -1,8 +1,8 @@
-@import "./../css/_config.scss";
-@import "./../css/_mixins.scss";
+@import './../css/_config.scss';
+@import './../css/_mixins.scss';
 
-$splashArrowDim: 35px;
-$splashBottomColor: rgba($dark, 0.3);
+$splash_bg_color: $primary_color;
+$splash_text_color: $white;
 
 .splash {
   display: flex;
@@ -11,13 +11,25 @@ $splashBottomColor: rgba($dark, 0.3);
   min-height: 200px;
   position: relative;
   z-index: 1;
-  margin-bottom: 1rem;
-  color: $white;
-  background-color: $primary_color;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 88%);
+  margin-bottom: 6rem;
+  color: $splash_text_color;
+  background-color: $splash_bg_color;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    border-top: 25px solid $splash_bg_color;
+    border-bottom: 25px solid transparent;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+  }
 
   &__inner {
-    animation-delay: 150ms;
     padding: 1rem 3rem;
     max-width: 800px;
   }
