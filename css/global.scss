@@ -2,13 +2,11 @@
 @import '_helpers.scss';
 @import '_mixins.scss';
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
 html {
   font-size: 10px;
 }
 body {
   background-color: #ffffff;
-  font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 1.7rem;
   line-height: 1.4;
@@ -186,11 +184,11 @@ p {
   align-items: center;
   background-color: #fff;
   display: flex;
-  font-family: 'Poppins', sans-serif;
   height: $header_height;
   position: relative;
   transition: background-color 320ms linear;
   z-index: 1000;
+  border-bottom: 1px solid rgba($dark, 0.1);
   &__inner {
     display: flex;
     align-items: center;
@@ -474,13 +472,6 @@ p {
     border-radius: 50%;
     font-size: 2rem;
     border: 2px solid transparent;
-    opacity: 0.75;
-    transition: border 100ms ease-in-out, opacity 200ms linear;
-    &:hover {
-      opacity: 1;
-      border-color: $dark;
-      color: $dark;
-    }
   }
 }
 
