@@ -1,0 +1,59 @@
+@import '../../css/config';
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 3rem;
+  margin: 0 0 3rem;
+  @media screen and (max-width: 1200px) and (min-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 3rem;
+    .service-block:last-child {
+      grid-column: span 2;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 3rem;
+  }
+}
+
+.service-block {
+  border: 1px solid rgba($dark, 0.15);
+  box-shadow: 0 5px 20px rgba($dark, 0.15);
+  transition: 300ms ease;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+
+  //   &__heading,
+  //   &__list,
+  //   &__callout {
+  //     flex: 0 1 auto;
+  //   }
+
+  &:hover {
+    box-shadow: 0 5px 30px rgba($dark, 0.2);
+  }
+
+  &__heading {
+    background-color: $lightgray;
+    padding: 1.5rem;
+    flex: 1;
+  }
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    > li {
+      padding: 1rem 1rem 1rem 2rem;
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba($dark, 0.1);
+      }
+    }
+  }
+  &__callout {
+    padding: 1.5rem;
+    background: $lightgray;
+  }
+}
