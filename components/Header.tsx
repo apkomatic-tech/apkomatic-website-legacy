@@ -27,6 +27,15 @@ const useNav = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const { body } = document
+    if (navOpen) {
+      body.classList.add('mobile-menu-open')
+    } else {
+      body.classList.remove('mobile-menu-open')
+    }
+  }, [navOpen])
+
   return {
     navOpen,
     closeNav,
