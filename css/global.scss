@@ -489,8 +489,14 @@ p {
 @media screen and (max-width: 992px) {
   .mobile-menu-open {
     .page {
+      height: 100%;
+      left: 0;
       overflow-y: hidden;
+      padding-top: $header_height;
       position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
     }
     .header {
       background: $lightgray;
