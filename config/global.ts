@@ -60,17 +60,24 @@ export const LINKS = [
 ]
 export const SOCIAL = [
   {
-    id: 1,
-    href: 'https://twitter.com/apkomatic',
-    label: 'twitter',
-    iconLabel: 'twitter',
+    id: 'email',
+    href: 'mailto:apkomatic@gmail.com',
+    label: 'email',
+    iconClass: 'fa fa-at',
     active: true
   },
   {
-    id: 2,
+    id: 'twitter',
+    href: 'https://twitter.com/apkomatic',
+    label: 'twitter',
+    iconClass: 'fab fa-twitter',
+    active: true
+  },
+  {
+    id: 'instagram',
     href: 'https://www.instagram.com/apkomatic',
     label: 'instagram',
-    iconLabel: 'instagram',
+    iconClass: 'fas fa-instagram',
     active: false
   }
 ]

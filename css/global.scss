@@ -1,6 +1,9 @@
+@import '_reset.scss';
 @import '_config.scss';
 @import '_helpers.scss';
 @import '_mixins.scss';
+@import '_typography.scss';
+@import '_buttonStyles.scss';
 
 html {
   font-size: 10px;
@@ -10,33 +13,50 @@ body {
   font-weight: 400;
   font-size: 1.7rem;
   line-height: 1.4;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   &.fixed {
     overflow-y: hidden;
   }
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 700;
-  margin: 0 0 2rem;
+.wrapper {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  &--content {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  &--narrow {
+    max-width: 720px !important;
+  }
 }
 
-h1 {
-  font-size: 3rem;
-}
-h2 {
-  font-size: 2.6rem;
-}
-h3 {
-  font-size: 2.2rem;
+@media (min-width: 576px) {
+  .wrapper {
+    max-width: 540px;
+  }
 }
 
-p {
-  margin-bottom: 1.5rem;
-  &.lead {
-    font-size: 1.8rem;
+@media (min-width: 768px) {
+  .wrapper {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .wrapper {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wrapper {
+    max-width: 1140px;
   }
 }
 
@@ -59,105 +79,6 @@ p {
 
 .container {
   padding: 1.5rem;
-}
-
-.btn {
-  font-size: inherit;
-  transition: 300ms ease;
-  border-radius: 4px;
-  padding: 6px 15px;
-
-  &-lg {
-    font-size: 2rem;
-    padding: 10px 20px;
-  }
-
-  &-primary {
-    color: $white !important;
-
-    &,
-    &:hover {
-      color: $white !important;
-      background-color: $primary_color !important;
-      border-color: $primary_color !important;
-    }
-  }
-
-  &-secondary {
-    color: #111;
-
-    &,
-    &:hover {
-      color: #111;
-      background-color: $secondary_color;
-      border-color: $secondary_color;
-    }
-  }
-
-  &-tertiary {
-    color: $white;
-
-    &,
-    &:hover {
-      color: $white;
-      background-color: $ternary_color;
-      border-color: $ternary_color;
-    }
-  }
-
-  &-muted {
-    color: $dark;
-    background-color: $white;
-    border-color: $dark;
-
-    &:hover {
-      background-color: $dark;
-      color: $white;
-    }
-  }
-
-  &--hero {
-    min-width: 20rem;
-    overflow: hidden;
-    border: 0;
-
-    @media only screen and (min-width: 992px) {
-      padding: 0.85rem 0.5rem;
-    }
-
-    background: linear-gradient(217deg, $ternary_color, $primary_color);
-    transition: transform 300ms ease, box-shadow 500ms linear;
-
-    @include p-relative;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
-  }
-
-  &--with-direction-right {
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .direction-icon {
-      position: absolute;
-      left: 100%;
-      display: inline-block;
-      transform: translateX(0);
-      opacity: 0;
-      transition: transform 150ms cubic-bezier(0.37, -0.19, 0.79, 1.13),
-        opacity 200ms ease;
-    }
-
-    &:hover .direction-icon {
-      opacity: 1;
-      transform: translateX(-30px);
-    }
-  }
 }
 
 // helpers
@@ -202,7 +123,7 @@ p {
   color: $dark;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: $dark;
   transition: 300ms ease-in;
@@ -293,20 +214,6 @@ p {
     }
   }
 
-  .nav-btn {
-    border-color: $ternary_color;
-    color: $ternary_color;
-    transition: 210ms ease;
-    font-weight: 400;
-    margin-left: 4rem;
-    &:hover,
-    &:focus,
-    &:active {
-      background: $ternary_color;
-      color: $white;
-    }
-  }
-
   &__link {
     color: $dark;
     display: block;
@@ -318,11 +225,13 @@ p {
     position: relative;
     z-index: 1;
     text-transform: uppercase;
+    text-decoration: none;
 
     &.active {
       color: $primary_color;
     }
 
+    &:focus,
     &:hover {
       text-decoration: none;
       color: $primary_color;
@@ -370,16 +279,59 @@ p {
 
 // footer
 .site-footer {
-  padding-top: 2rem;
+  padding: 3rem 0 1rem;
   background-color: $lightgray;
   position: relative;
   z-index: 1;
   font-size: 1.4rem;
-  @media only screen and (max-width: 767px) {
-    padding: 1rem 0;
+
+  &__wrapper {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-row-gap: 2rem;
   }
 
-  .copyright {
+  &__top {
+    display: grid;
+    grid-column-gap: 3rem;
+    grid-template-columns: 400px 1fr;
+    @media screen and (max-width: 767px) {
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-row-gap: 1rem;
+    }
+  }
+
+  &__bottom {
+    text-align: center;
+    border-top: 1px solid darken($lightgray, 10%);
+    padding-top: 1rem;
+  }
+
+  &__social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media screen and (max-width: 767px) {
+      justify-content: center;
+    }
+
+    a {
+      display: block;
+      color: $dark;
+      line-height: 0;
+      border-radius: 50%;
+      font-size: 20px;
+      text-decoration: none !important;
+      text-align: center;
+      &:not(&:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  &__copyright {
     text-align: center;
     font-size: 1.1rem;
     color: rgba($dark, 0.75);
@@ -388,47 +340,17 @@ p {
   &__company-name {
     font-weight: 700;
     color: rgba($dark, 0.7);
-    display: block;
+    display: inline-block;
     margin-bottom: 1rem;
     font-size: 1.8rem;
     transition: 300ms ease-in;
+    text-decoration: none;
     &:focus,
     &:hover {
       color: rgba($dark, 0.7);
       opacity: 0.9;
       text-decoration: none;
     }
-  }
-
-  .container {
-    padding: 0.5rem 2rem;
-  }
-}
-
-.footer__social {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  @media only screen and (max-width: 767px) {
-    justify-content: center;
-  }
-
-  li {
-    display: inline-block;
-    margin-right: 0.5rem;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-  a {
-    display: block;
-    color: $dark;
-    padding: 0.75rem;
-    line-height: 0;
-    border-radius: 50%;
-    font-size: 2rem;
-    border: 2px solid transparent;
   }
 }
 
@@ -454,8 +376,8 @@ p {
   z-index: 999;
   pointer-events: none;
   visibility: hidden;
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
 
   &.is-open {
     visibility: visible;
@@ -474,11 +396,12 @@ p {
     padding: 1rem;
     text-align: center;
     font-size: 2rem;
+    cursor: pointer;
+    width: 100%;
 
     &.active,
     &:hover {
-      background-color: $primary_color;
-      color: #fff;
+      color: $primary_color;
       text-decoration: none;
       transform: skewX(-7deg);
     }

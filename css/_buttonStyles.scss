@@ -1,0 +1,108 @@
+.btn {
+  font-size: inherit;
+  transition: 300ms ease;
+  border-radius: 4px;
+  padding: 6px 15px;
+  text-decoration: none;
+  text-align: center;
+  opacity: 0.9;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+
+  &-lg {
+    font-size: 2rem;
+    padding: 10px 20px;
+  }
+
+  &-primary {
+    color: $white;
+    background: $primary_color;
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-secondary {
+    background: $secondary_color;
+    color: #111;
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-tertiary {
+    background: $dark;
+    color: $white;
+    &:focus,
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-muted {
+    color: $dark;
+    background-color: $white;
+    border-color: $dark;
+
+    &:hover {
+      background-color: $dark;
+      color: $white;
+    }
+  }
+
+  &--hero {
+    min-width: 20rem;
+    overflow: hidden;
+    border: 0;
+
+    @media only screen and (min-width: 992px) {
+      padding: 0.85rem 0.5rem;
+    }
+
+    background: linear-gradient(217deg, $ternary_color, $primary_color);
+    transition: transform 300ms ease, box-shadow 500ms linear;
+
+    @include p-relative;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &--with-direction-right {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .direction-icon {
+      position: absolute;
+      left: 100%;
+      display: inline-block;
+      transform: translateX(0);
+      opacity: 0;
+      transition: transform 150ms cubic-bezier(0.37, -0.19, 0.79, 1.13),
+        opacity 200ms ease;
+    }
+
+    &:hover .direction-icon {
+      opacity: 1;
+      transform: translateX(-30px);
+    }
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+}

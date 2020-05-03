@@ -1,0 +1,24 @@
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  margin: 0 0 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.6rem;
+}
+h3 {
+  font-size: 2.2rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  &.lead {
+    font-size: 2rem;
+  }
+}

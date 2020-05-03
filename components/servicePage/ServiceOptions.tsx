@@ -1,13 +1,21 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { Checkmark } from '..'
 
 import './ServiceOptions.scss'
 
+const hoverState = {
+  scale: [0.99, 1.01, 1],
+  opacity: 0.9
+}
+
 const ServiceOptions = memo(() => (
   <div className="services">
-    <div
+    <motion.div
       className="service-block"
+      initial={false}
+      whileHover={hoverState}
       style={{
         borderTop: '8px solid #FFBF69'
       }}
@@ -32,15 +40,20 @@ const ServiceOptions = memo(() => (
       </ul>
       <div className="service-block__callout">
         <Link href="/contact">
-          <a className="btn btn-tertiary d-block" tabIndex={0} role="button">
+          <a
+            className="btn btn-lg btn-tertiary btn-block"
+            tabIndex={0}
+            role="button"
+          >
             Contact for price
           </a>
         </Link>
       </div>
-    </div>
+    </motion.div>
 
-    <div
+    <motion.div
       className="service-block"
+      whileHover={hoverState}
       style={{
         borderTop: '8px solid #DB324D'
       }}
@@ -68,15 +81,20 @@ const ServiceOptions = memo(() => (
       </ul>
       <div className="service-block__callout">
         <Link href="/contact">
-          <a className="btn btn-tertiary d-block" tabIndex={0} role="button">
+          <a
+            className="btn btn-lg btn-tertiary btn-block"
+            tabIndex={0}
+            role="button"
+          >
             Contact for price
           </a>
         </Link>
       </div>
-    </div>
+    </motion.div>
 
-    <div
+    <motion.div
       className="service-block"
+      whileHover={hoverState}
       style={{
         borderTop: '8px solid #6C9DD1'
       }}
@@ -103,12 +121,16 @@ const ServiceOptions = memo(() => (
       </ul>
       <div className="service-block__callout">
         <Link href="/contact">
-          <a className="btn btn-tertiary d-block" tabIndex={0} role="button">
+          <a
+            className="btn btn-lg btn-tertiary btn-block"
+            tabIndex={0}
+            role="button"
+          >
             Contact for price
           </a>
         </Link>
       </div>
-    </div>
+    </motion.div>
   </div>
 ))
 

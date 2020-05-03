@@ -25,7 +25,7 @@ const MobileNav = ({
       opacity: 1,
       transition: {
         when: 'beforeChildren',
-        staggerChildren: 0.1
+        staggerChildren: 0.05
       }
     },
     hidden: {
@@ -44,7 +44,7 @@ const MobileNav = ({
     hidden: {
       y: -5,
       opacity: 0,
-      scale: 0.9
+      scale: 0.95
     }
   }
 
@@ -70,7 +70,8 @@ const MobileNav = ({
               <Link href={href}>
                 <motion.a
                   transition={{
-                    duration: 0.1
+                    duration: 0.1,
+                    stiffness: 0.25
                   }}
                   variants={navLinkVariants}
                   className={`mobile-nav__link${

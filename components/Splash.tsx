@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import './Splash.scss'
 
 interface ISplash extends JSX.IntrinsicAttributes {
@@ -9,15 +10,36 @@ interface ISplash extends JSX.IntrinsicAttributes {
 
 const Splash = ({ title, text, splashStyle = 'splash--alt1' }: ISplash) => (
   <div className={`splash ${splashStyle}`}>
-    <div className="container splash__inner">
-      <div className="text-center">
-        <h1 className="splash__title text-center">{title}</h1>
-        {text && (
-          <p className="lead" data-testid="splash-text">
-            {text}
-          </p>
-        )}
-      </div>
+    <div className="splash__inner">
+      <motion.h1
+        initial={{
+          y: -15
+        }}
+        animate={{ y: 0 }}
+        transition={{
+          duration: 0.25
+        }}
+        className="splash__title text-center"
+      >
+        {title}
+      </motion.h1>
+      {text && (
+        <motion.p
+          initial={{
+            y: 15
+          }}
+          animate={{
+            y: 0
+          }}
+          transition={{
+            duration: 0.25
+          }}
+          className="lead"
+          data-testid="splash-text"
+        >
+          {text}
+        </motion.p>
+      )}
     </div>
   </div>
 )

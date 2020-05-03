@@ -114,12 +114,12 @@ const ContactForm = () => {
             e.preventDefault()
             processContactRequest()
           }}
-          className="contact-form form mt-3"
+          className="contact-form form"
           ref={formNode}
         >
           <input type="hidden" name="form-name" value={CONTACT_FORM_NAME} />
-          <div className="form-section">
-            <div className="form-group">
+          <div className="form__section">
+            <div className="form__group">
               <label
                 className={`label label--with-hint ${
                   formState.inputs.email ? 'label--shift-top' : ''
@@ -131,7 +131,7 @@ const ContactForm = () => {
               <input
                 id="email"
                 type="email"
-                className={`form-control form-control-lg`}
+                className={`form__input`}
                 name="email"
                 value={formState.inputs.email}
                 onChange={handleInputChange}
@@ -139,7 +139,7 @@ const ContactForm = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form__group">
               <label
                 className={`label label--with-hint ${
                   formState.fullName ? 'label--shift-top' : ''
@@ -151,14 +151,14 @@ const ContactForm = () => {
               <input
                 id="full-name"
                 type="text"
-                className={`form-control form-control-lg`}
+                className={`form__input`}
                 name="fullName"
                 value={formState.inputs.fullName}
                 onChange={handleInputChange}
                 required
               />
             </div>
-            <div className="form-group mb-3">
+            <div className="form__group mb-3">
               <label
                 className={`label label--with-hint ${
                   formState.message ? 'label--shift-top' : ''
@@ -168,7 +168,7 @@ const ContactForm = () => {
                 Message <span className="hint">Optional</span>
               </label>
               <textarea
-                className="form-control"
+                className="form__input"
                 id="inspirations"
                 name="message"
                 value={formState.inputs.message}

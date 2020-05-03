@@ -7,6 +7,7 @@ $splash_text_color: $white;
 .splash {
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 0;
   min-height: 200px;
   position: relative;
@@ -15,23 +16,10 @@ $splash_text_color: $white;
   color: $splash_text_color;
   background-color: $splash_bg_color;
 
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-    border-top: 25px solid $splash_bg_color;
-    border-bottom: 25px solid transparent;
-    border-left: 45px solid transparent;
-    border-right: 45px solid transparent;
-  }
-
   &__inner {
-    padding: 1rem 3rem;
+    padding: 4rem;
     max-width: 800px;
+    text-align: center;
   }
 
   &__title {

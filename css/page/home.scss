@@ -245,18 +245,13 @@
 }
 
 .hero-callout {
-  align-items: center;
-  background-color: #fff;
-  background-image: linear-gradient(rgba(#fff, 0.75), rgba(#fff, 0.75)),
-    url('/static/images/get-started-bg.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  min-height: 50rem;
-
+  background: $secondary_color;
+  padding: 10rem 0;
+  &__content {
+    text-align: center;
+  }
   &__btn {
-    background-color: transparent;
+    margin: auto;
+    max-width: 320px;
   }
 }

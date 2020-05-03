@@ -1,27 +1,16 @@
-import React from "react"
+import React from 'react'
 
 interface WrapperProps {
   children: any
-  animated?: boolean
-  animationClass?: string
-  fluid?: boolean
+  customClass?: String
   style?: any
 }
 
-const Wrapper = ({
-  animated = false,
-  fluid = false,
-  animationClass = "fadeIn",
-  children,
-  ...rest
-}: WrapperProps) => {
+const Wrapper = ({ children, customClass, ...rest }: WrapperProps) => {
+  const mergeClassName = `wrapper${customClass ? ` ${customClass}` : ''}`
+
   return (
-    <div
-      className={`container${fluid ? " container-fluid" : ""}${
-        animated ? ` animated ${animationClass}` : ""
-      }`}
-      {...rest}
-    >
+    <div className={mergeClassName} {...rest}>
       {children}
     </div>
   )
