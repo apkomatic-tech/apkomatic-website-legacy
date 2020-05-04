@@ -2,72 +2,51 @@ import React from 'react'
 import Link from 'next/link'
 import ReactGA from 'react-ga'
 import { SOCIAL as socialLinks } from '../config/global'
+import Wrapper from './Wrapper'
 
 const Footer = () => (
   <footer className="site-footer">
-    <div className="top">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6">
-            <div className="d-flex align-items-center">
-              <div>
-                <Link href="/" passHref>
-                  <a className="site-footer__company-name">Apkomatic</a>
-                </Link>
-                <div className="d-flex align-items-start">
-                  <p>
-                    We are a group of passionate web designers and developers.
-                    We design and develop high quality and affordable web
-                    applications and sites for individuals and businesses.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>{' '}
-          {/* end of column 1 */}
-          <div className="col-md-6 text-right">
-            {socialLinks.length > 0 && (
-              <ul className="footer__social list-unstyled">
-                <li>
-                  <a href="mailto:apkomatic@gmail.com">
-                    <span className="sr-only">Email Apkomatic</span>
-                    <i className="fas fa-at" />
-                  </a>
-                </li>
-                {socialLinks
-                  .filter(s => Boolean(s.active))
-                  .map(s => (
-                    <li key={s.id}>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={s.href}
-                        onClick={() => {
-                          ReactGA.event({
-                            category: 'Footer',
-                            action: 'Social-Icon-Click',
-                            label: s.label
-                          })
-                        }}
-                      >
-                        <span className="sr-only">{s.label}</span>
-                        <i className={`fab fa-${s.iconLabel}`} />
-                      </a>
-                    </li>
-                  ))}
-              </ul>
-            )}
-          </div>
+    <Wrapper customClass="site-footer__wrapper">
+      <section className="site-footer__top">
+        <div className="site-footer__company-info">
+          <Link href="/" passHref>
+            <a className="site-footer__company-name">Apkomatic</a>
+          </Link>
+          <p>
+            We are a group of passionate web designers and developers. We design
+            and develop high quality and affordable web applications and sites
+            for individuals and businesses.
+          </p>
         </div>
-        <div className="row mt-3">
-          <div className="col-md-12">
-            <p className="copyright">
-              &copy; Apkomatic, All Rights Reserved {new Date().getFullYear()}
-            </p>
-          </div>
+        <div className="site-footer__social">
+          {socialLinks
+            .filter(s => Boolean(s.active))
+            .map(s => (
+              <a
+                key={s.id}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={s.href}
+                onClick={() => {
+                  ReactGA.event({
+                    category: 'Footer',
+                    action: 'Social-Icon-Click',
+                    label: s.label
+                  })
+                }}
+              >
+                <span className="sr-only">{s.label}</span>
+                <i className={s.iconClass} />
+              </a>
+            ))}
         </div>
-      </div>
-    </div>
+      </section>
+      <section className="site-footer__bottom">
+        <p className="site-footer__copyright">
+          &copy; Apkomatic, All Rights Reserved {new Date().getFullYear()}
+        </p>
+      </section>
+    </Wrapper>
   </footer>
 )
 

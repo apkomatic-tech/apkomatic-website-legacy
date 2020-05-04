@@ -1,4 +1,4 @@
-@import "./../css/_config.scss";
+@import './../css/_config.scss';
 
 .testimonials {
   min-height: 20rem;
@@ -6,8 +6,6 @@
   position: relative;
   z-index: 1;
   background-color: $dark;
-  clip-path: polygon(0 7%, 100% 0, 100% 100%, 0 100%);
-
   &__title {
     color: $white;
     margin-bottom: 4rem;

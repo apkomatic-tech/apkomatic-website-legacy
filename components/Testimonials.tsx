@@ -22,12 +22,6 @@ const Testimonials = () => {
   }, [])
   return (
     <div className="testimonials swiper-container">
-      <div className="testimonials__title">
-        Customers Love Us{' '}
-        <div className="testimonials__quote-label">
-          <i className="fa fa-quote-left" />
-        </div>
-      </div>
       <div className="swiper-wrapper">
         {testimonialsJson.map((testimonial, index) => (
           <article
