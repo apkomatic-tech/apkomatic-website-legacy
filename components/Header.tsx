@@ -5,6 +5,7 @@ import { pageContext } from './context'
 import MobileNavToggle from './MobileNavToggle'
 import MobileNav from './MobileNav'
 import DesktopNav from './DesktopNav'
+import { motion } from 'framer-motion'
 
 const useNav = () => {
   const [navOpen, setNavOpen] = useState<Boolean>(false)
@@ -52,8 +53,8 @@ const Header = () => {
     <>
       <header ref={headerRef} className="header">
         <div className="header__inner">
-          <Link href="/">
-            <a className="brand">Apkomatic</a>
+          <Link href="/" passHref>
+            <motion.a className="brand">Apkomatic</motion.a>
           </Link>
           <DesktopNav navItems={LINKS} path={path} />
           <MobileNavToggle navOpen={navOpen} toggleNav={toggleNav} />

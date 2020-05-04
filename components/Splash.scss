@@ -1,8 +1,8 @@
 @import './../css/_config.scss';
 @import './../css/_mixins.scss';
 
-$splash_bg_color: $primary_color;
-$splash_text_color: $white;
+$splash_bg_color: $secondary_color;
+$splash_text_color: $dark;
 
 .splash {
   display: flex;
@@ -23,8 +23,12 @@ $splash_text_color: $white;
   }
 
   &__title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     position: relative;
     z-index: 1;
+    padding: 0.25rem 1rem;
+    background: $dark;
+    color: $white;
+    box-shadow: 10px 10px 0 rgba($dark, 0.4);
   }
 }

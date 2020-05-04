@@ -13,7 +13,8 @@ const Splash = ({ title, text, splashStyle = 'splash--alt1' }: ISplash) => (
     <div className="splash__inner">
       <motion.h1
         initial={{
-          y: -15
+          y: -15,
+          skewX: '-16deg'
         }}
         animate={{ y: 0 }}
         transition={{
