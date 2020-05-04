@@ -25,6 +25,16 @@
   flex-direction: column;
   border-radius: 5px;
 
+  &--essential {
+    border-top: 8px solid $secondary_color;
+  }
+  &--balanced {
+    border-top: 8px solid $primary_color;
+  }
+  &--advanced {
+    border-top: 8px solid $dark;
+  }
+
   &__heading {
     background-color: $lightgray;
     padding: 1.5rem;

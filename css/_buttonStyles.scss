@@ -6,6 +6,7 @@
   text-decoration: none;
   text-align: center;
   opacity: 0.9;
+  border: 1px solid transparent;
 
   &:hover,
   &:focus,
@@ -21,6 +22,7 @@
   &-primary {
     color: $white;
     background: $primary_color;
+    border-color: $primary_color;
 
     &:focus,
     &:hover {
@@ -31,6 +33,7 @@
   &-secondary {
     background: $secondary_color;
     color: #111;
+    border-color: $secondary_color;
 
     &:focus,
     &:hover {
@@ -41,6 +44,7 @@
   &-tertiary {
     background: $dark;
     color: $white;
+    border-color: $dark;
     &:focus,
     &:hover {
       opacity: 1;

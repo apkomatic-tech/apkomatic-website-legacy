@@ -5,6 +5,7 @@ import React, { useRef, useEffect, useReducer } from 'react'
 import ReactGA from 'react-ga'
 import { encode } from '../utils'
 import './ContactForm.scss'
+import { motion } from 'framer-motion'
 
 const CONTACT_FORM_NAME =
   process.env.NODE_ENV === 'production'
@@ -25,6 +26,11 @@ const ContactForm = () => {
         fullName: '',
         email: '',
         message: ''
+      },
+      touched: {
+        fullName: false,
+        email: false,
+        message: false
       }
     }
   )
@@ -77,10 +83,28 @@ const ContactForm = () => {
     })
   }
 
+  function handleInputFocus(e) {
+    setState({
+      touched: {
+        ...formState.touched,
+        [e.target.name]: true
+      }
+    })
+  }
+
+  function handleInputBlur(e) {
+    setState({
+      touched: {
+        ...formState.touched,
+        [e.target.name]: false
+      }
+    })
+  }
+
   if (formState.submitSuccess) {
     return (
       <div
-        className="contact-thank-you animated fadeInDown"
+        className="contact-thank-you"
         style={{
           animationDuration: '300ms'
         }}
@@ -92,6 +116,17 @@ const ContactForm = () => {
         </p>
       </div>
     )
+  }
+
+  const formLabelVariants = {
+    focused: {
+      y: 2,
+      fontSize: '1.3rem'
+    },
+    blurred: {
+      y: 14,
+      fontSize: 'inherit'
+    }
   }
 
   return (
@@ -120,14 +155,23 @@ const ContactForm = () => {
           <input type="hidden" name="form-name" value={CONTACT_FORM_NAME} />
           <div className="form__section">
             <div className="form__group">
-              <label
-                className={`label label--with-hint ${
-                  formState.inputs.email ? 'label--shift-top' : ''
-                }`}
+              <motion.label
+                variants={formLabelVariants}
+                initial={
+                  formState.inputs.email || formState.touched.email
+                    ? 'focused'
+                    : 'blurred'
+                }
+                animate={
+                  formState.inputs.email || formState.touched.email
+                    ? 'focused'
+                    : 'blurred'
+                }
+                className="form__label"
                 htmlFor="email"
               >
-                Email address <span className="hint">Required</span>
-              </label>
+                Email Address
+              </motion.label>
               <input
                 id="email"
                 type="email"
@@ -135,19 +179,30 @@ const ContactForm = () => {
                 name="email"
                 value={formState.inputs.email}
                 onChange={handleInputChange}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
                 required
               />
             </div>
 
             <div className="form__group">
-              <label
-                className={`label label--with-hint ${
-                  formState.fullName ? 'label--shift-top' : ''
-                }`}
+              <motion.label
+                variants={formLabelVariants}
+                initial={
+                  formState.inputs.fullName || formState.touched.fullName
+                    ? 'focused'
+                    : 'blurred'
+                }
+                animate={
+                  formState.inputs.fullName || formState.touched.fullName
+                    ? 'focused'
+                    : 'blurred'
+                }
+                className="form__label"
                 htmlFor="full-name"
               >
-                Name <span className="hint">Required</span>
-              </label>
+                Name
+              </motion.label>
               <input
                 id="full-name"
                 type="text"
@@ -155,24 +210,37 @@ const ContactForm = () => {
                 name="fullName"
                 value={formState.inputs.fullName}
                 onChange={handleInputChange}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
                 required
               />
             </div>
             <div className="form__group mb-3">
-              <label
-                className={`label label--with-hint ${
-                  formState.message ? 'label--shift-top' : ''
-                }`}
+              <motion.label
+                variants={formLabelVariants}
+                initial={
+                  formState.inputs.message || formState.touched.message
+                    ? 'focused'
+                    : 'blurred'
+                }
+                animate={
+                  formState.inputs.message || formState.touched.message
+                    ? 'focused'
+                    : 'blurred'
+                }
+                className="form__label"
                 htmlFor="inspirations"
               >
-                Message <span className="hint">Optional</span>
-              </label>
+                Message
+              </motion.label>
               <textarea
                 className="form__input"
                 id="inspirations"
                 name="message"
                 value={formState.inputs.message}
                 onChange={handleInputChange}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
                 rows={5}
               />
             </div>
@@ -181,7 +249,7 @@ const ContactForm = () => {
           <div className="contact-form__submit-btn-wrapper">
             <button
               type="submit"
-              className="btn btn-primary btn-block"
+              className="btn btn-lg btn-primary btn-block"
               disabled={formState.processing}
             >
               Send

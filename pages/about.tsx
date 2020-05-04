@@ -22,7 +22,7 @@ export default () => (
         </p>
         <h2>Our Mission</h2>
         <p>
-          Build hight quality websites for all individuals, businesses, or
+          Build high quality websites for all individuals, businesses, or
           organizations.
         </p>
       </section>

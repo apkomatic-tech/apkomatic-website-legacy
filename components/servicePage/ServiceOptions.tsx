@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { v4 as uuid4 } from 'uuid'
 import { Checkmark } from '..'
 
 import './ServiceOptions.scss'
@@ -10,9 +11,80 @@ const hoverState = {
   opacity: 0.9
 }
 
+const options = [
+  {
+    id: 'essential',
+    title: 'Essential',
+    copy: 'Perfect for clean, light, and interactive websites.',
+    features: ['Lightweight and Clean', 'Basic SEO', '1-4 pages', null]
+  },
+  {
+    id: 'balanced',
+    title: 'Balanced',
+    copy:
+      'Perfect for more complicated websites with more content and rich interactions.',
+    features: ['Clean Design', 'Interactive', 'Basic SEO', '5-10 pages']
+  },
+  {
+    id: 'advanced',
+    title: 'Advanced',
+    copy: 'Perfect for more complicated products, like e-commerce or web apps.',
+    features: [
+      'Fast and Dynamic',
+      'API/Database Integration',
+      'Social Media API',
+      'Unlimited Pages'
+    ]
+  }
+]
+
+const OPTIONS_MIN_DISPLAY = 4
+
+const Option = ({ id, title, copy, features }) => {
+  return (
+    <motion.article
+      className={`service-block service-block--${id}`}
+      initial={false}
+      whileHover={hoverState}
+    >
+      <header className="service-block__heading">
+        <h2>{title}</h2>
+        <p className="text-muted">{copy}</p>
+      </header>
+      <ul className="service-block__list">
+        {features.map((feature: string | null) => {
+          if (!feature) {
+            return <li key={uuid4()}>&mdash;</li>
+          }
+          return (
+            <li key={uuid4()}>
+              <Checkmark /> {feature}
+            </li>
+          )
+        })}
+      </ul>
+      <div className="service-block__callout">
+        <Link href="/contact">
+          <a
+            className="btn btn-lg btn-primary btn-block"
+            tabIndex={0}
+            role="button"
+          >
+            Contact for price
+          </a>
+        </Link>
+      </div>
+    </motion.article>
+  )
+}
+
 const ServiceOptions = memo(() => (
-  <div className="services">
-    <motion.div
+  <section className="services">
+    {options.map((option: any) => (
+      <Option key={option.id} {...option} />
+    ))}
+
+    {/* <motion.div
       className="service-block"
       initial={false}
       whileHover={hoverState}
@@ -130,8 +202,8 @@ const ServiceOptions = memo(() => (
           </a>
         </Link>
       </div>
-    </motion.div>
-  </div>
+    </motion.div> */}
+  </section>
 ))
 
 export default ServiceOptions
