@@ -11,6 +11,7 @@
   &:hover,
   &:focus,
   &:active {
+    opacity: 1;
     text-decoration: none;
   }
 
@@ -27,17 +28,18 @@
     &:focus,
     &:hover {
       opacity: 1;
+      color: $white;
     }
   }
 
   &-secondary {
     background: $secondary_color;
-    color: #111;
+    color: $dark;
     border-color: $secondary_color;
 
     &:focus,
     &:hover {
-      opacity: 1;
+      color: $dark;
     }
   }
 
@@ -47,7 +49,7 @@
     border-color: $dark;
     &:focus,
     &:hover {
-      opacity: 1;
+      color: $white;
     }
   }
 
