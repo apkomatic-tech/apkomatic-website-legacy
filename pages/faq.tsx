@@ -1,5 +1,5 @@
 import React from 'react'
-import { Wrapper, FaqAccordion, Splash } from '../components'
+import { Wrapper, Accordion, Splash } from '../components'
 import faqJSON from '../data/faq.json'
 
 import '../css/faq.scss'
@@ -12,9 +12,9 @@ const splashProps = {
 export default () => (
   <React.Fragment>
     <Splash {...splashProps} />
-    <Wrapper customClass="wrapper--narrow">
+    <Wrapper>
       <section className="faq-wrapper">
-        <FaqAccordion items={faqJSON} />
+        <Accordion items={faqJSON} />
       </section>
     </Wrapper>
   </React.Fragment>
