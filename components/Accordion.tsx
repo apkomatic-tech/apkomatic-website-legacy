@@ -28,24 +28,24 @@ function Accordion({ items }: AccordionProps) {
 
   return (
     <div className="accordion">
-      {accItems.map(item => {
+      {accItems.map(({ id, heading, content, collapsed }: AccordionItem) => {
         return (
-          <div className="accordion-item" key={item.id}>
+          <div className="accordion-item" key={id}>
             <div
               role="button"
               className="accordion-item__heading"
               tabIndex={0}
               onClick={() => {
-                toggleCollapsed(item.id)
+                toggleCollapsed(id)
               }}
               onKeyPress={e => {
                 const { key } = e
                 if (key === 'Enter') {
-                  toggleCollapsed(item.id)
+                  toggleCollapsed(id)
                 }
               }}
             >
-              <span>{item.heading}</span>
+              <span>{heading}</span>
               <motion.span
                 className="accordion-item__toggle"
                 transition={{
@@ -56,7 +56,7 @@ function Accordion({ items }: AccordionProps) {
                   rotate: '90deg'
                 }}
                 animate={{
-                  rotate: item.collapsed ? '90deg' : '-90deg'
+                  rotate: collapsed ? '90deg' : '-90deg'
                 }}
               >
                 <i className="fa fa-chevron-right" />
@@ -64,17 +64,17 @@ function Accordion({ items }: AccordionProps) {
             </div>
             <motion.div
               className="accordion-item__content-wrapper"
-              aria-expanded={!item.collapsed}
+              aria-expanded={!collapsed}
               initial={false}
               transition={{
                 easings: 'linear',
                 duration: 0.25
               }}
               animate={{
-                height: item.collapsed ? 0 : 'auto'
+                height: collapsed ? 0 : 'auto'
               }}
             >
-              <div className="content">{item.content}</div>
+              <div className="content">{content}</div>
             </motion.div>
           </div>
         )
