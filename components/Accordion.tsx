@@ -1,39 +1,36 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 import './Accordion.scss'
 
-function Accordion(props) {
-  const { items } = props
+interface AccordionItem {
+  id: number
+  heading: string
+  content: string
+  collapsed: boolean
+}
+
+type AccordionProps = {
+  items: AccordionItem[]
+}
+
+function Accordion({ items }: AccordionProps) {
   const [accItems, setAccItems] = useState(items)
-
-  function getAccordionItemClass(item) {
-    const baseClass = 'accordion-item'
-    if (item.collapsed) {
-      const constructClass = `${baseClass} collapsed`
-      return constructClass
-    }
-
-    return baseClass
-  }
-
   function toggleCollapsed(targetId) {
-    const updatedAccItems = accItems.map(item => {
-      if (targetId === item.id) {
-        item.collapsed = !item.collapsed
-      }
-      return item
-    })
-
-    setAccItems([...updatedAccItems])
+    const i = accItems.findIndex(acc => acc.id === targetId)
+    setAccItems([
+      ...accItems.slice(0, i),
+      { ...accItems[i], collapsed: !accItems[i].collapsed },
+      ...accItems.slice(i + 1)
+    ])
   }
 
   return (
     <div className="accordion">
       {accItems.map(item => {
         return (
-          <div className={getAccordionItemClass(item)} key={item.id}>
+          <div className="accordion-item" key={item.id}>
             <div
               role="button"
               className="accordion-item__heading"
