@@ -1,54 +1,51 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 import './Accordion.scss'
 
-function Accordion(props) {
-  const { items } = props
+interface AccordionItem {
+  id: number
+  heading: string
+  content: string
+  collapsed: boolean
+}
+
+type AccordionProps = {
+  items: AccordionItem[]
+}
+
+function Accordion({ items }: AccordionProps) {
   const [accItems, setAccItems] = useState(items)
-
-  function getAccordionItemClass(item) {
-    const baseClass = 'accordion-item'
-    if (item.collapsed) {
-      const constructClass = `${baseClass} collapsed`
-      return constructClass
-    }
-
-    return baseClass
-  }
-
   function toggleCollapsed(targetId) {
-    const updatedAccItems = accItems.map(item => {
-      if (targetId === item.id) {
-        item.collapsed = !item.collapsed
-      }
-      return item
-    })
-
-    setAccItems([...updatedAccItems])
+    const i = accItems.findIndex(acc => acc.id === targetId)
+    setAccItems([
+      ...accItems.slice(0, i),
+      { ...accItems[i], collapsed: !accItems[i].collapsed },
+      ...accItems.slice(i + 1)
+    ])
   }
 
   return (
     <div className="accordion">
-      {accItems.map(item => {
+      {accItems.map(({ id, heading, content, collapsed }: AccordionItem) => {
         return (
-          <div className={getAccordionItemClass(item)} key={item.id}>
+          <div className="accordion-item" key={id}>
             <div
               role="button"
               className="accordion-item__heading"
               tabIndex={0}
               onClick={() => {
-                toggleCollapsed(item.id)
+                toggleCollapsed(id)
               }}
               onKeyPress={e => {
                 const { key } = e
                 if (key === 'Enter') {
-                  toggleCollapsed(item.id)
+                  toggleCollapsed(id)
                 }
               }}
             >
-              <span>{item.heading}</span>
+              <span>{heading}</span>
               <motion.span
                 className="accordion-item__toggle"
                 transition={{
@@ -59,7 +56,7 @@ function Accordion(props) {
                   rotate: '90deg'
                 }}
                 animate={{
-                  rotate: item.collapsed ? '90deg' : '-90deg'
+                  rotate: collapsed ? '90deg' : '-90deg'
                 }}
               >
                 <i className="fa fa-chevron-right" />
@@ -67,17 +64,17 @@ function Accordion(props) {
             </div>
             <motion.div
               className="accordion-item__content-wrapper"
-              aria-expanded={!item.collapsed}
+              aria-expanded={!collapsed}
               initial={false}
               transition={{
                 easings: 'linear',
                 duration: 0.25
               }}
               animate={{
-                height: item.collapsed ? 0 : 'auto'
+                height: collapsed ? 0 : 'auto'
               }}
             >
-              <div className="content">{item.content}</div>
+              <div className="content">{content}</div>
             </motion.div>
           </div>
         )

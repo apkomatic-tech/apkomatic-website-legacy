@@ -1,6 +1,4 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable jsx-a11y/label-has-for */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useRef, useEffect, useReducer } from 'react'
 import ReactGA from 'react-ga'
 import { encode } from '../utils'
