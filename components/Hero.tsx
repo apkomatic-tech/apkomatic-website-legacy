@@ -8,11 +8,6 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="hero__inner">
-        <img
-          className="hero__image"
-          src="/static/images/home/hero-image.svg"
-          alt="Apkomatic Hero"
-        />
         <motion.div
           initial={{ y: 25, opacity: 0.25 }}
           transition={{ duration: 0.5 }}

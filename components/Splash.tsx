@@ -2,13 +2,17 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import './Splash.scss'
 
-interface ISplash extends JSX.IntrinsicAttributes {
+type SplashProps = {
   title: string
   text?: string
   splashStyle?: string
 }
 
-const Splash = ({ title, text, splashStyle = 'splash--alt1' }: ISplash) => (
+const Splash = ({
+  title,
+  text = '',
+  splashStyle = 'splash--alt1'
+}: SplashProps) => (
   <div className={`splash ${splashStyle}`}>
     <div className="splash__inner">
       <motion.h1
