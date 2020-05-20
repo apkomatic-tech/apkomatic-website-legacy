@@ -10,16 +10,7 @@ const CONTACT_FORM_NAME =
   process.env.NODE_ENV === 'production'
     ? 'apkomatic-prod-contact'
     : 'apkomatic-dev-contact'
-
-const formLabelVariants = {
-  focused: {
-    y: -1
-  },
-  blurred: {
-    y: 16
-  }
-}
-
+const MESSAGE_THRESHOLD: number = 400
 const INITIAL_REQUEST_STATE = Object.freeze({
   processing: false,
   success: false,
@@ -39,6 +30,15 @@ const FAIL_REQUEST_STATE = Object.freeze({
   processing: false,
   success: false,
   fail: true
+})
+
+const FORM_LABEL_VARIANTS = Object.freeze({
+  focused: {
+    y: -1
+  },
+  blurred: {
+    y: 16
+  }
 })
 
 const useInputTouched = () => {
@@ -62,7 +62,6 @@ const useInputTouched = () => {
     handleBlur
   }
 }
-
 const ContactForm = () => {
   const [requestState, setRequestState] = useState(INITIAL_REQUEST_STATE)
   const { register, handleSubmit, errors } = useForm()
@@ -134,7 +133,7 @@ const ContactForm = () => {
           <div className="form__section">
             <div className="form__group">
               <motion.label
-                variants={formLabelVariants}
+                variants={FORM_LABEL_VARIANTS}
                 initial={touchedInputs.email ? 'focused' : 'blurred'}
                 animate={touchedInputs.email ? 'focused' : 'blurred'}
                 className="form__label"
@@ -160,7 +159,7 @@ const ContactForm = () => {
 
             <div className="form__group">
               <motion.label
-                variants={formLabelVariants}
+                variants={FORM_LABEL_VARIANTS}
                 initial={touchedInputs.fullName ? 'focused' : 'blurred'}
                 animate={touchedInputs.fullName ? 'focused' : 'blurred'}
                 className="form__label"
@@ -196,13 +195,13 @@ const ContactForm = () => {
             </div>
             <div className="form__group mb-3">
               <motion.label
-                variants={formLabelVariants}
+                variants={FORM_LABEL_VARIANTS}
                 initial={touchedInputs.message ? 'focused' : 'blurred'}
                 animate={touchedInputs.message ? 'focused' : 'blurred'}
                 className="form__label"
                 htmlFor="inspirations"
               >
-                Message
+                Message ({MESSAGE_THRESHOLD} characters max)
               </motion.label>
               <textarea
                 className={`form__input ${errors.message ? 'error' : ''}`}
@@ -213,8 +212,8 @@ const ContactForm = () => {
                 rows={9}
                 ref={register({
                   maxLength: {
-                    value: 400,
-                    message: 'Please enter no more than 400 characters.'
+                    value: MESSAGE_THRESHOLD,
+                    message: `Please enter no more than ${MESSAGE_THRESHOLD} characters.`
                   }
                 })}
               />
