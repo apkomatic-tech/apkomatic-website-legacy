@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useRef, useEffect, useReducer, useState } from 'react'
 import ReactGA from 'react-ga'
-import { encode, validateEmail } from '../utils'
+import { encode, validateEmail, validateName } from '../utils'
 import './ContactForm.scss'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
@@ -35,7 +35,6 @@ const SUCCESS_REQUEST_STATE = Object.freeze({
   success: true,
   fail: false
 })
-
 const FAIL_REQUEST_STATE = Object.freeze({
   processing: false,
   success: false,
@@ -177,16 +176,23 @@ const ContactForm = () => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 ref={register({
-                  required: 'Name is required',
+                  validate: validateName,
                   minLength: {
                     value: 2,
                     message: 'Name must be at least 2 characters'
                   }
                 })}
               />
-              {errors.fullName && (
-                <div className="form__errormsg">{errors.fullName.message}</div>
-              )}
+              {errors.fullName &&
+                (errors.fullName.type === 'minLength' ? (
+                  <div className="form__errormsg">
+                    {errors.fullName.message}
+                  </div>
+                ) : (
+                  <div className="form__errormsg">
+                    Please enter a valid name
+                  </div>
+                ))}
             </div>
             <div className="form__group mb-3">
               <motion.label
