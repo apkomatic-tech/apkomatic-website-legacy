@@ -64,25 +64,6 @@
     }
   }
 
-  &--hero {
-    min-width: 20rem;
-    overflow: hidden;
-    border: 0;
-
-    @media only screen and (min-width: 992px) {
-      padding: 0.85rem 0.5rem;
-    }
-
-    background: linear-gradient(217deg, $ternary_color, $primary_color);
-    transition: transform 300ms ease, box-shadow 500ms linear;
-
-    @include p-relative;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
-  }
-
   &--with-direction-right {
     overflow: hidden;
     position: relative;

@@ -78,7 +78,7 @@ const MobileNav = ({
                     path === pathname ? ' active' : ''
                   }`}
                 >
-                  {label}
+                  <span className="label">{label}</span>
                   <span className="sr-only">{label}</span>
                 </motion.a>
               </Link>
