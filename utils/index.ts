@@ -9,4 +9,10 @@ const validateEmail = (value: string) => {
   return regexPattern.test(value)
 }
 
-export { encode, validateEmail }
+const validateName = (value: string) => {
+  const regexPattern = /^\D*$/i
+  const namevalue = value.trim()
+  return namevalue ? regexPattern.test(value) : false
+}
+
+export { encode, validateEmail, validateName }

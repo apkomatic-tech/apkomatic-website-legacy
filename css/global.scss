@@ -109,7 +109,6 @@ body {
   position: relative;
   transition: background-color 320ms linear;
   z-index: 1000;
-  border-bottom: 1px solid rgba($dark, 0.1);
   &__inner {
     display: flex;
     align-items: center;
@@ -376,8 +375,6 @@ body {
   z-index: 999;
   pointer-events: none;
   visibility: hidden;
-  // display: flex;
-  // justify-content: center;
 
   &.is-open {
     visibility: visible;
@@ -401,9 +398,29 @@ body {
 
     &.active,
     &:hover {
-      color: $primary_color;
+      color: $primary_color !important;
       text-decoration: none;
-      transform: skewX(-7deg);
+    }
+
+    .label {
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      font-weight: 700;
+    }
+
+    &.active > .label:after,
+    &:hover > .label:after {
+      content: '';
+      display: block;
+      width: 100%;
+      left: 0;
+      bottom: -5px;
+      transform: rotate(-1deg);
+      background-color: $primary_color;
+      height: 6px;
+      position: absolute;
+      z-index: -1;
     }
   }
 }

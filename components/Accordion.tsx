@@ -4,15 +4,13 @@ import { motion } from 'framer-motion'
 
 import './Accordion.scss'
 
-interface AccordionItem {
-  id: number
-  heading: string
-  content: string
-  collapsed: boolean
-}
-
 type AccordionProps = {
-  items: AccordionItem[]
+  items: {
+    id: number
+    heading: string
+    content: string
+    collapsed: boolean
+  }[]
 }
 
 function Accordion({ items }: AccordionProps) {
@@ -28,7 +26,7 @@ function Accordion({ items }: AccordionProps) {
 
   return (
     <div className="accordion">
-      {accItems.map(({ id, heading, content, collapsed }: AccordionItem) => {
+      {accItems.map(({ id, heading, content, collapsed }) => {
         return (
           <div className="accordion-item" key={id}>
             <div

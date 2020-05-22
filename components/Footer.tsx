@@ -1,8 +1,39 @@
 import React from 'react'
 import Link from 'next/link'
 import ReactGA from 'react-ga'
-import { SOCIAL as socialLinks } from '../config/global'
 import Wrapper from './Wrapper'
+
+type SocialLinkType = {
+  id: string | number
+  href: string
+  label: string
+  iconClass: string
+  active: boolean
+}
+
+export const socialLinks: SocialLinkType[] = [
+  {
+    id: 'email',
+    href: 'mailto:apkomatic@gmail.com',
+    label: 'email',
+    iconClass: 'fa fa-at',
+    active: true
+  },
+  {
+    id: 'twitter',
+    href: 'https://twitter.com/apkomatic',
+    label: 'twitter',
+    iconClass: 'fab fa-twitter',
+    active: true
+  },
+  {
+    id: 'instagram',
+    href: 'https://www.instagram.com/apkomatic',
+    label: 'instagram',
+    iconClass: 'fas fa-instagram',
+    active: false
+  }
+]
 
 const Footer = () => (
   <footer className="site-footer">
@@ -49,7 +80,5 @@ const Footer = () => (
     </Wrapper>
   </footer>
 )
-
-Footer.propTypes = {}
 
 export default Footer

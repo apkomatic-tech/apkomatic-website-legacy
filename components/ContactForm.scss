@@ -4,7 +4,7 @@
 $error_color: #b9003e;
 
 .contact-form {
-  margin: 5rem 0;
+  margin: 3rem 0 5rem;
   &__submit-btn-wrapper {
     margin-top: 1rem;
   }
@@ -13,10 +13,17 @@ $error_color: #b9003e;
 .form {
   display: block;
   &__group {
-    margin-bottom: 2rem;
     &:not(&::last-child) {
       margin-bottom: 0;
     }
+  }
+  // error message styles
+  &__errormsg {
+    color: $error_color;
+    font-size: 1.4rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
 
@@ -37,7 +44,12 @@ textarea.form__input {
   background-color: $lightgray;
   border-bottom: 3px solid darken($lightgray, 10%);
 
-  &:focus {
+  &.error {
+    border-bottom-color: $error_color;
+    color: $error_color;
+  }
+
+  &:focus:not(.error) {
     border-color: $primary_color;
   }
 }
@@ -51,7 +63,7 @@ textarea.form__input {
 .form__group {
   position: relative;
   margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   z-index: 1;
 }
 
