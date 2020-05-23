@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 interface Props {
   label: String
@@ -10,17 +10,9 @@ const renderDesktopLink = (
   { label, pathname, isButton }: Props,
   currentPath
 ) => {
-  if (isButton) {
-    return (
-      <a className="btn nav-btn">
-        {label}
-        <span className="sr-only">{label}</span>
-      </a>
-    )
-  }
   return (
-    <a className={`top-nav__link${currentPath === pathname ? " active" : ""}`}>
-      {label}
+    <a className={`top-nav__link${currentPath === pathname ? ' active' : ''}`}>
+      <span className="label">{label}</span>
       <span className="sr-only">{label}</span>
     </a>
   )

@@ -225,46 +225,43 @@ body {
     z-index: 1;
     text-transform: uppercase;
     text-decoration: none;
+    cursor: pointer;
 
+    &:hover,
     &.active {
-      color: $primary_color;
+      color: $primary_color !important;
     }
 
-    &:focus,
-    &:hover {
-      text-decoration: none;
-      color: $primary_color;
+    .label {
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      font-weight: 700;
+      &:after {
+        opacity: 0;
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        z-index: -1;
+        transform: translateY(5px);
+        transition: all 300ms;
+      }
     }
 
-    &:before,
-    &:after {
+    &.active > .label:after,
+    &:hover > .label:after {
+      opacity: 1;
+      transform: translateY(5px);
       background-color: $primary_color;
-      bottom: 0;
-      content: '';
-      display: block;
-      height: 3px;
-      position: absolute;
-      transition: width 200ms cubic-bezier(0.49, 0.28, 0.38, 1.05);
-      width: 0;
-    }
-
-    &:before {
-      left: 50%;
-    }
-    &:after {
-      right: 50%;
-    }
-
-    &.active:before,
-    &.active:after,
-    &:not(.active):hover:before,
-    &:not(.active):hover:after {
-      width: 50%;
     }
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 767px) {
   .top-nav {
     display: flex;
     &__toggle {
@@ -407,26 +404,30 @@ body {
       position: relative;
       z-index: 1;
       font-weight: 700;
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        transform: translateY(10px);
+        height: 6px;
+        position: absolute;
+        z-index: -1;
+        transition: 200ms ease;
+      }
     }
 
     &.active > .label:after,
     &:hover > .label:after {
-      content: '';
-      display: block;
-      width: 100%;
-      left: 0;
-      bottom: -5px;
-      transform: rotate(-1deg);
+      transform: translateY(2px);
       background-color: $primary_color;
-      height: 6px;
-      position: absolute;
-      z-index: -1;
     }
   }
 }
 
 // mobile-menu class is typically set on body element
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 767px) {
   .mobile-menu-open {
     .page {
       height: 100%;
