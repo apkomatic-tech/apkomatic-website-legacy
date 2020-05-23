@@ -9,11 +9,11 @@ interface Props {
 
 const DesktopNav = ({ navItems, path }: Props) => {
   return (
-    <ul className='top-nav'>
+    <ul className="top-nav">
       {navItems
         .filter(({ active }) => Boolean(active))
         .map(({ id, href, ...linkProps }) => (
-          <li key={id} className='top-nav__item'>
+          <li key={id} className="top-nav__item">
             <Link href={href}>{renderDesktopLink(linkProps, path)}</Link>
           </li>
         ))}
