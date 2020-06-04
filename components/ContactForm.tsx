@@ -41,6 +41,12 @@ const FORM_LABEL_VARIANTS = Object.freeze({
   }
 })
 
+const errorMsgAnimateProps = {
+  initial: { y: 5 },
+  animate: { y: 0 },
+  transition: { type: 'tween', duration: 0.25 }
+}
+
 const useInputTouched = () => {
   const [touchedInputs, setTouched] = useState({
     email: false,
@@ -98,18 +104,18 @@ const ContactForm = () => {
 
   if (requestState.success) {
     return (
-      <div
+      <motion.div
         className="contact-thank-you"
-        style={{
-          animationDuration: '300ms'
-        }}
+        initial={{ y: '100vh' }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.3 }}
       >
         <img src="/static/contact-success-image.svg" alt="" />
         <p>
           Thank you for contacting us, we will review your inquiry and respond
           as soon as possible.
         </p>
-      </div>
+      </motion.div>
     )
   }
 
@@ -153,7 +159,12 @@ const ContactForm = () => {
                 })}
               />
               {errors.email && (
-                <div className="form__errormsg">Please enter a valid email</div>
+                <motion.div
+                  {...errorMsgAnimateProps}
+                  className="form__errormsg"
+                >
+                  Please enter a valid email
+                </motion.div>
               )}
             </div>
 
@@ -184,13 +195,19 @@ const ContactForm = () => {
               />
               {errors.fullName &&
                 (errors.fullName.type === 'minLength' ? (
-                  <div className="form__errormsg">
+                  <motion.div
+                    {...errorMsgAnimateProps}
+                    className="form__errormsg"
+                  >
                     {errors.fullName.message}
-                  </div>
+                  </motion.div>
                 ) : (
-                  <div className="form__errormsg">
+                  <motion.div
+                    {...errorMsgAnimateProps}
+                    className="form__errormsg"
+                  >
                     Please enter a valid name
-                  </div>
+                  </motion.div>
                 ))}
             </div>
             <div className="form__group mb-3">
@@ -218,7 +235,12 @@ const ContactForm = () => {
                 })}
               />
               {errors.message && (
-                <div className="form__errormsg">{errors.message.message}</div>
+                <motion.div
+                  {...errorMsgAnimateProps}
+                  className="form__errormsg"
+                >
+                  {errors.message.message}
+                </motion.div>
               )}
             </div>
           </div>
