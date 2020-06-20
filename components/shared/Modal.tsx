@@ -5,6 +5,7 @@ import './Modal.scss'
 
 interface ModalProps {
   showModal: boolean
+  onCloseFn?: () => any
   children: any
 }
 const backdropVariants = {
@@ -37,6 +38,11 @@ export default function Modal(props: ModalProps) {
           animate="visible"
           initial="hidden"
           exit="hidden"
+          onClick={() => {
+            if (props.onCloseFn) {
+              props.onCloseFn()
+            }
+          }}
         >
           <motion.section
             key="modal"

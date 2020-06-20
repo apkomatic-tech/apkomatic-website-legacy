@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-import Link from 'next/link'
 import React, { useRef, useState } from 'react'
 import ReactGA from 'react-ga'
 import { motion } from 'framer-motion'
@@ -106,19 +105,29 @@ const ContactForm = () => {
     }
   }
 
+  function resetState() {
+    setRequestState(INITIAL_REQUEST_STATE)
+    if (formNode) {
+      formNode.current.reset()
+    }
+  }
+
   return (
     <React.Fragment>
-      <Modal showModal={requestState.success}>
+      <Modal showModal={requestState.success} onCloseFn={resetState}>
         <img src="/static/images/message-sent.svg" alt="message sent" />
+        <h2>Message Received!</h2>
         <p>
           Thank you for contacting us, we will review your inquiry and respond
           as soon as possible.
         </p>
-        <Link href="/">
-          <button type="button" className="btn btn-primary btn-block">
-            Go Back
-          </button>
-        </Link>
+        <button
+          onClick={() => resetState()}
+          type="button"
+          className="btn btn-primary btn-block"
+        >
+          Close
+        </button>
       </Modal>
       <div id="contact-form">
         {requestState.processing && <div>Processing request...</div>}
