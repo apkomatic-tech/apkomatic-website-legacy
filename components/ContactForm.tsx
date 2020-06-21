@@ -1,10 +1,13 @@
 /* eslint-disable no-use-before-define */
-import React, { useRef, useEffect, useReducer, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ReactGA from 'react-ga'
-import { encode, validateEmail, validateName } from '../utils'
-import './ContactForm.scss'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
+
+import { encode, validateEmail, validateName } from '../utils'
+import Modal from './shared/Modal'
+
+import './ContactForm.scss'
 
 const CONTACT_FORM_NAME =
   process.env.NODE_ENV === 'production'
@@ -31,7 +34,6 @@ const FAIL_REQUEST_STATE = Object.freeze({
   success: false,
   fail: true
 })
-
 const FORM_LABEL_VARIANTS = Object.freeze({
   focused: {
     y: -1
@@ -40,7 +42,6 @@ const FORM_LABEL_VARIANTS = Object.freeze({
     y: 16
   }
 })
-
 const errorMsgAnimateProps = {
   initial: { y: 5 },
   animate: { y: 0 },
@@ -72,6 +73,7 @@ const ContactForm = () => {
   const [requestState, setRequestState] = useState(INITIAL_REQUEST_STATE)
   const { register, handleSubmit, errors } = useForm()
   const { touchedInputs, handleFocus, handleBlur } = useInputTouched()
+  const formNode = useRef(null)
 
   const processContactRequest = async (data: {
     email: string
@@ -89,6 +91,7 @@ const ContactForm = () => {
       })
       if (response.ok) {
         setRequestState(SUCCESS_REQUEST_STATE)
+        formNode.current.reset()
       } else {
         setRequestState(FAIL_REQUEST_STATE)
       }
@@ -102,25 +105,30 @@ const ContactForm = () => {
     }
   }
 
-  if (requestState.success) {
-    return (
-      <motion.div
-        className="contact-thank-you"
-        initial={{ y: '100vh' }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <img src="/static/contact-success-image.svg" alt="" />
-        <p>
-          Thank you for contacting us, we will review your inquiry and respond
-          as soon as possible.
-        </p>
-      </motion.div>
-    )
+  function resetState() {
+    setRequestState(INITIAL_REQUEST_STATE)
+    if (formNode) {
+      formNode.current.reset()
+    }
   }
 
   return (
     <React.Fragment>
+      <Modal showModal={requestState.success} onCloseFn={resetState}>
+        <img src="/static/images/message-sent.svg" alt="message sent" />
+        <h2>Message Received!</h2>
+        <p>
+          Thank you for contacting us, we will review your inquiry and respond
+          as soon as possible.
+        </p>
+        <button
+          onClick={() => resetState()}
+          type="button"
+          className="btn btn-primary btn-block"
+        >
+          Close
+        </button>
+      </Modal>
       <div id="contact-form">
         {requestState.processing && <div>Processing request...</div>}
         {requestState.fail && (
@@ -134,6 +142,7 @@ const ContactForm = () => {
           data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit(processContactRequest)}
           className="contact-form form"
+          ref={formNode}
         >
           <input type="hidden" name="form-name" value={CONTACT_FORM_NAME} />
           <div className="form__section">
