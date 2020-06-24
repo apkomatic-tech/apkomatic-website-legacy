@@ -63,16 +63,29 @@ const useInputTouched = () => {
       [e.target.name]: e.target.value.trim() === '' ? false : true
     })
   }
+  function resetTouchedInputs() {
+    setTouched({
+      email: false,
+      fullName: false,
+      message: false
+    })
+  }
   return {
     touchedInputs,
     handleFocus,
-    handleBlur
+    handleBlur,
+    resetTouchedInputs
   }
 }
 const ContactForm = () => {
   const [requestState, setRequestState] = useState(INITIAL_REQUEST_STATE)
   const { register, handleSubmit, errors } = useForm()
-  const { touchedInputs, handleFocus, handleBlur } = useInputTouched()
+  const {
+    touchedInputs,
+    handleFocus,
+    handleBlur,
+    resetTouchedInputs
+  } = useInputTouched()
   const formNode = useRef(null)
 
   const processContactRequest = async (data: {
@@ -105,16 +118,27 @@ const ContactForm = () => {
     }
   }
 
-  function resetState() {
+  function resetRequestState() {
+    // reset request state to initial
     setRequestState(INITIAL_REQUEST_STATE)
+  }
+
+  function resetFormState() {
+    // reset form state to initial
     if (formNode) {
       formNode.current.reset()
     }
+    resetTouchedInputs()
   }
 
   return (
     <React.Fragment>
-      <Modal showModal={requestState.success} onCloseFn={resetState}>
+      {/* Display confirmation modal on successul submit */}
+      <Modal
+        showModal={requestState.success}
+        onCloseFn={resetRequestState}
+        onEnter={resetFormState}
+      >
         <img src="/static/images/message-sent.svg" alt="message sent" />
         <h2>Message Received!</h2>
         <p>
@@ -122,7 +146,7 @@ const ContactForm = () => {
           as soon as possible.
         </p>
         <button
-          onClick={() => resetState()}
+          onClick={resetRequestState}
           type="button"
           className="btn btn-primary btn-block"
         >
