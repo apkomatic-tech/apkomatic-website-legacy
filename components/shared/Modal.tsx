@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import './Modal.scss'
@@ -6,6 +6,7 @@ import './Modal.scss'
 interface ModalProps {
   showModal: boolean
   onCloseFn?: () => any
+  onEnter?: () => any
   children: any
 }
 const backdropVariants = {
@@ -28,6 +29,11 @@ const modalVariants = {
   }
 }
 export default function Modal(props: ModalProps) {
+  useEffect(() => {
+    if (props.onEnter && props.showModal) {
+      props.onEnter()
+    }
+  }, [props.showModal])
   return (
     <AnimatePresence exitBeforeEnter>
       {props.showModal && (
