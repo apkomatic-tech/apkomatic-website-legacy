@@ -17,15 +17,23 @@ const backdropVariants = {
     }
   },
   hidden: {
-    opacity: 0
+    opacity: 0,
+    transition: {
+      when: 'afterChildren'
+    }
   }
 }
 const modalVariants = {
   visible: {
-    y: 100
+    scale: 1,
+    transition: {
+      type: 'spring',
+      mass: 0.5,
+      stiffness: 180
+    }
   },
   hidden: {
-    y: '-100vh'
+    scale: 0
   }
 }
 export default function Modal(props: ModalProps) {
