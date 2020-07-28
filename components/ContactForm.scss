@@ -40,9 +40,10 @@ textarea.form__input {
   transition: border-color 0.15s ease-in-out;
   width: 100%;
   padding: 2rem 0.65rem 0.75rem 1rem;
-  border: 0;
-  background-color: $lightgray;
+  border: 1px solid darken($lightgray, 10%);
+  background-color: $white;
   border-bottom: 3px solid darken($lightgray, 10%);
+  border-radius: 5px;
 
   &.error {
     border-bottom-color: $error_color;
@@ -72,7 +73,7 @@ textarea.form__input {
   top: 0;
   left: 1rem;
   font-weight: 400;
-  color: rgba($dark, 0.5);
+  color: rgba($dark, 0.6);
   cursor: pointer;
   z-index: 5;
 }
