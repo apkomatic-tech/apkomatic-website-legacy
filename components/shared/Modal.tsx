@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import './Modal.scss'
@@ -6,6 +6,7 @@ import './Modal.scss'
 interface ModalProps {
   showModal: boolean
   onCloseFn?: () => any
+  onEnter?: () => any
   children: any
 }
 const backdropVariants = {
@@ -16,18 +17,31 @@ const backdropVariants = {
     }
   },
   hidden: {
-    opacity: 0
+    opacity: 0,
+    transition: {
+      when: 'afterChildren'
+    }
   }
 }
 const modalVariants = {
   visible: {
-    y: 100
+    scale: 1,
+    transition: {
+      type: 'spring',
+      mass: 0.5,
+      stiffness: 180
+    }
   },
   hidden: {
-    y: '-100vh'
+    scale: 0
   }
 }
 export default function Modal(props: ModalProps) {
+  useEffect(() => {
+    if (props.onEnter && props.showModal) {
+      props.onEnter()
+    }
+  }, [props.showModal])
   return (
     <AnimatePresence exitBeforeEnter>
       {props.showModal && (

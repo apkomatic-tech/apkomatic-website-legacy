@@ -13,16 +13,27 @@ type AccordionProps = {
   }[]
 }
 
-function Accordion({ items }: AccordionProps) {
+function useAccordion(items: any) {
   const [accItems, setAccItems] = useState(items)
-  function toggleCollapsed(targetId) {
-    const i = accItems.findIndex(acc => acc.id === targetId)
-    setAccItems([
-      ...accItems.slice(0, i),
-      { ...accItems[i], collapsed: !accItems[i].collapsed },
-      ...accItems.slice(i + 1)
-    ])
+  const toggleVisibility = (id: string | number) => {
+    const ix = accItems.findIndex((item: any) => item.id === id)
+    if (ix > -1) {
+      setAccItems([
+        ...accItems.slice(0, ix),
+        { ...accItems[ix], collapsed: !accItems[ix].collapsed },
+        ...accItems.slice(ix + 1)
+      ])
+    }
   }
+
+  return {
+    accItems,
+    toggleVisibility
+  }
+}
+
+function Accordion(props: AccordionProps) {
+  const { accItems, toggleVisibility } = useAccordion(props.items)
 
   return (
     <div className="accordion">
@@ -34,12 +45,12 @@ function Accordion({ items }: AccordionProps) {
               className="accordion-item__heading"
               tabIndex={0}
               onClick={() => {
-                toggleCollapsed(id)
+                toggleVisibility(id)
               }}
               onKeyPress={e => {
                 const { key } = e
                 if (key === 'Enter') {
-                  toggleCollapsed(id)
+                  toggleVisibility(id)
                 }
               }}
             >
