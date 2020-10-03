@@ -2,11 +2,14 @@ import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import './Modal.scss'
+import { node } from 'prop-types'
 
 interface ModalProps {
-  showModal: boolean
-  onCloseFn?: () => any
-  onEnter?: () => any
+  show: boolean
+  onClose?: () => any
+  onOpen?: () => any
+  showCloseBtn?: boolean
+  closeBtnText?: string
   children: any
 }
 const backdropVariants = {
@@ -36,15 +39,24 @@ const modalVariants = {
     scale: 0
   }
 }
-export default function Modal(props: ModalProps) {
+export default function Modal({
+  onOpen,
+  onClose,
+  show,
+  children,
+  showCloseBtn = true,
+  closeBtnText = 'Close'
+}: ModalProps) {
   useEffect(() => {
-    if (props.onEnter && props.showModal) {
-      props.onEnter()
+    if (onOpen && show) {
+      if (typeof onOpen === 'function') {
+        onOpen()
+      }
     }
-  }, [props.showModal])
+  }, [show])
   return (
     <AnimatePresence exitBeforeEnter>
-      {props.showModal && (
+      {show && (
         <motion.div
           key="backdrop"
           className="modal-backdrop"
@@ -53,8 +65,8 @@ export default function Modal(props: ModalProps) {
           initial="hidden"
           exit="hidden"
           onClick={() => {
-            if (props.onCloseFn) {
-              props.onCloseFn()
+            if (typeof onClose === 'function') {
+              onClose()
             }
           }}
         >
@@ -63,7 +75,16 @@ export default function Modal(props: ModalProps) {
             className="modal"
             variants={modalVariants}
           >
-            {props.children}
+            {children}
+            {showCloseBtn && (
+              <button
+                onClick={onClose}
+                type="button"
+                className="btn btn-primary btn-block"
+              >
+                {closeBtnText}
+              </button>
+            )}
           </motion.section>
         </motion.div>
       )}

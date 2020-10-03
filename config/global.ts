@@ -14,3 +14,8 @@ export const EMAIL_CONFIRMATION_URL =
     ? '//apkomatic.com/thank-you'
     : '//localhost:3000/thank-you'
 export const ENABLE_STICKY_HEADER = false
+export const CONTACT_FORM_NAME =
+  process.env.NODE_ENV === 'production'
+    ? 'apkomatic-prod-contact'
+    : 'apkomatic-dev-contact'
+export const MESSAGE_THRESHOLD: number = 500

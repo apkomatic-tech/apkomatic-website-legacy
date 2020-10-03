@@ -1,0 +1,12 @@
+@import '../../css/config';
+
+.form__label {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  font-weight: 400;
+  color: rgba($dark, 0.6);
+  cursor: pointer;
+  z-index: 5;
+  transform-origin: left;
+}

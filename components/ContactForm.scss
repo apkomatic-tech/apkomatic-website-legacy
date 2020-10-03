@@ -40,9 +40,8 @@ textarea.form__input {
   transition: border-color 0.15s ease-in-out;
   width: 100%;
   padding: 2rem 0.65rem 0.75rem 1rem;
-  border: 1px solid darken($lightgray, 10%);
+  border: 1px solid darken($white, 30%);
   background-color: $white;
-  border-bottom: 3px solid darken($lightgray, 10%);
   border-radius: 5px;
 
   &.error {
@@ -51,7 +50,7 @@ textarea.form__input {
   }
 
   &:focus:not(.error) {
-    border-color: $primary_color;
+    border-color: $dark;
   }
 }
 
@@ -66,16 +65,6 @@ textarea.form__input {
   margin-bottom: 1rem;
   padding-bottom: 2rem;
   z-index: 1;
-}
-
-.form__label {
-  position: absolute;
-  top: 0;
-  left: 1rem;
-  font-weight: 400;
-  color: rgba($dark, 0.6);
-  cursor: pointer;
-  z-index: 5;
 }
 
 .error-message {
