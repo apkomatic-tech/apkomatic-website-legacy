@@ -4,89 +4,96 @@ import ReactGA from 'react-ga'
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 
+import { MESSAGE_THRESHOLD, CONTACT_FORM_NAME } from '../config/global'
 import { encode, validateEmail, validateName } from '../utils'
 import Modal from './shared/Modal'
+import FormLabel from './form/Label'
 
 import './ContactForm.scss'
 
-const CONTACT_FORM_NAME =
-  process.env.NODE_ENV === 'production'
-    ? 'apkomatic-prod-contact'
-    : 'apkomatic-dev-contact'
-const MESSAGE_THRESHOLD: number = 400
-const INITIAL_REQUEST_STATE = Object.freeze({
-  processing: false,
-  success: false,
-  fail: false
-})
-const PROCESS_REQUEST_STATE = Object.freeze({
-  processing: true,
-  success: false,
-  fail: false
-})
-const SUCCESS_REQUEST_STATE = Object.freeze({
-  processing: false,
-  success: true,
-  fail: false
-})
-const FAIL_REQUEST_STATE = Object.freeze({
-  processing: false,
-  success: false,
-  fail: true
-})
-const FORM_LABEL_VARIANTS = Object.freeze({
-  focused: {
-    y: -1
+const requestStates = {
+  INITIAL_REQUEST_STATE: {
+    processing: false,
+    success: false,
+    fail: false
   },
-  blurred: {
-    y: 16
+  PROCESS_REQUEST_STATE: {
+    processing: true,
+    success: false,
+    fail: false
+  },
+  SUCCESS_REQUEST_STATE: {
+    processing: false,
+    success: true,
+    fail: false
+  },
+  FAIL_REQUEST_STATE: {
+    processing: false,
+    success: false,
+    fail: true
   }
-})
+}
+
 const errorMsgAnimateProps = {
   initial: { y: 5 },
   animate: { y: 0 },
   transition: { type: 'tween', duration: 0.25 }
 }
 
-const useInputTouched = () => {
-  const [touchedInputs, setTouched] = useState({
-    email: false,
-    fullName: false,
-    message: false
+function useInputTouched(initialValue) {
+  const [state, setState] = useState(() => {
+    if (typeof initialValue === 'function') {
+      return initialValue()
+    }
+
+    return initialValue
   })
   function handleFocus(e: any) {
-    setTouched({ ...touchedInputs, [e.target.name]: true })
+    try {
+      setState({ ...state, [e.target.name]: true })
+    } catch (ex) {
+      console.error(ex)
+    }
   }
   function handleBlur(e: any) {
-    setTouched({
-      ...touchedInputs,
-      [e.target.name]: e.target.value.trim() === '' ? false : true
-    })
+    try {
+      setState({
+        ...state,
+        [e.target.name]: e.target.value.trim() === '' ? false : true
+      })
+    } catch (ex) {
+      console.error(ex)
+    }
   }
   function resetTouchedInputs() {
-    setTouched({
-      email: false,
-      fullName: false,
-      message: false
-    })
+    setState(initialValue)
   }
   return {
-    touchedInputs,
+    touchedInputs: state,
     handleFocus,
     handleBlur,
     resetTouchedInputs
   }
 }
+
 const ContactForm = () => {
-  const [requestState, setRequestState] = useState(INITIAL_REQUEST_STATE)
+  const [requestState, setRequestState] = useState(
+    () => requestStates.INITIAL_REQUEST_STATE
+  )
   const { register, handleSubmit, errors } = useForm()
   const {
     touchedInputs,
     handleFocus,
     handleBlur,
     resetTouchedInputs
-  } = useInputTouched()
+  } = useInputTouched(() => ({
+    email: false,
+    fullName: false,
+    message: false
+  }))
   const formNode = useRef(null)
+
+  const [messageCount, setMessageCount] = useState(0)
 
   const processContactRequest = async (data: {
     email: string
@@ -94,7 +101,9 @@ const ContactForm = () => {
     message?: string
   }) => {
     try {
-      setRequestState(PROCESS_REQUEST_STATE)
+      // display processing
+      setRequestState(requestStates.PROCESS_REQUEST_STATE)
+      // send email request
       const response = await fetch('/', {
         method: 'POST',
         headers: {
@@ -103,10 +112,10 @@ const ContactForm = () => {
         body: encode({ 'form-name': CONTACT_FORM_NAME, ...data })
       })
       if (response.ok) {
-        setRequestState(SUCCESS_REQUEST_STATE)
+        setRequestState(requestStates.SUCCESS_REQUEST_STATE)
         formNode.current.reset()
       } else {
-        setRequestState(FAIL_REQUEST_STATE)
+        setRequestState(requestStates.FAIL_REQUEST_STATE)
       }
       // track submissions
       ReactGA.event({
@@ -114,13 +123,13 @@ const ContactForm = () => {
         action: 'Submit-Contact-Form'
       })
     } catch (e) {
-      setRequestState(FAIL_REQUEST_STATE)
+      setRequestState(requestStates.FAIL_REQUEST_STATE)
     }
   }
 
   function resetRequestState() {
     // reset request state to initial
-    setRequestState(INITIAL_REQUEST_STATE)
+    setRequestState(requestStates.INITIAL_REQUEST_STATE)
   }
 
   function resetFormState() {
@@ -131,13 +140,33 @@ const ContactForm = () => {
     resetTouchedInputs()
   }
 
+  function CharacterCount({ count, threshold }) {
+    const charactersAllowed = threshold - count
+    const limitExceeded = charactersAllowed <= 0
+    return (
+      <div
+        className="character-count"
+        style={{
+          fontSize: '1.2rem',
+          color: limitExceeded ? '#b9003e' : 'rgba(0,0,0,.7)',
+          fontStyle: 'italic',
+          textAlign: 'right'
+        }}
+      >
+        <strong>{charactersAllowed}</strong> of {threshold} characters
+      </div>
+    )
+  }
+
   return (
     <React.Fragment>
       {/* Display confirmation modal on successul submit */}
       <Modal
-        showModal={requestState.success}
-        onCloseFn={resetRequestState}
-        onEnter={resetFormState}
+        show={requestState.success}
+        onOpen={resetFormState}
+        onClose={resetRequestState}
+        showCloseBtn={true}
+        closeBtnText="Dismiss"
       >
         <img src="/static/images/message-sent.svg" alt="message sent" />
         <h2>Message Received!</h2>
@@ -145,21 +174,19 @@ const ContactForm = () => {
           Thank you for contacting us, we will review your inquiry and respond
           as soon as possible.
         </p>
-        <button
-          onClick={resetRequestState}
-          type="button"
-          className="btn btn-primary btn-block"
-        >
-          Close
-        </button>
       </Modal>
       <div id="contact-form">
-        {requestState.processing && <div>Processing request...</div>}
-        {requestState.fail && (
+        <Modal
+          show={requestState.fail}
+          onClose={resetRequestState}
+          showCloseBtn={true}
+          closeBtnText="Dismiss"
+        >
           <div className="bg-danger py-3 text-center text-light">
             We were unable to process your request, please try again.
           </div>
-        )}
+        </Modal>
+        {requestState.processing && <div>Processing request...</div>}
         <form
           name={CONTACT_FORM_NAME}
           data-netlify="true"
@@ -171,15 +198,13 @@ const ContactForm = () => {
           <input type="hidden" name="form-name" value={CONTACT_FORM_NAME} />
           <div className="form__section">
             <div className="form__group">
-              <motion.label
-                variants={FORM_LABEL_VARIANTS}
+              <FormLabel
                 initial={touchedInputs.email ? 'focused' : 'blurred'}
                 animate={touchedInputs.email ? 'focused' : 'blurred'}
-                className="form__label"
                 htmlFor="email"
               >
                 Email Address
-              </motion.label>
+              </FormLabel>
               <input
                 id="email"
                 type="text"
@@ -187,6 +212,13 @@ const ContactForm = () => {
                 name="email"
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                onChange={event => {
+                  ReactGA.event({
+                    category: 'Contact',
+                    action: 'Change Email Field',
+                    label: event.target.value
+                  })
+                }}
                 ref={register({
                   validate: validateEmail
                 })}
@@ -202,15 +234,13 @@ const ContactForm = () => {
             </div>
 
             <div className="form__group">
-              <motion.label
-                variants={FORM_LABEL_VARIANTS}
+              <FormLabel
                 initial={touchedInputs.fullName ? 'focused' : 'blurred'}
                 animate={touchedInputs.fullName ? 'focused' : 'blurred'}
-                className="form__label"
                 htmlFor="full-name"
               >
                 Name
-              </motion.label>
+              </FormLabel>
               <input
                 id="full-name"
                 type="text"
@@ -218,6 +248,13 @@ const ContactForm = () => {
                 name="fullName"
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                onChange={event => {
+                  ReactGA.event({
+                    category: 'Contact',
+                    action: 'Change Name Field',
+                    label: event.target.value
+                  })
+                }}
                 ref={register({
                   validate: validateName,
                   minLength: {
@@ -244,21 +281,22 @@ const ContactForm = () => {
                 ))}
             </div>
             <div className="form__group mb-3">
-              <motion.label
-                variants={FORM_LABEL_VARIANTS}
+              <FormLabel
                 initial={touchedInputs.message ? 'focused' : 'blurred'}
                 animate={touchedInputs.message ? 'focused' : 'blurred'}
-                className="form__label"
                 htmlFor="inspirations"
               >
                 Message ({MESSAGE_THRESHOLD} characters max)
-              </motion.label>
+              </FormLabel>
               <textarea
                 className={`form__input ${errors.message ? 'error' : ''}`}
                 id="inspirations"
                 name="message"
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                onChange={event => {
+                  setMessageCount(event.target.value.length)
+                }}
                 rows={9}
                 ref={register({
                   maxLength: {
@@ -275,6 +313,19 @@ const ContactForm = () => {
                   {errors.message.message}
                 </motion.div>
               )}
+              <div
+                style={{
+                  position: 'absolute',
+                  right: 0,
+                  bottom: 0,
+                  paddingTop: '.5rem'
+                }}
+              >
+                <CharacterCount
+                  count={messageCount}
+                  threshold={MESSAGE_THRESHOLD}
+                />
+              </div>
             </div>
           </div>
 
