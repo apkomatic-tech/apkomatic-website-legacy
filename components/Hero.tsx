@@ -17,9 +17,8 @@ const Hero = () => {
             transition={{ ...animationProps.transition, delay: 0.25 }}
             className="hero__heading"
           >
-            We build <span className="keyword">affordable</span>{' '}
-            <span className="keyword">fast</span> and{' '}
-            <span className="keyword">smart</span> websites.
+            Let's build you a <span className="keyword">smart</span> and{' '}
+            <span className="keyword">beautiful</span> website.
           </motion.h1>
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -27,21 +26,12 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <Link href="/contact">
-              <a className="hero__cta-btn btn btn-primary btn-lg">Contact Us</a>
+              <a className="hero__cta-btn btn btn-secondary btn-lg">
+                Contact Us
+              </a>
             </Link>
           </motion.div>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <img
-            className="hero__image"
-            src="/static/images/home/hero-splash.svg"
-            alt="Apkomatic Hero Splash"
-          />
-        </motion.div>
       </div>
     </div>
   )

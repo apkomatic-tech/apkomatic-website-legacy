@@ -12,7 +12,7 @@ export default () => (
           rest.
         </p>
         <Link href="/contact">
-          <a className="btn btn-tertiary btn-block btn-lg hero-callout__btn">
+          <a className="btn btn-primary btn-block btn-lg hero-callout__btn">
             Get a quote
           </a>
         </Link>

@@ -50,7 +50,7 @@ textarea.form__input {
   }
 
   &:focus:not(.error) {
-    border-color: $dark;
+    border-color: $primary_color;
   }
 }
 

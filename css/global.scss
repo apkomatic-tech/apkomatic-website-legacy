@@ -122,10 +122,10 @@ body {
   color: $dark;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 2.2rem;
   font-weight: 700;
   color: $dark;
   transition: 300ms ease-in;
+  font-size: clamp(2.3rem, 3vw, 2.7rem);
   &:hover,
   &:focus {
     color: $dark;
@@ -207,7 +207,7 @@ body {
     }
   }
   &__item {
-    margin-right: 1.6rem;
+    margin-right: 2.5rem;
     &:last-child {
       margin-right: 0;
     }
@@ -216,15 +216,13 @@ body {
   &__link {
     color: $dark;
     display: block;
-    font-size: 1.4rem;
-    font-weight: 400;
     overflow: hidden;
     padding-bottom: 5px;
     padding-top: 5px;
     position: relative;
     z-index: 1;
-    text-transform: uppercase;
     text-decoration: none;
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
     cursor: pointer;
 
     &:hover,
@@ -236,7 +234,6 @@ body {
       display: inline-block;
       position: relative;
       z-index: 1;
-      font-weight: 700;
       &:after {
         opacity: 0;
         position: absolute;
@@ -264,6 +261,7 @@ body {
 @media only screen and (min-width: 767px) {
   .top-nav {
     display: flex;
+    align-items: center;
     &__toggle {
       display: none;
     }
