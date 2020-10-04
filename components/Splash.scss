@@ -2,7 +2,7 @@
 @import './../css/_mixins.scss';
 
 $splash_bg_color: $secondary_color;
-$splash_text_color: $dark;
+$splash_text_color: $primary_color;
 
 .splash {
   display: flex;
@@ -25,9 +25,9 @@ $splash_text_color: $dark;
     margin-bottom: 2.5rem;
     position: relative;
     z-index: 1;
-    padding: 0.25rem 1rem;
-    background: $dark;
-    color: $white;
-    box-shadow: 10px 10px 0 rgba($dark, 0.4);
+    padding: 2rem;
+    color: $splash_text_color;
+    border: 3px solid $splash_text_color;
+    box-shadow: 10px 10px 0 rgba($splash_text_color, 0.4);
   }
 }
