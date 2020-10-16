@@ -27,7 +27,7 @@ const Hero = () => {
           >
             <Link href="/contact">
               <a className="hero__cta-btn btn btn-secondary btn-lg">
-                Contact Us
+                Get Started
               </a>
             </Link>
           </motion.div>
