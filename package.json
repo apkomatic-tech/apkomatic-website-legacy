@@ -24,7 +24,7 @@
     "react-ga": "^2.6.0",
     "react-hook-form": "^5.7.2",
     "react-intersection-observer": "^8.24.2",
-    "swiper": "^5.0.4",
+    "swiper": "^6.5.1",
     "uuid": "^8.0.0"
   },
   "devDependencies": {
